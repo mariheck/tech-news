@@ -51,6 +51,16 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 - **`vercel-composition-patterns`** — when designing component APIs, reusable primitives, or refactoring boolean-prop sprawl.
 - **`design-engineering`** + **`impeccable:impeccable`** — for UI polish, a11y, motion, responsive review.
 
+## Design context
+
+Three files at the repo root are the canonical source of truth for any UI or content decision. Read them before designing or reviewing UI:
+
+- **`PRODUCT.md`** — strategic context: register (`brand`), users, product purpose (AI-curated weekly digest with linked sources), brand personality, anti-references, and five design principles. Read before scoping a new feature or rejecting an aesthetic direction.
+- **`DESIGN.md`** — visual system: frontmatter token primitives (colors, typography, rounded, spacing, components) and a six-section spec (Overview, Colors, Typography, Elevation, Components, Do's and Don'ts). Read before writing CSS, picking a color, or building a new component. The Do's and Don'ts are normative — match-and-refuse, not suggestions.
+- **`.impeccable/design.json`** — sidecar consumed by impeccable's live panel: tonal ramps per color, shadow/motion tokens, breakpoints, and self-contained HTML/CSS snippets for the canonical components. Update it whenever DESIGN.md is regenerated.
+
+The Sources sidebar on the article page is load-bearing UX, not decoration — every article is a recap of external sources and must surface them numbered with URLs in mono. See `PRODUCT.md` → Design Principle #1.
+
 ## Workflow: TDD is the default
 
 This project is developed test-first. Before writing implementation code for any feature or bugfix, invoke **`superpowers:test-driven-development`** and follow the red → green → refactor loop:
