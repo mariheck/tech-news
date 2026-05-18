@@ -44,6 +44,11 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 - **No `any`** — reach for `unknown` + narrowing, generics, or a precise type. Don't silence the compiler with `as any` or `@ts-ignore` (`@ts-expect-error` is acceptable only with a written reason).
 - **All unit tests in `__tests__/` at the repo root**, mirroring the source path (e.g. `app/page.tsx` → `__tests__/app/page.test.tsx`). Do not colocate `*.test.tsx` files next to source.
 
+## Components
+
+- **Shared UI** lives in `components/<group>/` at the repo root (e.g. `components/layout/`). Files use **named exports**; a per-group `index.ts` re-exports via `export *`; consumers import from the barrel (`import { Brand } from '@/components/layout'`).
+- **Intra-group imports** must use the direct path (`from './brand'`), not the barrel — going through the barrel from inside the same group creates a circular import.
+
 ## Skills to reach for
 
 - **`next-best-practices`** — for routing, RSC/client boundaries, data fetching, metadata, route handlers, async APIs.
@@ -75,6 +80,7 @@ Do not write production code without a failing test pointing at it. Do not stack
 
 - `vitest.setup.ts` already loads `@testing-library/jest-dom/vitest` matchers and runs `cleanup()` after each test — don't re-import matchers or call cleanup in test files.
 - Import the component under test via the `@/` alias, render with `@testing-library/react`, query by accessible role.
+- **jsdom does not evaluate `:hover` / `:focus-visible` CSS.** For hover/focus behavior, assert on the structural contract (link has `group`, a decorative `aria-hidden` child has a `group-hover:` / `group-focus-visible:` variant) instead of computed style — implementation coupling is the only viable angle.
 
 ## Commits
 
