@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# tech.news
 
-## Getting Started
+A weekly, AI-curated digest of what matters in frontend, design engineering, web design, and applied AI. Each article recaps one or more external sources and surfaces the originals in a numbered sidebar — the recap is convenience, the link is the truth.
 
-First, run the development server:
+UI copy is French (`lang="fr"`); code, comments, and docs are English.
+
+## Stack
+
+- **Next.js 16** (App Router) — `next.config.ts` has `reactCompiler: true`
+- **React 19** with the React Compiler
+- **TypeScript 5** in strict mode
+- **Tailwind v4** via `@tailwindcss/postcss` — CSS-first config in `app/globals.css`
+- **Vitest 4** + `jsdom` + `@testing-library/react`
+- **ESLint 9** flat config (`eslint-config-next`)
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command                 | What it does                              |
+| ----------------------- | ----------------------------------------- |
+| `npm run dev`           | Dev server on port 3000                   |
+| `npm run build`         | Production build (also runs the TS check) |
+| `npm run start`         | Serve the production build                |
+| `npm run lint`          | ESLint                                    |
+| `npm run test`          | Vitest in watch mode                      |
+| `npm run test -- --run` | Single Vitest pass (CI-style)             |
 
-## Learn More
+## Project layout
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` — App Router routes. Server Components by default; `'use client'` opts into client behavior.
+- `__tests__/` — Vitest specs at the repo root, mirroring the source path (e.g. `app/page.tsx` → `__tests__/app/page.test.tsx`). Do not colocate tests next to source.
+- `PRODUCT.md` — register, users, purpose, anti-references, design principles. Read before scoping a feature.
+- `DESIGN.md` — visual system: tokens, typography, elevation, components, do's and don'ts.
+- `.impeccable/design.json` — sidecar for impeccable's live panel (tonal ramps, motion tokens, snippets).
+- `CLAUDE.md` — conventions, commands, and workflow guidance for Claude Code.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Conventions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Arrow functions for components, handlers, helpers.
+- `kebab-case` file names (Next.js reserved names excepted), `PascalCase` components, `camelCase` functions/vars, `UPPER_SNAKE_CASE` for module-level constants.
+- Path alias `@/*` resolves to the repo root.
+- No `any` — strict typing.
+- TDD by default: red → green → refactor.
