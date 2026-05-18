@@ -1,3 +1,4 @@
+import { Footer, Header } from '@/components/layout';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -25,7 +26,13 @@ type Props = {
 const RootLayout = ({ children }: Readonly<Props>) => {
   return (
     <html lang='fr' className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main className='mx-auto w-full max-w-7xl flex-1 px-lg py-xl'>
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
   );
 };
