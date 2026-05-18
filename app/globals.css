@@ -32,7 +32,6 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   /* Radius */
-  --radius-pill: 999px;
   --radius-card: 14px;
   --radius-hero: var(--radius-2xl);
   --radius-image: 10px;
@@ -47,6 +46,13 @@
   --spacing-lg: --spacing(6);
   --spacing-xl: --spacing(8);
   --spacing-xxl: --spacing(16);
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Shadows */
+  --shadow-wordmark-dot-glow: 0 0 16px
+    color-mix(in oklab, var(--color-accent-peach) 70%, transparent);
 }
 
 @layer base {
