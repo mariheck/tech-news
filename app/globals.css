@@ -85,10 +85,6 @@
     @apply text-[1.375rem] leading-[1.2] tracking-[-0.012em] font-semibold;
   }
 
-  .text-card-title {
-    @apply text-xl leading-[1.22] tracking-[-0.012em] font-semibold;
-  }
-
   .text-body {
     @apply text-[1.0625rem] leading-[1.6] font-normal;
   }
