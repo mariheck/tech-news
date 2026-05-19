@@ -43,6 +43,8 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 - **Functions and variables** in `camelCase` (`formatDate`, `userCount`).
 - **Module-level constants** in `UPPER_SNAKE_CASE` (`MAX_ITEMS`, `API_BASE_URL`). Local `const` bindings stay `camelCase`.
 - **No `any`** — reach for `unknown` + narrowing, generics, or a precise type. Don't silence the compiler with `as any` or `@ts-ignore` (`@ts-expect-error` is acceptable only with a written reason).
+- **Conditional classes**: compose with `classNames(...)` from the `classnames` dependency. Use the object form (`{ 'flex-col': direction === 'vertical' }`) for variant/state branching. Reserve template literals for simple static strings without conditionals.
+- **Prop union types**: extract named `type` aliases (e.g. `type CardSize = 'sm' | 'md' | 'lg'`) before referencing them in the props type, rather than inlining the union inside `CardProps`.
 - **All unit tests in `__tests__/` at the repo root**, mirroring the source path (e.g. `app/page.tsx` → `__tests__/app/page.test.tsx`). Do not colocate `*.test.tsx` files next to source.
 
 ## Components
@@ -82,6 +84,7 @@ Do not write production code without a failing test pointing at it. Do not stack
 - `vitest.setup.ts` already loads `@testing-library/jest-dom/vitest` matchers and runs `cleanup()` after each test — don't re-import matchers or call cleanup in test files.
 - Import the component under test via the `@/` alias, render with `@testing-library/react`, query by accessible role.
 - **jsdom does not evaluate `:hover` / `:focus-visible` CSS.** For hover/focus behavior, assert on the structural contract (link has `group`, a decorative `aria-hidden` child has a `group-hover:` / `group-focus-visible:` variant) instead of computed style — implementation coupling is the only viable angle.
+- **Fixture pattern**: when a component has multiple variants to test, declare a shared `commonProps` const at the top of the test file and create named fixtures via spread (`<Card {...commonProps} />`, `<Card size='lg' {...commonProps} />`). Avoid inlining the JSX in each `test()` block.
 
 ## Commits
 
