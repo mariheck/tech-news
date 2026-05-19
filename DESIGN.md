@@ -2,106 +2,106 @@
 name: tech.news
 description: Velvet-plum editorial weekly for frontend developers — AI-curated, source-first, calm.
 colors:
-  bg-base: "#1A1620"
-  bg-elevated: "#221C29"
-  bg-overlay: "#2D2638"
-  border-subtle: "#3A3145"
-  text-primary: "#F0E6D7"
-  text-secondary: "#B0A695"
-  text-tertiary: "#76695E"
-  accent-peach: "#E8A598"
-  accent-peach-light: "#F0BFB4"
-  cat-web-dev: "#2D8E91"
-  cat-web-dev-light: "#5FB3B6"
-  cat-design-eng: "#D9896E"
-  cat-design-eng-light: "#E8AC97"
-  cat-web-design: "#A85676"
-  cat-web-design-light: "#C77F9B"
-  cat-ai: "#8E5FA8"
-  cat-ai-light: "#B189C6"
-  cat-autres: "#8E7A6E"
-  cat-autres-light: "#B0A095"
+  bg-base: '#1A1620'
+  bg-elevated: '#221C29'
+  bg-overlay: '#2D2638'
+  border-subtle: '#3A3145'
+  text-primary: '#F0E6D7'
+  text-secondary: '#B0A695'
+  text-tertiary: '#76695E'
+  accent-peach: '#E8A598'
+  accent-peach-light: '#F0BFB4'
+  cat-web-dev: '#2D8E91'
+  cat-web-dev-light: '#5FB3B6'
+  cat-design-eng: '#D9896E'
+  cat-design-eng-light: '#E8AC97'
+  cat-web-design: '#A85676'
+  cat-web-design-light: '#C77F9B'
+  cat-ai: '#8E5FA8'
+  cat-ai-light: '#B189C6'
+  cat-autres: '#8E7A6E'
+  cat-autres-light: '#B0A095'
 typography:
   display:
-    fontFamily: "Geist, -apple-system, BlinkMacSystemFont, sans-serif"
-    fontSize: "clamp(36px, 4vw, 56px)"
+    fontFamily: 'Geist, -apple-system, BlinkMacSystemFont, sans-serif'
+    fontSize: 'clamp(36px, 4vw, 56px)'
     fontWeight: 600
     lineHeight: 1.04
-    letterSpacing: "-0.02em"
+    letterSpacing: '-0.02em'
   headline:
-    fontFamily: "Geist, -apple-system, sans-serif"
-    fontSize: "clamp(28px, 3.2vw, 44px)"
+    fontFamily: 'Geist, -apple-system, sans-serif'
+    fontSize: 'clamp(28px, 3.2vw, 44px)'
     fontWeight: 600
     lineHeight: 1.02
-    letterSpacing: "-0.025em"
+    letterSpacing: '-0.025em'
   title:
-    fontFamily: "Geist, -apple-system, sans-serif"
-    fontSize: "22px"
+    fontFamily: 'Geist, -apple-system, sans-serif'
+    fontSize: '22px'
     fontWeight: 600
     lineHeight: 1.2
-    letterSpacing: "-0.012em"
+    letterSpacing: '-0.012em'
   body:
-    fontFamily: "Geist, -apple-system, sans-serif"
-    fontSize: "17px"
+    fontFamily: 'Geist, -apple-system, sans-serif'
+    fontSize: '17px'
     fontWeight: 400
     lineHeight: 1.6
-    letterSpacing: "normal"
+    letterSpacing: 'normal'
   label:
-    fontFamily: "Geist Mono, ui-monospace, monospace"
-    fontSize: "10.5px"
+    fontFamily: 'Geist Mono, ui-monospace, monospace'
+    fontSize: '10.5px'
     fontWeight: 500
     lineHeight: 1
-    letterSpacing: "0.09em"
+    letterSpacing: '0.09em'
 rounded:
-  pill: "999px"
-  card: "14px"
-  hero: "16px"
-  image: "10px"
-  control: "8px"
-  chip: "5px"
+  pill: '999px'
+  card: '14px'
+  hero: '16px'
+  image: '10px'
+  control: '8px'
+  chip: '5px'
 spacing:
-  hairline: "4px"
-  xs: "8px"
-  sm: "14px"
-  md: "18px"
-  lg: "24px"
-  xl: "32px"
-  xxl: "64px"
+  hairline: '4px'
+  xs: '8px'
+  sm: '14px'
+  md: '18px'
+  lg: '24px'
+  xl: '32px'
+  xxl: '64px'
 components:
   pill:
-    backgroundColor: "{colors.accent-peach}"
-    textColor: "{colors.text-primary}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "2px 8px 3px"
+    backgroundColor: '{colors.accent-peach}'
+    textColor: '{colors.text-primary}'
+    typography: '{typography.label}'
+    rounded: '{rounded.pill}'
+    padding: '2px 8px 3px'
   tab-default:
-    backgroundColor: "transparent"
-    textColor: "{colors.text-secondary}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "2px 8px 3px"
+    backgroundColor: 'transparent'
+    textColor: '{colors.text-secondary}'
+    typography: '{typography.label}'
+    rounded: '{rounded.pill}'
+    padding: '2px 8px 3px'
   tab-active:
-    backgroundColor: "{colors.accent-peach}"
-    textColor: "{colors.text-primary}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "2px 8px 3px"
+    backgroundColor: '{colors.accent-peach}'
+    textColor: '{colors.text-primary}'
+    typography: '{typography.label}'
+    rounded: '{rounded.pill}'
+    padding: '2px 8px 3px'
   card:
-    backgroundColor: "{colors.bg-elevated}"
-    textColor: "{colors.text-primary}"
-    rounded: "{rounded.card}"
-    padding: "16px"
+    backgroundColor: '{colors.bg-elevated}'
+    textColor: '{colors.text-primary}'
+    rounded: '{rounded.card}'
+    padding: '16px'
   icon-button:
-    backgroundColor: "transparent"
-    textColor: "{colors.text-secondary}"
-    rounded: "{rounded.control}"
-    padding: "8px"
+    backgroundColor: 'transparent'
+    textColor: '{colors.text-secondary}'
+    rounded: '{rounded.control}'
+    padding: '8px'
   cmdk-input:
-    backgroundColor: "transparent"
-    textColor: "{colors.text-primary}"
-    typography: "{typography.body}"
-    rounded: "0"
-    padding: "0"
+    backgroundColor: 'transparent'
+    textColor: '{colors.text-primary}'
+    typography: '{typography.body}'
+    rounded: '0'
+    padding: '0'
 ---
 
 # Design System: tech.news
@@ -114,9 +114,10 @@ components:
 
 The aesthetic explicitly rejects the visual vocabulary of generic AI-tool marketing (iridescent gradients, holographic cubes, dark-mode-with-purple-blue-glow), the SaaS landing-page kit (cream-on-navy, hero-metric template), and the cyberpunk-on-black trope. It also refuses the opposite trap — minimalism so neutral it disappears. The plum-velvet background, peach accent, and gemstone category colors carry warmth and personality without volume.
 
-Density is deliberately low. Most surfaces breathe with 24–64px of whitespace. Cards are restrained, never nested, and never decorated for their own sake. Motion is present but disciplined: a 700–400ms exponential ease-out for state changes, no bounce, no stagger, no scroll-jacked storytelling.
+Density is deliberately low. Most surfaces breathe with 24–64px of whitespace. Cards are restrained, never nested, and never decorated for their own sake. Motion is present but disciplined.
 
 **Key Characteristics:**
+
 - Plum-velvet base (`#1A1620`) tinted toward the warm side of the spectrum; never pure black.
 - Cream body text (`#F0E6D7`) tuned for long-form reading on a dark surface.
 - Peach as the steady house accent (`#E8A598`), category color as the situational accent (per-article tint of the wordmark dot, hero glow, source numbers, focus ring).
@@ -128,10 +129,12 @@ Density is deliberately low. Most surfaces breathe with 24–64px of whitespace.
 A four-tier neutral scale tilted toward warm plum, anchored by a peach default accent and supplemented by four gemstone category accents (teal, copper, raspberry, iris). Every neutral is gently tinted — pure greys are forbidden.
 
 ### Primary
+
 - **Velvet Peach** (`#E8A598`) — the default house accent. Used for the wordmark dot, the active "Tous" filter pill, hero progress dots, pagination active page, and the `::selection` color. The light variant **Peach Bloom** (`#F0BFB4`) carries link underlines inside article bodies.
 
 ### Secondary — Category Accents
-Each editorial category gets a *saturated* primary tone (for hero glow, source numbers, sidebar veil) and a *light* tone (for pill text, link highlights, active dot fill). Both are kept low-chroma enough to coexist with the cream body text.
+
+Each editorial category gets a _saturated_ primary tone (for hero glow, source numbers, sidebar veil) and a _light_ tone (for pill text, link highlights, active dot fill). Both are kept low-chroma enough to coexist with the cream body text.
 
 - **Coastal Teal** — Web Dev: `#2D8E91` / light `#5FB3B6`.
 - **Copper Bloom** — Design Eng: `#D9896E` / light `#E8AC97`.
@@ -140,6 +143,7 @@ Each editorial category gets a *saturated* primary tone (for hero glow, source n
 - **Warm Ash** — Autres: `#8E7A6E` / light `#B0A095`.
 
 ### Neutral
+
 - **Plum Velvet** (`#1A1620`) — the base background. Tinted toward the plum hue family so that pure black is impossible. Used on `html`, `body`, and the sticky nav (via `color-mix` for translucency).
 - **Velvet Step** (`#221C29`) — elevated surfaces (cards, image-loading background). One step lighter than the base, same hue family.
 - **Velvet Overlay** (`#2D2638`) — the Cmd-K modal surface. Reads as "lifted out of the page."
@@ -189,7 +193,7 @@ In-article H2 (`30px`, `600`, `1.2`, `-0.014em`) and H3 (`22px`, `600`) inherit 
 The system is **flat by default**. Surfaces sit on a single plane; the velvet base is the canvas. Depth is conveyed through three devices, in order of frequency:
 
 1. **Tonal layering.** The four-step neutral scale (`bg-base` → `bg-elevated` → `bg-overlay` → `border-subtle`) does most of the lifting. Cards sit on `bg-elevated`; the Cmd-K modal sits on `bg-overlay`. No drop shadows for ambient depth at rest.
-2. **Diffuse halos.** Color is the elevation cue. The hero column carries a `60px`-blurred radial gradient in the active category color at 18% mix. The article sidebar gets a wide blurred veil (`50px` blur, double radial) in the category color at 35%/14% mix. The hero image of every article gets a faint outward halo at 14% mix. These are *atmospheric*, not lifting.
+2. **Diffuse halos.** Color is the elevation cue. The hero column carries a `60px`-blurred radial gradient in the active category color at 18% mix. The article sidebar gets a wide blurred veil (`50px` blur, double radial) in the category color at 35%/14% mix. The hero image of every article gets a faint outward halo at 14% mix. These are _atmospheric_, not lifting.
 3. **State shadows.** Hover on cards adds a single tinted drop shadow (`0 14px 32px -16px`) at 60% of the category color, plus a `-4px translateY` lift. There is no rest-state shadow; the shadow is the state.
 
 The Cmd-K modal is the one exception that earns a real ambient shadow (`0 30px 80px -20px rgba(0,0,0,0.6)`) to detach it from the velvet page underneath.
@@ -242,7 +246,7 @@ Three siblings sharing one recipe.
 - **Border:** `1px` solid `--border-subtle`.
 - **Internal padding:** `16px`.
 - **Image:** always `16:9`, `border-radius: 10px`, `object-fit: cover`, hover applies `filter: saturate(1.06) brightness(1.02)` over `320ms`.
-- **Hover state:** `transform: translateY(-4px)` + category-tinted Card Lift shadow. *No background or border color change on hover* — the shadow + lift are the state. This was an explicit author decision (annulé deux fois dans la conversation de design).
+- **Hover state:** `transform: translateY(-4px)` + category-tinted Card Lift shadow. _No background or border color change on hover_ — the shadow + lift are the state. This was an explicit author decision (annulé deux fois dans la conversation de design).
 - **Variants:** `card-lg` (image + pill + 30px title + excerpt clamped to 2 lines), `card-sm` (42% / 1fr grid, image left, pill + 17px title right), `card-v` (vertical stack, image + pill + 20px title; uniform 3-column grid).
 
 ### Hero Slideshow
@@ -328,6 +332,7 @@ The signature reading surface — a sticky 280px column on the left of the artic
 ## 6. Do's and Don'ts
 
 ### Do:
+
 - **Do** tint every neutral toward the plum hue family. `#1A1620`, `#221C29`, `#2D2638`, `#3A3145` are the four steps. Any new neutral must be derived from this same hue family.
 - **Do** use the peach (`#E8A598`) as the default house accent. Reserve category colors for situational, per-article accents.
 - **Do** cap body line length at `65ch`. Anything wider breaks the reading.
@@ -339,17 +344,17 @@ The signature reading surface — a sticky 280px column on the left of the artic
 - **Do** make sources first-class in every article. Numbered, named, with URLs in mono. Truncation is forbidden.
 
 ### Don't:
+
 - **Don't** use `#000` or `#fff` anywhere. Pure black and pure white are forbidden across backgrounds, text, borders, shadows, and overlays alike.
 - **Don't** use side-stripe borders greater than 1px as a colored accent on cards, list items, or pills. The only exception is the `2px` colored marker on the active Cmd-K result and the article blockquote — both already present and not to be extended.
 - **Don't** apply background-clip gradient text. The headline is always a single solid color.
 - **Don't** introduce glassmorphism beyond the two sanctioned uses (nav blur + Cmd-K scrim). No glass cards, no glass tab bars, no glass sidebars.
 - **Don't** use the hero-metric template (big number + small label + supporting stats + gradient accent). It belongs to SaaS landing pages, not to this editorial surface.
 - **Don't** build identical card grids of icon + heading + text. Vary card sizes intentionally; cards earn their slot.
-- **Don't** reach for a modal as the first answer. Cmd-K is the *only* sanctioned modal. Inline disclosures, progressive sections, or full pages come first.
+- **Don't** reach for a modal as the first answer. Cmd-K is the _only_ sanctioned modal. Inline disclosures, progressive sections, or full pages come first.
 - **Don't** add a second font family. Geist + Geist Mono carries everything. No serif, no display script, no novelty pairing.
 - **Don't** add ambient drop shadows to cards or surfaces at rest. Shadow is a state; flat is the default.
 - **Don't** animate CSS layout properties. Stick to `opacity`, `transform`, `filter`, and color/box-shadow transitions.
-- **Don't** use bounce or elastic easing. The single easing curve is `cubic-bezier(0.16, 1, 0.3, 1)` (ease-out-expo) at `180–700ms`.
 - **Don't** use em dashes (`—` or `--`) in user-facing copy. Use commas, colons, semicolons, periods, or parentheses.
 - **Don't** dress AI-generated recaps in a voice of first-hand reportage. The recap is a recap; the source is the truth.
 - **Don't** introduce SaaS cream-on-navy, neon cyberpunk, iridescent AI-tool gradients, holographic orbs, or brutalist-for-its-own-sake. These are explicitly out of scope (see `PRODUCT.md` anti-references).
