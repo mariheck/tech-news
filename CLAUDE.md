@@ -51,6 +51,7 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 
 - **Shared UI** lives in `components/<group>/` at the repo root (e.g. `components/layout/`). Files use **named exports**; a per-group `index.ts` re-exports via `export *`; consumers import from the barrel (`import { Brand } from '@/components/layout'`).
 - **Intra-group imports** must use the direct path (`from './brand'`), not the barrel — going through the barrel from inside the same group creates a circular import.
+- **Atomic UI primitives don't own responsive layout decisions.** Components like `Card`, `Button`, `Pill` take static variant props (`size`, `direction`, `state`) and stay viewport-agnostic. Choosing *which* variant to render at *which* breakpoint belongs to the consuming layout (grid components, page layouts) — those orchestrators render multiple variant instances with Tailwind visibility toggles, or branch their own internal markup per breakpoint. Never make a primitive's prop responsive to solve a layout problem.
 
 ## Skills to reach for
 
@@ -89,3 +90,4 @@ Do not write production code without a failing test pointing at it. Do not stack
 ## Commits
 
 - Commits must keep the subject line at **120 characters max**. No additional detail in the body.
+- **No autonomous commits.** Every `git commit` (and `push`, `reset --hard`, force-push) requires explicit user approval at that moment. Plan steps or skill checklists that say `git commit -m "..."` are suggestions, not licenses — stop, show the diff, wait.
