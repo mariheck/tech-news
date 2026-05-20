@@ -5,42 +5,35 @@ import { expect, test } from 'vitest';
 const commonProps = {
   href: '/articles/next-16',
   title: 'Next.js 16',
+  excerpt: 'Lorem ipsum dolor sit amet.',
   image: { src: '/images/next-16.jpg', alt: 'Next.js 16 cover' }
 };
 
-const defaultCard = <Card {...commonProps} />;
-
-const largeCard = <Card size='lg' {...commonProps} />;
-
-const smallCard = <Card size='sm' {...commonProps} />;
-
-const horizontalCard = <Card direction='horizontal' {...commonProps} />;
-
-const excerptCard = (
-  <Card excerpt='Lorem ipsum dolor sit amet.' {...commonProps} />
-);
+const mediumCard = <Card {...commonProps} />;
+const largeCard = <Card variant='large' {...commonProps} />;
+const horizontalCard = <Card variant='horizontal' {...commonProps} />;
 
 test('Card renders a link pointing to the given href', () => {
-  render(defaultCard);
+  render(mediumCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
   expect(link).toHaveAttribute('href', '/articles/next-16');
 });
 
 test('Card renders the title as a level-3 heading', () => {
-  render(defaultCard);
+  render(mediumCard);
   expect(
     screen.getByRole('heading', { level: 3, name: 'Next.js 16' })
   ).toBeInTheDocument();
 });
 
 test('Card renders an image with the given src and alt', () => {
-  render(defaultCard);
+  render(mediumCard);
   const image = screen.getByRole('img', { name: 'Next.js 16 cover' });
   expect(image).toHaveAttribute('src', expect.stringContaining('next-16.jpg'));
 });
 
 test('Card lifts and casts a peach halo on hover and keyboard focus', () => {
-  render(defaultCard);
+  render(mediumCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
 
   expect(link.className).toMatch(/hover:-translate-y-/);
@@ -49,42 +42,73 @@ test('Card lifts and casts a peach halo on hover and keyboard focus', () => {
   expect(link.className).toContain('focus-visible:shadow-card-lift-peach');
 });
 
-test('Card with size="lg" renders the title at the large title scale', () => {
-  render(largeCard);
-  const heading = screen.getByRole('heading', { level: 3, name: 'Next.js 16' });
-  expect(heading.className).toContain('text-[clamp(1.5rem,2.2vw,1.875rem)]');
-});
-
-test('Card with size="sm" renders the title at the small title scale', () => {
-  render(smallCard);
-  const heading = screen.getByRole('heading', { level: 3, name: 'Next.js 16' });
-  expect(heading.className).toContain('text-[17px]');
-});
-
-test('Card uses direction="vertical" by default (flex column layout)', () => {
-  render(defaultCard);
+test('Card defaults to the medium variant (20px title, vertical stack)', () => {
+  render(mediumCard);
+  const heading = screen.getByRole('heading', { level: 3 });
   const link = screen.getByRole('link', { name: /next\.js 16/i });
+  expect(heading.className).toContain('text-xl');
   expect(link.className).toContain('flex-col');
 });
 
-test('Card with direction="horizontal" lays out image and content side by side', () => {
+test('Card variant="large" renders title at the clamp scale and stacks vertically', () => {
+  render(largeCard);
+  const heading = screen.getByRole('heading', { level: 3 });
+  const link = screen.getByRole('link', { name: /next\.js 16/i });
+  expect(heading.className).toContain('text-[clamp(1.5rem,2.2vw,1.875rem)]');
+  expect(link.className).toContain('flex-col');
+});
+
+test('Card variant="horizontal" lays out image and content side by side with 42% image basis', () => {
   render(horizontalCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
   expect(link.className).not.toContain('flex-col');
+  const image = screen.getByRole('img', { name: 'Next.js 16 cover' });
+  const imageWrapper = image.parentElement;
+  expect(imageWrapper?.className).toContain('basis-[42%]');
+  expect(imageWrapper?.className).toContain('shrink-0');
 });
 
-test('Card without excerpt renders no excerpt paragraph', () => {
-  render(defaultCard);
+test('Card medium variant constrains width to min 13.75rem, max 23.75rem, fills column', () => {
+  render(mediumCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
-  const paragraph = link.querySelector('p');
-  expect(paragraph).toBeNull();
+  expect(link.className).toContain('w-full');
+  expect(link.className).toContain('min-w-55');
+  expect(link.className).toContain('max-w-95');
 });
 
-test('Card with an excerpt renders the excerpt text inside the link', () => {
-  render(excerptCard);
+test('Card large variant constrains width to min 17.5rem, max 40rem, fills column', () => {
+  render(largeCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
-  const paragraph = link.querySelector('p');
-  expect(paragraph).not.toBeNull();
-  expect(paragraph).toHaveTextContent('Lorem ipsum dolor sit amet.');
-  expect(paragraph!.className).toContain('line-clamp-2');
+  expect(link.className).toContain('w-full');
+  expect(link.className).toContain('min-w-70');
+  expect(link.className).toContain('max-w-160');
+});
+
+test('Card horizontal variant constrains width to min 20rem, max 32.5rem, fills column', () => {
+  render(horizontalCard);
+  const link = screen.getByRole('link', { name: /next\.js 16/i });
+  expect(link.className).toContain('w-full');
+  expect(link.className).toContain('min-w-80');
+  expect(link.className).toContain('max-w-130');
+});
+
+test('Card large variant renders excerpt at body type (1.07rem) clamped to 3 lines', () => {
+  render(largeCard);
+  const paragraph = screen.getByText('Lorem ipsum dolor sit amet.');
+  expect(paragraph.className).toContain('text-[1.07rem]');
+  expect(paragraph.className).toContain('line-clamp-3');
+});
+
+test('Card medium variant renders excerpt at 16px clamped to 2 lines', () => {
+  render(mediumCard);
+  const paragraph = screen.getByText('Lorem ipsum dolor sit amet.');
+  expect(paragraph.className).toContain('text-base');
+  expect(paragraph.className).toContain('line-clamp-2');
+});
+
+test('Card horizontal variant renders excerpt at 0.95rem clamped to 2 lines', () => {
+  render(horizontalCard);
+  const paragraph = screen.getByText('Lorem ipsum dolor sit amet.');
+  expect(paragraph.className).toContain('text-[0.95rem]');
+  expect(paragraph.className).toContain('line-clamp-2');
 });
