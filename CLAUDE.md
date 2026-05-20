@@ -44,6 +44,7 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 - **Module-level constants** in `UPPER_SNAKE_CASE` (`MAX_ITEMS`, `API_BASE_URL`). Local `const` bindings stay `camelCase`.
 - **No `any`** — reach for `unknown` + narrowing, generics, or a precise type. Don't silence the compiler with `as any` or `@ts-ignore` (`@ts-expect-error` is acceptable only with a written reason).
 - **Conditional classes**: compose with `classNames(...)` from the `classnames` dependency. Use the object form (`{ 'flex-col': direction === 'vertical' }`) for variant/state branching. Reserve template literals for simple static strings without conditionals.
+- **Sizing values**: prefer the Tailwind v4 spacing scale (`min-w-70`, `max-w-95`, `w-55` — unit is `0.25rem`, so `max-w-95` = `23.75rem`) over arbitrary values. When an arbitrary value is unavoidable (e.g. inside `clamp()`, or a measurement off the scale), prefer `rem` over `px` (`text-[1.07rem]` not `text-[17px]`). The exception is values that are inherently non-rem — percentages (`basis-[42%]`), viewport units, etc.
 - **Prop union types**: extract named `type` aliases (e.g. `type CardSize = 'sm' | 'md' | 'lg'`) before referencing them in the props type, rather than inlining the union inside `CardProps`.
 - **All unit tests in `__tests__/` at the repo root**, mirroring the source path (e.g. `app/page.tsx` → `__tests__/app/page.test.tsx`). Do not colocate `*.test.tsx` files next to source.
 
@@ -51,7 +52,7 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 
 - **Shared UI** lives in `components/<group>/` at the repo root (e.g. `components/layout/`). Files use **named exports**; a per-group `index.ts` re-exports via `export *`; consumers import from the barrel (`import { Brand } from '@/components/layout'`).
 - **Intra-group imports** must use the direct path (`from './brand'`), not the barrel — going through the barrel from inside the same group creates a circular import.
-- **Atomic UI primitives don't own responsive layout decisions.** Components like `Card`, `Button`, `Pill` take static variant props (`size`, `direction`, `state`) and stay viewport-agnostic. Choosing *which* variant to render at *which* breakpoint belongs to the consuming layout (grid components, page layouts) — those orchestrators render multiple variant instances with Tailwind visibility toggles, or branch their own internal markup per breakpoint. Never make a primitive's prop responsive to solve a layout problem.
+- **Atomic UI primitives don't own responsive layout decisions.** Components like `Card`, `Button`, `Pill` take static variant props (`size`, `direction`, `state`) and stay viewport-agnostic **at the prop level**. Choosing *which* variant to render at *which* breakpoint belongs to the consuming layout (grid components, page layouts) — those orchestrators render multiple variant instances with Tailwind visibility toggles, or branch their own internal markup per breakpoint. Never make a primitive's prop responsive to solve a layout problem. Breakpoint-prefixed utilities (`sm:max-w-160`, `clamp()` font sizes) inside a variant's implementation are allowed when they keep that variant's *own* rendering stable across screens.
 
 ## Skills to reach for
 
