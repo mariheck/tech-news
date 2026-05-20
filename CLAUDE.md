@@ -52,6 +52,7 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 
 - **Shared UI** lives in `components/<group>/` at the repo root (e.g. `components/layout/`). Files use **named exports**; a per-group `index.ts` re-exports via `export *`; consumers import from the barrel (`import { Brand } from '@/components/layout'`).
 - **Intra-group imports** must use the direct path (`from './brand'`), not the barrel — going through the barrel from inside the same group creates a circular import.
+- **Shared types live in `types/` at the repo root. Shared helpers live in `utils/`.** Each has a barrel `index.ts`; consumers import via the `@/` alias (`import type { Article } from '@/types'`, `import { articleToCardProps } from '@/utils'`). Non-component code does **not** belong inside `components/<group>/`.
 - **Atomic UI primitives don't own responsive layout decisions.** Components like `Card`, `Button`, `Pill` take static variant props (`size`, `direction`, `state`) and stay viewport-agnostic **at the prop level**. Choosing *which* variant to render at *which* breakpoint belongs to the consuming layout (grid components, page layouts) — those orchestrators render multiple variant instances with Tailwind visibility toggles, or branch their own internal markup per breakpoint. Never make a primitive's prop responsive to solve a layout problem. Breakpoint-prefixed utilities (`sm:max-w-160`, `clamp()` font sizes) inside a variant's implementation are allowed when they keep that variant's *own* rendering stable across screens.
 
 ## Skills to reach for
@@ -85,8 +86,9 @@ Do not write production code without a failing test pointing at it. Do not stack
 
 - `vitest.setup.ts` already loads `@testing-library/jest-dom/vitest` matchers and runs `cleanup()` after each test — don't re-import matchers or call cleanup in test files.
 - Import the component under test via the `@/` alias, render with `@testing-library/react`, query by accessible role.
-- **jsdom does not evaluate `:hover` / `:focus-visible` CSS.** For hover/focus behavior, assert on the structural contract (link has `group`, a decorative `aria-hidden` child has a `group-hover:` / `group-focus-visible:` variant) instead of computed style — implementation coupling is the only viable angle.
+- **jsdom does not evaluate CSS at all.** For hover/focus behavior, assert on the structural contract (link has `group`, a decorative `aria-hidden` child has a `group-hover:` / `group-focus-visible:` variant) instead of computed style — implementation coupling is the only viable angle. Tailwind visibility classes (`hidden`, `md:flex`, `lg:hidden`) are also ignored: components that render multiple sibling layouts (one per breakpoint) put **all** of them in the DOM at once. Scope queries with `within(layoutContainer).getByRole(...)` to avoid matching duplicates across layouts.
 - **Fixture pattern**: when a component has multiple variants to test, declare a shared `commonProps` const at the top of the test file and create named fixtures via spread (`<Card {...commonProps} />`, `<Card size='lg' {...commonProps} />`). Avoid inlining the JSX in each `test()` block.
+- **Shared test fixtures across files** live in `__tests__/fixtures/<name>.ts`, exported as factory functions (`makeArticles(n)`) rather than fixed arrays — the call site stays explicit about the size needed. Imported via the `@/` alias.
 
 ## Commits
 
