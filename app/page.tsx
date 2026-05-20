@@ -1,21 +1,11 @@
-import { Card, UniformGrid } from '@/components/ui';
+import { FeatureGrid } from '@/components/ui';
 import { ARTICLES } from '@/mocked';
 
 const Home = () => {
   return (
-    <div>
-      <h1 className='mb-xl'>Tech News</h1>
-      <UniformGrid>
-        {ARTICLES.map((article) => (
-          <Card
-            key={article.id}
-            href='#'
-            title={article.title}
-            excerpt={article.excerpt}
-            image={{ src: article.images[0], alt: article.title }}
-          />
-        ))}
-      </UniformGrid>
+    <div className='flex flex-col gap-xl'>
+      <h1>Tech News</h1>
+      <FeatureGrid articles={ARTICLES} />
     </div>
   );
 };

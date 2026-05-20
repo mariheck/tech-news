@@ -31,10 +31,9 @@ export const Card = ({
         'transition-[transform, box-shadow]',
         'ease-in-out-circ duration-300',
         {
-          'flex-col min-w-70 max-w-full sm:max-w-160': variant === 'large',
-          'flex-col min-w-55 max-w-full sm:max-w-95': variant === 'medium',
-          'items-start min-w-80 max-w-full sm:max-w-130':
-            variant === 'horizontal'
+          'flex-col min-w-70 max-w-full': variant === 'large',
+          'flex-col min-w-55 max-w-full': variant === 'medium',
+          'items-start min-w-80 max-w-full': variant === 'horizontal'
         }
       )}
     >

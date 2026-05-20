@@ -68,28 +68,28 @@ test('Card variant="horizontal" lays out image and content side by side with 42%
   expect(imageWrapper?.className).toContain('shrink-0');
 });
 
-test('Card medium variant constrains width to min 13.75rem, max 23.75rem, fills column', () => {
+test('Card medium variant has min-width 13.75rem and fills its column', () => {
   render(mediumCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
   expect(link.className).toContain('w-full');
   expect(link.className).toContain('min-w-55');
-  expect(link.className).toContain('max-w-95');
+  expect(link.className).toContain('max-w-full');
 });
 
-test('Card large variant constrains width to min 17.5rem, max 40rem, fills column', () => {
+test('Card large variant has min-width 17.5rem and fills its column', () => {
   render(largeCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
   expect(link.className).toContain('w-full');
   expect(link.className).toContain('min-w-70');
-  expect(link.className).toContain('max-w-160');
+  expect(link.className).toContain('max-w-full');
 });
 
-test('Card horizontal variant constrains width to min 20rem, max 32.5rem, fills column', () => {
+test('Card horizontal variant has min-width 20rem and fills its column', () => {
   render(horizontalCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
   expect(link.className).toContain('w-full');
   expect(link.className).toContain('min-w-80');
-  expect(link.className).toContain('max-w-130');
+  expect(link.className).toContain('max-w-full');
 });
 
 test('Card large variant renders excerpt at body type (1.07rem) clamped to 3 lines', () => {
