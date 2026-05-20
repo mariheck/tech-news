@@ -1,46 +1,10 @@
+import { makeArticles } from '@/__tests__/fixtures/articles';
 import { FeatureGrid } from '@/components/ui';
-import type { Article } from '@/components/ui';
+import type { Article } from '@/types';
 import { render, within } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
-const articles: Article[] = [
-  {
-    id: 'a1',
-    title: 'Article one',
-    excerpt: 'Excerpt one.',
-    images: ['/a1.jpg']
-  },
-  {
-    id: 'a2',
-    title: 'Article two',
-    excerpt: 'Excerpt two.',
-    images: ['/a2.jpg']
-  },
-  {
-    id: 'a3',
-    title: 'Article three',
-    excerpt: 'Excerpt three.',
-    images: ['/a3.jpg']
-  },
-  {
-    id: 'a4',
-    title: 'Article four',
-    excerpt: 'Excerpt four.',
-    images: ['/a4.jpg']
-  },
-  {
-    id: 'a5',
-    title: 'Article five',
-    excerpt: 'Excerpt five.',
-    images: ['/a5.jpg']
-  },
-  {
-    id: 'a6',
-    title: 'Article six',
-    excerpt: 'Excerpt six.',
-    images: ['/a6.jpg']
-  }
-];
+const articles = makeArticles(6);
 
 const renderLayouts = (input: Article[] = articles) => {
   const { container } = render(<FeatureGrid articles={input} />);

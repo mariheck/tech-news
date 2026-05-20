@@ -1,22 +1,10 @@
+import type { Article } from '@/types';
+import { articleToCardProps } from '@/utils';
 import { Card } from './card';
-
-export type Article = {
-  id: string;
-  title: string;
-  excerpt: string;
-  images: string[];
-};
 
 type FeatureGridProps = { articles: Article[] };
 
 const HORIZONTAL_PEER_COUNT = 3;
-
-const articleToCardProps = (article: Article) => ({
-  href: '#',
-  title: article.title,
-  excerpt: article.excerpt,
-  image: { src: article.images[0], alt: article.title }
-});
 
 export const FeatureGrid = ({ articles }: FeatureGridProps) => {
   const [feature, ...rest] = articles;
