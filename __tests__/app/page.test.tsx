@@ -2,9 +2,9 @@ import Home from '@/app/page';
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
-test('Page', () => {
+test('Home page displays "this week" section', () => {
   render(<Home />);
   expect(
-    screen.getByRole('heading', { level: 1, name: 'Tech News' })
+    screen.getByRole('heading', { level: 2, name: 'Cette semaine' })
   ).toBeInTheDocument();
 });
