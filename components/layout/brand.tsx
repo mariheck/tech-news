@@ -1,13 +1,20 @@
 import classNames from 'classnames';
 import Link from 'next/link';
 
-export const Brand = () => {
+type BrandSize = 'md' | 'sm';
+
+type BrandProps = {
+  size?: BrandSize;
+};
+
+export const Brand = ({ size = 'md' }: BrandProps) => {
   return (
     <Link
       href='/'
       className={classNames(
         'group relative isolate inline-flex items-baseline gap-2 p-2 rounded-lg',
-        'font-mono text-sm tracking-wider text-primary no-underline',
+        'font-mono tracking-wider text-primary no-underline',
+        { 'text-sm': size === 'md', 'text-[0.8125rem]': size === 'sm' },
         'before:absolute before:-inset-y-3 before:-inset-x-1 before:content-[""]'
       )}
     >
