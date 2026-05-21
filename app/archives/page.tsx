@@ -1,4 +1,4 @@
-import { SectionHeading, UniformGrid } from '@/components/ui';
+import { WeeklyEdition } from '@/components/ui';
 import { ARTICLES } from '@/mocked';
 
 const ArchivesPage = () => {
@@ -15,8 +15,10 @@ const ArchivesPage = () => {
         </div>
         <hr className='mb-10 border-plum-subtle' />
       </div>
-      <SectionHeading>La semaine dernière</SectionHeading>
-      <UniformGrid articles={ARTICLES} />
+      <WeeklyEdition
+        weekStart={new Date('2026-05-18T00:00:00Z')}
+        articles={ARTICLES}
+      />
     </div>
   );
 };

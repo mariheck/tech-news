@@ -2,10 +2,10 @@ import ArchivesPage from '@/app/archives/page';
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
-test('Archives page displays "last week" section', () => {
+test('Archives page displays a weekly edition section', () => {
   render(<ArchivesPage />);
   expect(
-    screen.getByRole('heading', { level: 2, name: 'La semaine dernière' })
+    screen.getByRole('heading', { level: 2, name: /^Semaine du / })
   ).toBeInTheDocument();
 });
 
