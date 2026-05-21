@@ -26,7 +26,7 @@ test('Mobile layout: 1-col stack of medium cards, hidden from md up', () => {
   const classes = classList(mobile);
   expect(classes).toContain('flex');
   expect(classes).toContain('flex-col');
-  expect(classes).toContain('gap-xl');
+  expect(classes).toContain('gap-8');
   expect(classes).toContain('md:hidden');
 
   const headings = within(mobile).getAllByRole('heading', { level: 3 });

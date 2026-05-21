@@ -3,8 +3,8 @@ import { ARTICLES } from '@/mocked';
 
 const ArchivesPage = () => {
   return (
-    <div className='flex flex-col gap-xl'>
-      <div className='flex flex-col gap-sm'>
+    <div className='flex flex-col gap-8'>
+      <div className='flex flex-col gap-3.5'>
         <div className='py-2'>
           <p className='mb-4 font-mono text-xs uppercase tracking-[0.04em] text-tertiary'>
             Archives

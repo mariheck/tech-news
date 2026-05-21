@@ -25,8 +25,8 @@ test('UniformGrid renders 1 column on mobile, 2 from sm, 3 from lg', () => {
   expect(classes).toContain('lg:grid-cols-3');
 });
 
-test('UniformGrid spaces cells with the xl spacing token', () => {
-  expect(classList(renderGrid())).toContain('gap-xl');
+test('UniformGrid spaces cells with gap-8', () => {
+  expect(classList(renderGrid())).toContain('gap-8');
 });
 
 test('UniformGrid renders one medium Card per article', () => {

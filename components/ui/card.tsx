@@ -23,8 +23,8 @@ export const Card = ({
     <Link
       href={href}
       className={classNames(
-        'group flex gap-md w-full',
-        'p-md border border-plum-subtle rounded-card',
+        'group flex gap-4.5 w-full',
+        'p-4.5 border border-plum-subtle rounded-[0.875rem]',
         'bg-plum-elevated no-underline',
         'shadow-card-rest hover:shadow-card-lift-peach focus-visible:shadow-card-lift-peach',
         'hover:-translate-y-1 focus-visible:-translate-y-1',
@@ -39,13 +39,13 @@ export const Card = ({
     >
       <div
         className={classNames(
-          'relative aspect-video overflow-hidden rounded-image bg-plum-overlay',
+          'relative aspect-video overflow-hidden rounded-[0.625rem] bg-plum-overlay',
           { 'basis-[42%] shrink-0': variant === 'horizontal' }
         )}
       >
         <Image src={image.src} alt={image.alt} fill className='object-cover' />
       </div>
-      <div className='flex flex-col gap-xs'>
+      <div className='flex flex-col gap-2'>
         <h3
           className={classNames(
             'leading-[1.2] tracking-[-0.012em] font-semibold text-primary text-balance',

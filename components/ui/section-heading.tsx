@@ -11,7 +11,7 @@ export const SectionHeading = ({ children }: SectionHeadingProps) => {
         'text-xs text-secondary',
         'font-mono font-bold',
         'uppercase tracking-widest',
-        'flex items-center gap-sm',
+        'flex items-center gap-3.5',
         "after:content-['']",
         'after:h-px after:bg-plum-subtle',
         'after:flex-1'

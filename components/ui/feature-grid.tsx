@@ -13,7 +13,7 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
 
   return (
     <>
-      <div className='flex flex-col gap-xl md:hidden'>
+      <div className='flex flex-col gap-8 md:hidden'>
         {articles.map((article) => (
           <Card
             key={article.id}
@@ -23,9 +23,9 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
         ))}
       </div>
 
-      <div className='hidden md:flex flex-col gap-xl lg:hidden'>
+      <div className='hidden md:flex flex-col gap-8 lg:hidden'>
         {feature && <Card variant='large' {...articleToCardProps(feature)} />}
-        <div className='grid grid-cols-2 gap-xl'>
+        <div className='grid grid-cols-2 gap-8'>
           {rest.map((article) => (
             <Card
               key={article.id}
@@ -36,10 +36,10 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
         </div>
       </div>
 
-      <div className='hidden lg:flex flex-col gap-xl'>
-        <div className='grid grid-cols-2 gap-xl'>
+      <div className='hidden lg:flex flex-col gap-8'>
+        <div className='grid grid-cols-2 gap-8'>
           {feature && <Card variant='large' {...articleToCardProps(feature)} />}
-          <div className='flex flex-col justify-between gap-xl'>
+          <div className='flex flex-col justify-between gap-8'>
             {horizontalPeers.map((article) => (
               <Card
                 key={article.id}
@@ -50,7 +50,7 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
           </div>
         </div>
         {desktopTail.length > 0 && (
-          <div className='grid grid-cols-3 gap-xl'>
+          <div className='grid grid-cols-3 gap-8'>
             {desktopTail.map((article) => (
               <Card
                 key={article.id}
