@@ -29,6 +29,7 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 ## Architecture
 
 - **Server Components by default**. Components in `app/` are RSC unless they opt in to client behavior with `'use client'`. The root layout `app/layout.tsx` wires Geist + Geist Mono via `next/font/google` and Tailwind globals.
+- **Site-level landmarks live in the root layout.** `app/layout.tsx` already mounts `<Header />` and `<Footer />` around the `<main>`. Page components should not wrap their title block in another `<header>` — a plain `<div>` is fine.
 - **Don't hand-roll `useMemo` / `useCallback` / `memo`** — the React Compiler handles memoization. Only reach for them when there's a measured reason the compiler can't handle (e.g. referential identity required by an external API).
 - **Tailwind config lives in CSS, not JS** — use `@theme` / `@import "tailwindcss"` in `app/globals.css`. Don't create a `tailwind.config.js`.
 - **No component-scoped classes in `app/globals.css`**. `globals.css` holds the `@theme` tokens and the typography role utilities (`.text-display`, `.text-headline`, `.text-title`, `.text-body`, `.text-label`) — abstract slots from DESIGN.md, not component identities. Anything used by one component (transitions, custom filters, one-off layouts) goes in that component's JSX with Tailwind utilities, not a named class in globals.
