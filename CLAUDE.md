@@ -33,6 +33,7 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 - **Don't hand-roll `useMemo` / `useCallback` / `memo`** — the React Compiler handles memoization. Only reach for them when there's a measured reason the compiler can't handle (e.g. referential identity required by an external API).
 - **Tailwind config lives in CSS, not JS** — use `@theme` / `@import "tailwindcss"` in `app/globals.css`. Don't create a `tailwind.config.js`.
 - **No component-scoped classes in `app/globals.css`**. `globals.css` holds the `@theme` tokens and the typography role utilities (`.text-display`, `.text-headline`, `.text-title`, `.text-body`, `.text-label`) — abstract slots from DESIGN.md, not component identities. Anything used by one component (transitions, custom filters, one-off layouts) goes in that component's JSX with Tailwind utilities, not a named class in globals.
+- **Don't alias the Tailwind scale in `@theme`.** No semantic spacing or radius aliases (`--spacing-xs`, `--radius-card`, etc.). Reach for the raw scale (`p-2`, `gap-8`, `rounded-lg`) or rem-based arbitrary values (`rounded-[0.625rem]`) — aliases break IntelliSense and force a parallel vocabulary. The `@theme` is reserved for primitives that don't exist on Tailwind's scale (color palette, font families, motion easings, shadows).
 - **Path alias**: `@/*` → repo root (e.g. `import Home from '@/app/page'`).
 - **Locale**: root `<html>` is `lang='fr'`; user-facing copy is French. Code identifiers and comments stay English.
 
