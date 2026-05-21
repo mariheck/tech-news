@@ -21,13 +21,13 @@ const MEDIUM_HEADING_CLASS = 'text-xl';
 const LARGE_HEADING_CLASS = 'text-[clamp(1.5rem,2.2vw,1.875rem)]';
 const HORIZONTAL_HEADING_CLASS = 'text-[1.065rem]';
 
-test('Mobile layout: 1-col stack of medium cards, hidden from md up', () => {
+test('Mobile layout: 1-col stack of medium cards, hidden from sm up', () => {
   const { mobile } = renderLayouts();
   const classes = classList(mobile);
   expect(classes).toContain('flex');
   expect(classes).toContain('flex-col');
   expect(classes).toContain('gap-8');
-  expect(classes).toContain('md:hidden');
+  expect(classes).toContain('sm:hidden');
 
   const headings = within(mobile).getAllByRole('heading', { level: 3 });
   expect(headings).toHaveLength(articles.length);
@@ -36,11 +36,11 @@ test('Mobile layout: 1-col stack of medium cards, hidden from md up', () => {
   }
 });
 
-test('Tablet layout: 1 large card + 2-col medium grid, visible only between md and lg', () => {
+test('Tablet layout: 1 large card + 2-col medium grid, visible only between sm and lg', () => {
   const { tablet } = renderLayouts();
   const classes = classList(tablet);
   expect(classes).toContain('hidden');
-  expect(classes).toContain('md:flex');
+  expect(classes).toContain('sm:flex');
   expect(classes).toContain('lg:hidden');
 
   const featureHeading = within(tablet).getByRole('heading', {

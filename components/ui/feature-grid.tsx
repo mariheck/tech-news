@@ -13,7 +13,7 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
 
   return (
     <>
-      <div className='flex flex-col gap-8 md:hidden'>
+      <div className='flex flex-col gap-8 sm:hidden'>
         {articles.map((article) => (
           <Card
             key={article.id}
@@ -23,7 +23,7 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
         ))}
       </div>
 
-      <div className='hidden md:flex flex-col gap-8 lg:hidden'>
+      <div className='hidden sm:flex flex-col gap-8 lg:hidden'>
         {feature && <Card variant='large' {...articleToCardProps(feature)} />}
         <div className='grid grid-cols-2 gap-8'>
           {rest.map((article) => (
