@@ -58,6 +58,17 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 - **Atomic UI primitives don't own responsive layout decisions.** Components like `Card`, `Button`, `Pill` take static variant props (`size`, `direction`, `state`) and stay viewport-agnostic **at the prop level**. Choosing *which* variant to render at *which* breakpoint belongs to the consuming layout (grid components, page layouts) — those orchestrators render multiple variant instances with Tailwind visibility toggles, or branch their own internal markup per breakpoint. Never make a primitive's prop responsive to solve a layout problem. Breakpoint-prefixed utilities (`sm:max-w-160`, `clamp()` font sizes) inside a variant's implementation are allowed when they keep that variant's *own* rendering stable across screens.
 - **Tap-target expansion for icon-only controls.** When an icon-only link/button needs a 44×44 hit area without changing its visible footprint, extend the click zone via a `before:` pseudo-element with negative inset on a `relative` parent (`relative … before:absolute before:-inset-N before:content-['']`) — don't inflate padding or switch to `size-11`. See `components/layout/brand.tsx` and the archives link in `components/layout/header.tsx`.
 
+## Content model
+
+- **Issues on disk**. `content/issues/<YYYY-MM-DD>/` holds `index.md` (frontmatter: `date`, `articles[]` ordered slug list; body: weekly intro) and one `<slug>.md` per article. Article slug = filename.
+- **Article frontmatter**. `title`, `excerpt`, `summary` (accroche paragraph), `date` (ISO), `reading_time` (number), `sources` (flow-style `[ { label, url } ]`), `category`. Body is raw markdown.
+- **Images**. Resolved by convention as `/images/<YYYY-MM-DD>/<slug>.jpg` — not in frontmatter.
+- **Loader**. `loadIssue(date)` in `utils/load-issue.ts` is the single entry point. Content root is hardcoded to `<cwd>/content`; tests run against real issues, no fixture override.
+- **Frontmatter parser**. Hand-rolled in `utils/parse-frontmatter.ts` (gray-matter–style `{ data, content }`). Covers scalars, block sequences, and flow sequences of inline mappings. Extend the parser rather than reach for a dep.
+- **Types**. `ArticleMeta` (slug, title, excerpt, image, date, readingTime, category) is the card-view shape; `Article = ArticleMeta & { summary, sources, content }` is the full editorial shape. Grids type `articles: ArticleMeta[]` so loader output flows in by subtyping. `slug` = URL identifier (filename); `summary` = accroche paragraph.
+- **Server Component data flow**. `app/page.tsx` and `app/archives/page.tsx` are async Server Components that `await loadIssue('2026-05-18')`. The date is hardcoded until we have multiple issues plus a `latestIssueDate()` helper.
+- **Agent IA contract**. The markdown frontmatter format is the agreement with the AI agent generating these files. Schema changes (renames, new fields) require updating the agent's prompt in parallel.
+
 ## Skills to reach for
 
 - **`next-best-practices`** — for routing, RSC/client boundaries, data fetching, metadata, route handlers, async APIs.
@@ -90,6 +101,7 @@ Do not write production code without a failing test pointing at it. Do not stack
 - `vitest.setup.ts` already loads `@testing-library/jest-dom/vitest` matchers and runs `cleanup()` after each test — don't re-import matchers or call cleanup in test files.
 - Import the component under test via the `@/` alias, render with `@testing-library/react`, query by accessible role.
 - **jsdom does not evaluate CSS at all.** For hover/focus behavior, assert on the structural contract (link has `group`, a decorative `aria-hidden` child has a `group-hover:` / `group-focus-visible:` variant) instead of computed style — implementation coupling is the only viable angle. Tailwind visibility classes (`hidden`, `md:flex`, `lg:hidden`) are also ignored: components that render multiple sibling layouts (one per breakpoint) put **all** of them in the DOM at once. Scope queries with `within(layoutContainer).getByRole(...)` to avoid matching duplicates across layouts.
+- **Async Server Components**. Render via `render(await Page())` — `@testing-library/react` 16+ supports awaiting the component function before passing its JSX to `render`.
 - **Fixture pattern**: when a component has multiple variants to test, declare a shared `commonProps` const at the top of the test file and create named fixtures via spread (`<Card {...commonProps} />`, `<Card size='lg' {...commonProps} />`). Avoid inlining the JSX in each `test()` block.
 - **Shared test fixtures across files** live in `__tests__/fixtures/<name>.ts`, exported as factory functions (`makeArticles(n)`) rather than fixed arrays — the call site stays explicit about the size needed. Imported via the `@/` alias.
 
