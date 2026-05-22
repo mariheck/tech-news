@@ -1,7 +1,9 @@
 import { WeeklyEdition } from '@/components/ui';
-import { ARTICLES } from '@/mocked';
+import { loadIssue } from '@/utils';
 
-const ArchivesPage = () => {
+const ArchivesPage = async () => {
+  const issue = await loadIssue('2026-05-18');
+
   return (
     <div className='flex flex-col gap-8'>
       <div className='flex flex-col gap-3.5'>
@@ -15,10 +17,7 @@ const ArchivesPage = () => {
         </div>
         <hr className='mb-10 border-plum-subtle' />
       </div>
-      <WeeklyEdition
-        weekStart={new Date('2026-05-18T00:00:00Z')}
-        articles={ARTICLES}
-      />
+      <WeeklyEdition weekStart={issue.date} articles={issue.articles} />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 ---
 title: 'Animations CSS scroll-driven : chorégraphier la page au scroll'
 excerpt: 'animation-timeline, scroll() et view() débarquent stables sur tous les navigateurs majeurs. Patterns concrets et gotchas perf.'
-slug: 'Les animations scroll-driven en CSS pur sortent enfin du flag Chrome. On regarde les patterns qui marchent vraiment, ceux qui tuent la perf, et comment dégrader proprement sur les navigateurs en retard.'
+summary: 'Les animations scroll-driven en CSS pur sortent enfin du flag Chrome. On regarde les patterns qui marchent vraiment, ceux qui tuent la perf, et comment dégrader proprement sur les navigateurs en retard.'
 date: 2026-05-18T00:00:00Z
 reading_time: 6
 sources:

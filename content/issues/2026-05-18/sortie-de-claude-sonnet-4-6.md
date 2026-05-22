@@ -1,7 +1,7 @@
 ---
 title: 'Sortie de Claude Sonnet 4.6 : ce qui change pour le code agentique'
 excerpt: 'Tool use plus stable, contexte 1M, latence en baisse de 30%. Bench réel sur trois agents en production.'
-slug: 'Anthropic publie Sonnet 4.6 avec un tool use nettement plus fiable, un contexte étendu à 1M tokens, et une latence en baisse de 30%. On a fait tourner trois agents de prod dessus pendant une semaine.'
+summary: 'Anthropic publie Sonnet 4.6 avec un tool use nettement plus fiable, un contexte étendu à 1M tokens, et une latence en baisse de 30%. On a fait tourner trois agents de prod dessus pendant une semaine.'
 date: 2026-05-18T00:00:00Z
 reading_time: 9
 sources:

@@ -1,11 +1,11 @@
-import type { Article } from '@/types';
+import type { ArticleMeta } from '@/types';
 import { formatWeekRange } from '@/utils';
 import { SectionHeading } from './section-heading';
 import { UniformGrid } from './uniform-grid';
 
 type WeeklyEditionProps = {
   weekStart: Date;
-  articles: Article[];
+  articles: ArticleMeta[];
 };
 
 export const WeeklyEdition = ({ weekStart, articles }: WeeklyEditionProps) => {

@@ -1,12 +1,12 @@
 import { makeArticles } from '@/__tests__/fixtures/articles';
 import { UniformGrid } from '@/components/ui';
-import type { Article } from '@/types';
+import type { ArticleMeta } from '@/types';
 import { render, within } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
 const articles = makeArticles(3);
 
-const renderGrid = (input: Article[] = articles) => {
+const renderGrid = (input: ArticleMeta[] = articles) => {
   const { container } = render(<UniformGrid articles={input} />);
   return container.firstChild as HTMLElement;
 };

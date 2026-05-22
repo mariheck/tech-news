@@ -1,8 +1,8 @@
-import type { Article } from '@/types';
+import type { ArticleMeta } from '@/types';
 import { articleToCardProps } from '@/utils';
 import { Card } from './card';
 
-type FeatureGridProps = { articles: Article[] };
+type FeatureGridProps = { articles: ArticleMeta[] };
 
 const HORIZONTAL_PEER_COUNT = 3;
 
@@ -14,9 +14,9 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
   return (
     <>
       <div className='flex flex-col gap-8 sm:hidden'>
-        {articles.map((article) => (
+        {articles.map((article, idx) => (
           <Card
-            key={article.id}
+            key={`${article.slug}-${idx}`}
             variant='medium'
             {...articleToCardProps(article)}
           />
@@ -26,9 +26,9 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
       <div className='hidden sm:flex flex-col gap-8 lg:hidden'>
         {feature && <Card variant='large' {...articleToCardProps(feature)} />}
         <div className='grid grid-cols-2 gap-8'>
-          {rest.map((article) => (
+          {rest.map((article, idx) => (
             <Card
-              key={article.id}
+              key={`${article.slug}-${idx}`}
               variant='medium'
               {...articleToCardProps(article)}
             />
@@ -40,9 +40,9 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
         <div className='grid grid-cols-2 gap-8'>
           {feature && <Card variant='large' {...articleToCardProps(feature)} />}
           <div className='flex flex-col justify-between gap-8'>
-            {horizontalPeers.map((article) => (
+            {horizontalPeers.map((article, idx) => (
               <Card
-                key={article.id}
+                key={`${article.slug}-${idx}`}
                 variant='horizontal'
                 {...articleToCardProps(article)}
               />
@@ -51,9 +51,9 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
         </div>
         {desktopTail.length > 0 && (
           <div className='grid grid-cols-3 gap-8'>
-            {desktopTail.map((article) => (
+            {desktopTail.map((article, idx) => (
               <Card
-                key={article.id}
+                key={`${article.slug}-${idx}`}
                 variant='medium'
                 {...articleToCardProps(article)}
               />

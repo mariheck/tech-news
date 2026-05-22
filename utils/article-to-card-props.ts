@@ -1,8 +1,8 @@
-import type { Article } from '@/types';
+import type { ArticleMeta } from '@/types';
 
-export const articleToCardProps = (article: Article) => ({
+export const articleToCardProps = (article: ArticleMeta) => ({
   href: '#',
   title: article.title,
   excerpt: article.excerpt,
-  image: { src: article.images[0], alt: article.title }
+  image: { src: article.image, alt: article.title }
 });

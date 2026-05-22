@@ -1,7 +1,7 @@
 ---
 title: 'Tendances web design 2026 : moins de visuels théâtraux, plus de clarté native'
 excerpt: 'Retour de la sobriété éditoriale, fin du brutalist gratuit, type expressive contenue. Les sites qui marquent en 2026.'
-slug: 'Après trois ans de surenchère visuelle, les sites qui marquent en 2026 reviennent à une sobriété éditoriale assumée. Typographie expressive mais contenue, motion à dose homéopathique, retour des grilles solides.'
+summary: 'Après trois ans de surenchère visuelle, les sites qui marquent en 2026 reviennent à une sobriété éditoriale assumée. Typographie expressive mais contenue, motion à dose homéopathique, retour des grilles solides.'
 date: 2026-05-18T00:00:00Z
 reading_time: 7
 sources:

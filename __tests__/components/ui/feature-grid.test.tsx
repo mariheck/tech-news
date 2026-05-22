@@ -1,12 +1,12 @@
 import { makeArticles } from '@/__tests__/fixtures/articles';
 import { FeatureGrid } from '@/components/ui';
-import type { Article } from '@/types';
+import type { ArticleMeta } from '@/types';
 import { render, within } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
 const articles = makeArticles(6);
 
-const renderLayouts = (input: Article[] = articles) => {
+const renderLayouts = (input: ArticleMeta[] = articles) => {
   const { container } = render(<FeatureGrid articles={input} />);
   const [mobile, tablet, desktop] = Array.from(
     container.children

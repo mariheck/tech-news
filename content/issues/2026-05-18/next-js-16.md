@@ -1,7 +1,7 @@
 ---
 title: 'Next.js 16, tour de la release : breaking changes et impact migration'
 excerpt: 'Turbopack stable par défaut, refonte du cache, nouvelles APIs server. Le calendrier de migration et ce qui casse vraiment en prod.'
-slug: 'Vercel publie Next.js 16 avec Turbopack stable, un cache repensé en profondeur, et des breaking changes ciblés. On passe en revue ce qui mérite votre semaine de migration et ce qui peut attendre le prochain trimestre.'
+summary: 'Vercel publie Next.js 16 avec Turbopack stable, un cache repensé en profondeur, et des breaking changes ciblés. On passe en revue ce qui mérite votre semaine de migration et ce qui peut attendre le prochain trimestre.'
 date: 2026-05-18T00:00:00Z
 reading_time: 8
 sources:
