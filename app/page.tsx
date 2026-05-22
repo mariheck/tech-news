@@ -1,4 +1,4 @@
-import { FeatureGrid, SectionHeading } from '@/components/ui';
+import { FeatureGrid, PageHeading, SectionHeading } from '@/components/ui';
 import { loadIssue } from '@/utils';
 
 const Home = async () => {
@@ -6,7 +6,8 @@ const Home = async () => {
 
   return (
     <div className='flex flex-col gap-8'>
-      <SectionHeading>Cette semaine</SectionHeading>
+      <PageHeading>L’essentiel de la tech, chaque lundi.</PageHeading>
+      <SectionHeading>Les actus de la semaine dernière</SectionHeading>
       <FeatureGrid articles={issue.articles} />
     </div>
   );

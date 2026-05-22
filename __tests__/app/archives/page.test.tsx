@@ -26,7 +26,3 @@ test('Archives page displays the page title as a level-1 heading', async () => {
   ).toBeInTheDocument();
 });
 
-test('Archives page renders a separator below the page header', async () => {
-  render(await ArchivesPage());
-  expect(screen.getByRole('separator')).toBeInTheDocument();
-});

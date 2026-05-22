@@ -1,4 +1,4 @@
-import { WeeklyEdition } from '@/components/ui';
+import { PageHeading, WeeklyEdition } from '@/components/ui';
 import { loadIssue } from '@/utils';
 
 const ArchivesPage = async () => {
@@ -6,17 +6,13 @@ const ArchivesPage = async () => {
 
   return (
     <div className='flex flex-col gap-8'>
-      <div className='flex flex-col gap-3.5'>
-        <div className='py-2'>
-          <p className='mb-4 font-mono text-xs uppercase tracking-[0.04em] text-tertiary'>
-            Archives
-          </p>
-          <h1 className='mb-8 text-display text-balance'>
-            Toutes les éditions, semaine après semaine.
-          </h1>
-        </div>
-        <hr className='mb-10 border-plum-subtle' />
+      <div>
+        <p className='mt-4 font-mono text-xs uppercase tracking-[0.04em] text-tertiary'>
+          Archives
+        </p>
+        <PageHeading>Toutes les éditions, semaine après semaine.</PageHeading>
       </div>
+
       <WeeklyEdition weekStart={issue.date} articles={issue.articles} />
     </div>
   );
