@@ -11,22 +11,10 @@ test('CATEGORIES exposes the 5 editorial categories in canonical order', () => {
   ]);
 });
 
-test('Every category has a non-empty label and an accent name', () => {
+test('Every category has a non-empty label', () => {
   for (const c of CATEGORIES) {
     expect(c.label.length).toBeGreaterThan(0);
-    expect(c.accent).toMatch(/^(turquoise|raspberry|copper|iris|linen)$/);
   }
-});
-
-test('Category accent assignment matches the spec', () => {
-  const byKey = Object.fromEntries(CATEGORIES.map((c) => [c.slug, c.accent]));
-  expect(byKey).toEqual({
-    frontend: 'turquoise',
-    design: 'raspberry',
-    'dev-ia': 'copper',
-    'actus-ia': 'iris',
-    autres: 'linen'
-  });
 });
 
 test('Labels are the user-facing French strings expected on the filter', () => {

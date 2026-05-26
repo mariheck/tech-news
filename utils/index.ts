@@ -1,4 +1,6 @@
+export * from './accent-to-css-var';
 export * from './article-to-card-props';
+export * from './category-to-accent';
 export * from './filter-by-category';
 export * from './format-long-date';
 export * from './format-week-range';

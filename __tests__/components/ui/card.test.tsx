@@ -38,8 +38,8 @@ test('Card lifts and casts a peach halo on hover and keyboard focus', () => {
 
   expect(link.className).toMatch(/hover:-translate-y-/);
   expect(link.className).toMatch(/focus-visible:-translate-y-/);
-  expect(link.className).toContain('hover:shadow-card-lift-peach');
-  expect(link.className).toContain('focus-visible:shadow-card-lift-peach');
+  expect(link.className).toContain('hover:shadow-lift');
+  expect(link.className).toContain('focus-visible:shadow-lift');
 });
 
 test('Card defaults to the medium variant (20px title, vertical stack)', () => {

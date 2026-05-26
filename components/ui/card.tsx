@@ -1,11 +1,15 @@
+import type { AccentName } from '@/types';
+import { accentToCssVar } from '@/utils';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { CSSProperties } from 'react';
 
 type CardVariant = 'large' | 'medium' | 'horizontal';
 
 type CardProps = {
   variant?: CardVariant;
+  accent?: AccentName;
   href: string;
   title: string;
   excerpt: string;
@@ -14,6 +18,7 @@ type CardProps = {
 
 export const Card = ({
   variant = 'medium',
+  accent,
   href,
   title,
   excerpt,
@@ -22,11 +27,16 @@ export const Card = ({
   return (
     <Link
       href={href}
+      style={
+        accent
+          ? ({ '--accent': accentToCssVar[accent] } as CSSProperties)
+          : undefined
+      }
       className={classNames(
         'group flex gap-4.5 w-full',
         'p-4.5 border border-plum-subtle rounded-[0.875rem]',
         'bg-plum-elevated no-underline',
-        'shadow-card-rest hover:shadow-card-lift-peach focus-visible:shadow-card-lift-peach',
+        'shadow-rest hover:shadow-lift focus-visible:shadow-lift',
         'hover:-translate-y-1 focus-visible:-translate-y-1',
         'transition-[transform, box-shadow]',
         'ease-in-out-circ duration-300',

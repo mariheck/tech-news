@@ -37,16 +37,18 @@
 
   /* Shadows */
   --shadow-wordmark-dot-glow: 0 0 16px
-    color-mix(in oklab, var(--color-accent-peach) 70%, transparent);
-  --shadow-card-rest: 0 14px 32px -16px transparent, 0 2px 8px -4px transparent;
-  --shadow-card-lift-peach:
-    0 14px 32px -16px
-      color-mix(in oklab, var(--color-accent-peach) 60%, transparent),
-    0 2px 8px -4px
-      color-mix(in oklab, var(--color-accent-peach) 30%, transparent);
+    color-mix(in oklab, var(--accent) 70%, transparent);
+  --shadow-rest: 0 14px 32px -16px transparent, 0 2px 8px -4px transparent;
+  --shadow-lift:
+    0 14px 32px -16px color-mix(in oklab, var(--accent) 40%, transparent),
+    0 2px 8px -4px color-mix(in oklab, var(--accent) 30%, transparent);
 }
 
 @layer base {
+  :root {
+    --accent: var(--color-accent-peach);
+  }
+
   html {
     @apply h-full antialiased;
   }

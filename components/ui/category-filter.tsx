@@ -1,4 +1,5 @@
 import { CATEGORIES, type CategorySlug } from '@/types';
+import { categoryToAccent } from '@/utils';
 import { CategoryBadge } from './category-badge';
 
 type CategoryFilterProps = {
@@ -31,7 +32,7 @@ export const CategoryFilter = ({
           <li key={c.slug}>
             <CategoryBadge
               label={c.label}
-              accent={c.accent}
+              accent={categoryToAccent[c.slug]}
               href={`?cat=${c.slug}`}
               active={active === c.slug}
             />
