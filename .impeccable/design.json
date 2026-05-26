@@ -58,49 +58,49 @@
         "canonical": "oklch(82% 0.060 30)",
         "tonalRamp": ["#4A2A22", "#693E33", "#876050", "#A57A6A", "#C19584", "#D5A99A", "#E8BFB1", "#F0BFB4"]
       },
-      "cat-web-dev": {
+      "cat-frontend": {
         "role": "secondary",
         "displayName": "Coastal Teal",
         "canonical": "oklch(56% 0.075 195)",
         "tonalRamp": ["#0F2C2D", "#163E40", "#1F5658", "#266F71", "#2D8E91", "#46A2A5", "#5FB3B6", "#85C7CA"]
       },
-      "cat-web-dev-light": {
+      "cat-frontend-light": {
         "role": "secondary",
         "displayName": "Coastal Teal Bloom",
         "canonical": "oklch(71% 0.065 195)",
         "tonalRamp": ["#163E40", "#1F5658", "#266F71", "#2D8E91", "#46A2A5", "#5FB3B6", "#85C7CA", "#A8D6D9"]
       },
-      "cat-design-eng": {
+      "cat-dev-ia": {
         "role": "secondary",
         "displayName": "Copper Bloom",
         "canonical": "oklch(68% 0.105 40)",
         "tonalRamp": ["#3A1D14", "#542C20", "#6E3D2E", "#8B523D", "#A66950", "#C07B5F", "#D9896E", "#E8AC97"]
       },
-      "cat-design-eng-light": {
+      "cat-dev-ia-light": {
         "role": "secondary",
         "displayName": "Copper Bloom Light",
         "canonical": "oklch(78% 0.075 40)",
         "tonalRamp": ["#542C20", "#6E3D2E", "#8B523D", "#A66950", "#C07B5F", "#D9896E", "#E8AC97", "#F0C2AE"]
       },
-      "cat-web-design": {
+      "cat-design": {
         "role": "secondary",
         "displayName": "Velvet Raspberry",
         "canonical": "oklch(50% 0.105 0)",
         "tonalRamp": ["#2C111B", "#421A2A", "#5C2438", "#763048", "#8E3F5B", "#A85676", "#C77F9B", "#D89BB1"]
       },
-      "cat-web-design-light": {
+      "cat-design-light": {
         "role": "secondary",
         "displayName": "Raspberry Bloom",
         "canonical": "oklch(63% 0.080 0)",
         "tonalRamp": ["#421A2A", "#5C2438", "#763048", "#8E3F5B", "#A85676", "#C77F9B", "#D89BB1", "#E5B5C6"]
       },
-      "cat-ai": {
+      "cat-actus-ia": {
         "role": "secondary",
         "displayName": "Iris Amethyst",
         "canonical": "oklch(53% 0.110 305)",
         "tonalRamp": ["#22132A", "#321E3F", "#442857", "#583370", "#6E458B", "#8E5FA8", "#B189C6", "#C3A4D4"]
       },
-      "cat-ai-light": {
+      "cat-actus-ia-light": {
         "role": "secondary",
         "displayName": "Iris Bloom",
         "canonical": "oklch(66% 0.080 305)",
@@ -108,13 +108,13 @@
       },
       "cat-autres": {
         "role": "secondary",
-        "displayName": "Warm Ash",
+        "displayName": "Warm Linen",
         "canonical": "oklch(55% 0.020 60)",
         "tonalRamp": ["#1F1B17", "#2E2823", "#3F3830", "#52483E", "#67594D", "#7C6B5E", "#8E7A6E", "#B0A095"]
       },
       "cat-autres-light": {
         "role": "secondary",
-        "displayName": "Warm Ash Bloom",
+        "displayName": "Warm Linen Bloom",
         "canonical": "oklch(68% 0.018 60)",
         "tonalRamp": ["#2E2823", "#3F3830", "#52483E", "#67594D", "#7C6B5E", "#8E7A6E", "#B0A095", "#C7B7AB"]
       }
@@ -158,7 +158,7 @@
       "kind": "chip",
       "refersTo": "pill",
       "description": "The signature filter and metadata chip. Carries the category color at low chroma so it reads as a marker, never as a CTA.",
-      "html": "<span class=\"ds-pill\">Web Dev</span>",
+      "html": "<span class=\"ds-pill\">Frontend</span>",
       "css": ".ds-pill { display: inline-flex; align-items: center; align-self: flex-start; width: fit-content; font-family: 'Geist Mono', ui-monospace, monospace; font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px 3px; border-radius: 999px; background: color-mix(in oklab, #2D8E91 9%, transparent); color: color-mix(in oklab, #2D8E91 85%, #F0E6D7); border: 1px solid color-mix(in oklab, #2D8E91 18%, transparent); white-space: nowrap; }"
     },
     {
@@ -166,7 +166,7 @@
       "kind": "chip",
       "refersTo": "tab-active",
       "description": "Toggleable category filter. Same skin as the pill, with default (transparent + grey border) and active (category-tinted) states. The 'Tous' tab always carries the peach accent when active.",
-      "html": "<div class=\"ds-tabs\">\n  <button class=\"ds-tab ds-tab-active\">Tous</button>\n  <button class=\"ds-tab\">Web Dev</button>\n  <button class=\"ds-tab\">Design Eng</button>\n  <button class=\"ds-tab\">Web Design</button>\n  <button class=\"ds-tab\">Actus IA</button>\n</div>",
+      "html": "<div class=\"ds-tabs\">\n  <button class=\"ds-tab ds-tab-active\">Tous</button>\n  <button class=\"ds-tab\">Frontend</button>\n  <button class=\"ds-tab\">Design</button>\n  <button class=\"ds-tab\">Dev IA</button>\n  <button class=\"ds-tab\">Actus IA</button>\n  <button class=\"ds-tab\">Autres</button>\n</div>",
       "css": ".ds-tabs { display: flex; gap: 8px; flex-wrap: wrap; padding: 8px 0 28px; border-bottom: 1px solid #3A3145; }\n.ds-tab { font-family: 'Geist Mono', monospace; font-size: 10.5px; letter-spacing: 0.09em; text-transform: uppercase; color: #B0A695; padding: 2px 8px 3px; border-radius: 999px; background: transparent; border: 1px solid #3A3145; cursor: pointer; transition: color 180ms cubic-bezier(0.16, 1, 0.3, 1), background 180ms cubic-bezier(0.16, 1, 0.3, 1), border-color 180ms cubic-bezier(0.16, 1, 0.3, 1); }\n.ds-tab:hover { color: #F0E6D7; border-color: #221C29; }\n.ds-tab-active { color: color-mix(in oklab, #E8A598 85%, #F0E6D7); background: color-mix(in oklab, #E8A598 9%, transparent); border-color: color-mix(in oklab, #E8A598 18%, transparent); }\n.ds-tab:focus-visible { outline: 2px solid #E8A598; outline-offset: 2px; }"
     },
     {
@@ -174,7 +174,7 @@
       "kind": "card",
       "refersTo": "card",
       "description": "The lead card on the home feature grid. 16:9 image, pill, 30px title, 2-line excerpt. Hover adds the category-tinted Card Lift shadow and a -4px translateY.",
-      "html": "<a class=\"ds-card-lg\" href=\"#\">\n  <div class=\"ds-card-image\"><img src=\"https://placehold.co/640x360/2D2638/F0E6D7?text=\" alt=\"\" /></div>\n  <div class=\"ds-card-text\">\n    <span class=\"ds-pill\">Web Dev</span>\n    <h3 class=\"ds-card-title\">Next.js 16, tour de la release : breaking changes et impact migration</h3>\n    <p class=\"ds-card-excerpt\">Turbopack stable par défaut, refonte du cache, nouvelles APIs server. Le calendrier de migration et ce qui casse vraiment en prod.</p>\n  </div>\n</a>",
+      "html": "<a class=\"ds-card-lg\" href=\"#\">\n  <div class=\"ds-card-image\"><img src=\"https://placehold.co/640x360/2D2638/F0E6D7?text=\" alt=\"\" /></div>\n  <div class=\"ds-card-text\">\n    <span class=\"ds-pill\">Frontend</span>\n    <h3 class=\"ds-card-title\">Next.js 16, tour de la release : breaking changes et impact migration</h3>\n    <p class=\"ds-card-excerpt\">Turbopack stable par défaut, refonte du cache, nouvelles APIs server. Le calendrier de migration et ce qui casse vraiment en prod.</p>\n  </div>\n</a>",
       "css": ".ds-card-lg { display: block; padding: 16px; border: 1px solid #3A3145; background: #221C29; border-radius: 14px; text-decoration: none; transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 380ms cubic-bezier(0.16, 1, 0.3, 1); }\n.ds-card-lg:hover { transform: translateY(-4px); box-shadow: 0 14px 32px -16px color-mix(in oklab, #2D8E91 60%, transparent), 0 2px 8px -4px color-mix(in oklab, #2D8E91 30%, transparent); }\n.ds-card-lg .ds-card-image { position: relative; aspect-ratio: 16 / 9; margin-bottom: 22px; border-radius: 10px; overflow: hidden; background: #2D2638; }\n.ds-card-lg .ds-card-image img { width: 100%; height: 100%; object-fit: cover; transition: filter 320ms cubic-bezier(0.16, 1, 0.3, 1); }\n.ds-card-lg:hover .ds-card-image img { filter: saturate(1.06) brightness(1.02); }\n.ds-card-lg .ds-card-image::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px color-mix(in oklab, #F0E6D7 5%, transparent); pointer-events: none; }\n.ds-card-lg .ds-card-text { display: flex; flex-direction: column; gap: 14px; }\n.ds-card-lg .ds-card-title { font-family: 'Geist', sans-serif; font-size: 30px; font-weight: 600; line-height: 1.2; letter-spacing: -0.012em; color: #F0E6D7; text-wrap: balance; margin: 0; }\n.ds-card-lg .ds-card-excerpt { color: #B0A695; font-size: 16px; line-height: 1.55; margin: 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }\n.ds-pill { display: inline-flex; align-items: center; align-self: flex-start; width: fit-content; font-family: 'Geist Mono', monospace; font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px 3px; border-radius: 999px; background: color-mix(in oklab, #2D8E91 9%, transparent); color: color-mix(in oklab, #2D8E91 85%, #F0E6D7); border: 1px solid color-mix(in oklab, #2D8E91 18%, transparent); }"
     },
     {
@@ -182,7 +182,7 @@
       "kind": "card",
       "refersTo": "card",
       "description": "The card used in archives and on the bottom uniform 3-column home grid. Image + pill + 20px title.",
-      "html": "<a class=\"ds-card-v\" href=\"#\">\n  <div class=\"ds-card-image\"><img src=\"https://placehold.co/360x202/2D2638/F0E6D7?text=\" alt=\"\" /></div>\n  <div class=\"ds-card-text\">\n    <span class=\"ds-pill ds-pill-design\">Design Eng</span>\n    <h3 class=\"ds-card-title\">Container Queries en production : 6 mois de retours d'XP</h3>\n  </div>\n</a>",
+      "html": "<a class=\"ds-card-v\" href=\"#\">\n  <div class=\"ds-card-image\"><img src=\"https://placehold.co/360x202/2D2638/F0E6D7?text=\" alt=\"\" /></div>\n  <div class=\"ds-card-text\">\n    <span class=\"ds-pill ds-pill-design\">Dev IA</span>\n    <h3 class=\"ds-card-title\">Container Queries en production : 6 mois de retours d'XP</h3>\n  </div>\n</a>",
       "css": ".ds-card-v { display: flex; flex-direction: column; gap: 18px; padding: 16px; border: 1px solid #3A3145; border-radius: 14px; background: #221C29; text-decoration: none; transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 380ms cubic-bezier(0.16, 1, 0.3, 1); }\n.ds-card-v:hover { transform: translateY(-4px); box-shadow: 0 14px 32px -16px color-mix(in oklab, #D9896E 60%, transparent), 0 2px 8px -4px color-mix(in oklab, #D9896E 30%, transparent); }\n.ds-card-v .ds-card-image { position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #2D2638; }\n.ds-card-v .ds-card-image img { width: 100%; height: 100%; object-fit: cover; transition: filter 320ms cubic-bezier(0.16, 1, 0.3, 1); }\n.ds-card-v:hover .ds-card-image img { filter: saturate(1.06) brightness(1.02); }\n.ds-card-v .ds-card-text { display: flex; flex-direction: column; gap: 12px; }\n.ds-card-v .ds-card-title { font-family: 'Geist', sans-serif; font-size: 20px; font-weight: 600; line-height: 1.22; letter-spacing: -0.012em; color: #F0E6D7; text-wrap: balance; margin: 0; }\n.ds-pill-design { background: color-mix(in oklab, #D9896E 9%, transparent); color: color-mix(in oklab, #D9896E 85%, #F0E6D7); border-color: color-mix(in oklab, #D9896E 18%, transparent); }\n.ds-pill { display: inline-flex; align-items: center; align-self: flex-start; width: fit-content; font-family: 'Geist Mono', monospace; font-size: 10.5px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 8px 3px; border-radius: 999px; border: 1px solid; }"
     },
     {

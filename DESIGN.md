@@ -11,14 +11,14 @@ colors:
   text-tertiary: '#76695E'
   accent-peach: '#E8A598'
   accent-peach-light: '#F0BFB4'
-  cat-web-dev: '#2D8E91'
-  cat-web-dev-light: '#5FB3B6'
-  cat-design-eng: '#D9896E'
-  cat-design-eng-light: '#E8AC97'
-  cat-web-design: '#A85676'
-  cat-web-design-light: '#C77F9B'
-  cat-ai: '#8E5FA8'
-  cat-ai-light: '#B189C6'
+  cat-frontend: '#2D8E91'
+  cat-frontend-light: '#5FB3B6'
+  cat-design: '#A85676'
+  cat-design-light: '#C77F9B'
+  cat-dev-ia: '#D9896E'
+  cat-dev-ia-light: '#E8AC97'
+  cat-actus-ia: '#8E5FA8'
+  cat-actus-ia-light: '#B189C6'
   cat-autres: '#8E7A6E'
   cat-autres-light: '#B0A095'
 typography:
@@ -136,11 +136,11 @@ A four-tier neutral scale tilted toward warm plum, anchored by a peach default a
 
 Each editorial category gets a _saturated_ primary tone (for hero glow, source numbers, sidebar veil) and a _light_ tone (for pill text, link highlights, active dot fill). Both are kept low-chroma enough to coexist with the cream body text.
 
-- **Coastal Teal** — Web Dev: `#2D8E91` / light `#5FB3B6`.
-- **Copper Bloom** — Design Eng: `#D9896E` / light `#E8AC97`.
-- **Velvet Raspberry** — Web Design: `#A85676` / light `#C77F9B`.
+- **Coastal Teal** — Frontend: `#2D8E91` / light `#5FB3B6`.
+- **Velvet Raspberry** — Design: `#A85676` / light `#C77F9B`.
+- **Copper Bloom** — Dev IA: `#D9896E` / light `#E8AC97`.
 - **Iris Amethyst** — Actus IA: `#8E5FA8` / light `#B189C6`.
-- **Warm Ash** — Autres: `#8E7A6E` / light `#B0A095`.
+- **Warm Linen** — Autres: `#8E7A6E` / light `#B0A095`.
 
 ### Neutral
 
