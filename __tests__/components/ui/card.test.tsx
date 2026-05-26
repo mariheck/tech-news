@@ -12,6 +12,10 @@ const commonProps = {
 const mediumCard = <Card {...commonProps} />;
 const largeCard = <Card variant='large' {...commonProps} />;
 const horizontalCard = <Card variant='horizontal' {...commonProps} />;
+const badgedCard = (
+  <Card {...commonProps} badge='Frontend' accent='raspberry' />
+);
+const badgedCardNoAccent = <Card {...commonProps} badge='Frontend' />;
 
 test('Card renders a link pointing to the given href', () => {
   render(mediumCard);
@@ -111,4 +115,31 @@ test('Card horizontal variant renders excerpt at 0.95rem clamped to 2 lines', ()
   const paragraph = screen.getByText('Lorem ipsum dolor sit amet.');
   expect(paragraph.className).toContain('text-[0.95rem]');
   expect(paragraph.className).toContain('line-clamp-2');
+});
+
+test('Card renders the badge label as a span when a badge prop is provided', () => {
+  render(badgedCard);
+  const badge = screen.getByText('Frontend');
+  expect(badge.tagName).toBe('SPAN');
+});
+
+test('Card omits the badge when no badge prop is provided', () => {
+  render(mediumCard);
+  expect(screen.queryByText('Frontend')).not.toBeInTheDocument();
+});
+
+test('Card badge inherits the card accent via the --accent CSS variable', () => {
+  render(badgedCard);
+  const badge = screen.getByText('Frontend');
+  expect(badge.getAttribute('style')).toMatch(
+    /--accent:\s*var\(--color-accent-raspberry\)/
+  );
+});
+
+test('Card badge falls back to the peach accent when no accent is provided', () => {
+  render(badgedCardNoAccent);
+  const badge = screen.getByText('Frontend');
+  expect(badge.getAttribute('style')).toMatch(
+    /--accent:\s*var\(--color-accent-peach\)/
+  );
 });

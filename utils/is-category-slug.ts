@@ -1,8 +1,7 @@
-import { CATEGORIES, type CategorySlug } from '@/types';
+import type { CategorySlug } from '@/types';
+import { CATEGORIES } from './categories';
 
-const VALID_SLUGS: ReadonlySet<string> = new Set(
-  CATEGORIES.map((c) => c.slug)
-);
+const VALID_SLUGS: ReadonlySet<string> = new Set(CATEGORIES);
 
 export const isCategorySlug = (
   value: string | undefined

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
+import { CategoryBadge } from './category-badge';
 
 type CardVariant = 'large' | 'medium' | 'horizontal';
 
@@ -13,6 +14,7 @@ type CardProps = {
   href: string;
   title: string;
   excerpt: string;
+  badge?: string;
   image: { src: string; alt: string };
 };
 
@@ -22,6 +24,7 @@ export const Card = ({
   href,
   title,
   excerpt,
+  badge,
   image
 }: CardProps) => {
   return (
@@ -56,6 +59,11 @@ export const Card = ({
         <Image src={image.src} alt={image.alt} fill className='object-cover' />
       </div>
       <div className='flex flex-col gap-2'>
+        {badge && (
+          <div className='mb-1'>
+            <CategoryBadge label={badge} accent={accent ?? 'peach'} />
+          </div>
+        )}
         <h3
           className={classNames(
             'leading-[1.2] tracking-[-0.012em] font-semibold text-primary text-balance',

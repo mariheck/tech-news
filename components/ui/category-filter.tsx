@@ -1,5 +1,5 @@
-import { CATEGORIES, type CategorySlug } from '@/types';
-import { categoryToAccent } from '@/utils';
+import type { CategorySlug } from '@/types';
+import { CATEGORIES, categoryToAccent, categoryToLabel } from '@/utils';
 import { CategoryBadge } from './category-badge';
 
 type CategoryFilterProps = {
@@ -14,7 +14,7 @@ export const CategoryFilter = ({
   active
 }: CategoryFilterProps) => {
   const items = visible
-    ? CATEGORIES.filter((c) => visible.includes(c.slug))
+    ? CATEGORIES.filter((slug) => visible.includes(slug))
     : CATEGORIES;
 
   return (
@@ -28,13 +28,13 @@ export const CategoryFilter = ({
             active={active === undefined}
           />
         </li>
-        {items.map((c) => (
-          <li key={c.slug}>
+        {items.map((slug) => (
+          <li key={slug}>
             <CategoryBadge
-              label={c.label}
-              accent={categoryToAccent[c.slug]}
-              href={`?cat=${c.slug}`}
-              active={active === c.slug}
+              label={categoryToLabel[slug]}
+              accent={categoryToAccent[slug]}
+              href={`?cat=${slug}`}
+              active={active === slug}
             />
           </li>
         ))}
