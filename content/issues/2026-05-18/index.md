@@ -1,11 +1,11 @@
 ---
-date: 2026-05-18T00:00:00Z
+date: 2026-05-18
 articles:
-  - next-js-16
-  - animations-css-scroll-driven
-  - tendances-web-design-2026
-  - sortie-de-claude-sonnet-4-6
+  - gemini-3-5-flash
+  - antigravity-2-0
+  - webmcp-agents-browser
+  - css-sibling-index
 ---
 
-Semaine dense côté infrastructure et outillage IA. Next.js 16 redéfinit son modèle de cache, Sonnet 4.6 fiabilise enfin le tool use sur les chaînes longues. Côté front, les animations scroll-driven sortent du flag Chrome et le design web reprend goût à la sobriété éditoriale.
+Google I/O 2026 a dominé la semaine : Gemini 3.5 Flash disponible dès le 19 mai, Antigravity 2.0 en GA le même jour, et WebMCP qui esquisse un web exposé aux agents IA. Côté CSS, sibling-index() et sibling-count() ouvrent la voie au staggering natif sans JavaScript.
 
