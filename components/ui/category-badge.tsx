@@ -33,6 +33,7 @@ export const CategoryBadge = ({
   return (
     <Link
       href={href}
+      scroll={false}
       aria-current={active ? 'page' : undefined}
       style={style}
       className={classNames(
