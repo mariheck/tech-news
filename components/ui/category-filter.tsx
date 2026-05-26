@@ -19,20 +19,23 @@ export const CategoryFilter = ({
   return (
     <nav aria-label='Filtrer par catégorie'>
       <ul className='flex flex-wrap gap-2.5'>
-        <CategoryBadge
-          label='Tous'
-          accent='peach'
-          href={basePath}
-          active={active === undefined}
-        />
-        {items.map((c) => (
+        <li key='tous'>
           <CategoryBadge
-            key={c.slug}
-            label={c.label}
-            accent={c.accent}
-            href={`?cat=${c.slug}`}
-            active={active === c.slug}
+            label='Tous'
+            accent='peach'
+            href={basePath}
+            active={active === undefined}
           />
+        </li>
+        {items.map((c) => (
+          <li key={c.slug}>
+            <CategoryBadge
+              label={c.label}
+              accent={c.accent}
+              href={`?cat=${c.slug}`}
+              active={active === c.slug}
+            />
+          </li>
         ))}
       </ul>
     </nav>
