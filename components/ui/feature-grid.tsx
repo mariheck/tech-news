@@ -24,7 +24,13 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
       </div>
 
       <div className='hidden sm:flex flex-col gap-8 lg:hidden'>
-        {feature && <Card variant='large' {...articleToCardProps(feature)} />}
+        {feature && (
+          <Card
+            variant='large'
+            {...articleToCardProps(feature)}
+            excerpt={feature.summary}
+          />
+        )}
         <div className='grid grid-cols-2 gap-8'>
           {rest.map((article, idx) => (
             <Card
@@ -38,7 +44,13 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
 
       <div className='hidden lg:flex flex-col gap-8'>
         <div className='grid grid-cols-2 gap-8'>
-          {feature && <Card variant='large' {...articleToCardProps(feature)} />}
+          {feature && (
+            <Card
+              variant='large'
+              {...articleToCardProps(feature)}
+              excerpt={feature.summary}
+            />
+          )}
           <div className='flex flex-col justify-between gap-8'>
             {horizontalPeers.map((article, idx) => (
               <Card

@@ -58,15 +58,25 @@ export const Card = ({
       >
         <Image src={image.src} alt={image.alt} fill className='object-cover' />
       </div>
-      <div className='flex flex-col gap-2'>
+      <div
+        className={classNames('flex flex-col', {
+          'gap-2': variant !== 'large',
+          'gap-3': variant === 'large'
+        })}
+      >
         {badge && (
-          <div className='mb-1'>
+          <div
+            className={classNames({
+              'mb-1': variant !== 'large',
+              'mb-2': variant === 'large'
+            })}
+          >
             <CategoryBadge label={badge} accent={accent ?? 'peach'} />
           </div>
         )}
         <h3
           className={classNames(
-            'leading-[1.2] tracking-[-0.012em] font-semibold text-primary text-balance',
+            'leading-[1.2] tracking-[-0.012em] font-semibold text-primary text-balance line-clamp-2',
             {
               'text-[clamp(1.5rem,2.2vw,1.875rem)]': variant === 'large',
               'text-xl': variant === 'medium',

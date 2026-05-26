@@ -5,6 +5,7 @@ export type ArticleMeta = {
   slug: string;
   title: string;
   excerpt: string;
+  summary: string;
   image: string;
   date: Date;
   readingTime: number;
@@ -12,7 +13,6 @@ export type ArticleMeta = {
 };
 
 export type Article = ArticleMeta & {
-  summary: string;
   sources: Source[];
   content: string;
 };
