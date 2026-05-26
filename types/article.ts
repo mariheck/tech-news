@@ -1,3 +1,4 @@
+import type { CategorySlug } from './category';
 import type { Source } from './source';
 
 export type ArticleMeta = {
@@ -7,7 +8,7 @@ export type ArticleMeta = {
   image: string;
   date: Date;
   readingTime: number;
-  category: string;
+  category: CategorySlug;
 };
 
 export type Article = ArticleMeta & {

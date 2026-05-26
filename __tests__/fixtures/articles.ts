@@ -21,5 +21,5 @@ export const makeArticles = (count: number): ArticleMeta[] =>
     image: `/a${i + 1}.jpg`,
     date: new Date('2026-05-18T00:00:00Z'),
     readingTime: 5 + i,
-    category: 'Autres'
+    category: 'autres'
   }));

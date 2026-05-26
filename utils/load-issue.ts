@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import type { Article, Issue, Source } from '@/types';
+import type { Article, CategorySlug, Issue, Source } from '@/types';
 import { parseFrontmatter } from './parse-frontmatter';
 
 const CONTENT_ROOT = path.join(process.cwd(), 'content');
@@ -17,7 +17,7 @@ type ArticleFrontmatter = {
   date: Date;
   reading_time: number;
   sources: Source[];
-  category: string;
+  category: CategorySlug;
 };
 
 export const loadIssue = async (date: string): Promise<Issue> => {

@@ -2,22 +2,51 @@ import Home from '@/app/page';
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
-test('Home page displays "this week" section heading', async () => {
-  render(await Home());
+const emptySearchParams = Promise.resolve({});
+const designParams = Promise.resolve({ cat: 'design' });
+
+test('Home page displays "last week" section heading', async () => {
+  render(await Home({ searchParams: emptySearchParams }));
   expect(
     screen.getByRole('heading', {
       level: 2,
-      name: 'Les actus de la semaine dernière',
+      name: 'Les actus de la semaine dernière'
     })
   ).toBeInTheDocument();
 });
 
 test('Home page displays a display-level page heading', async () => {
-  render(await Home());
+  render(await Home({ searchParams: emptySearchParams }));
   expect(
     screen.getByRole('heading', {
       level: 1,
-      name: 'L’essentiel de la tech, chaque lundi.',
+      name: 'L’essentiel de la tech, chaque lundi.'
     })
   ).toBeInTheDocument();
+});
+
+test('Home page mounts the CategoryFilter with "Tous" active by default', async () => {
+  render(await Home({ searchParams: emptySearchParams }));
+  const nav = screen.getByRole('navigation', { name: 'Filtrer par catégorie' });
+  expect(nav).toBeInTheDocument();
+
+  const tous = screen.getByRole('link', { name: 'Tous' });
+  expect(tous).toHaveAttribute('aria-current', 'page');
+  expect(tous).toHaveAttribute('href', '/');
+});
+
+test('Home page marks the active category from ?cat=design', async () => {
+  render(await Home({ searchParams: designParams }));
+  expect(screen.getByRole('link', { name: 'Design' })).toHaveAttribute(
+    'aria-current',
+    'page'
+  );
+});
+
+test('Home page ignores an invalid ?cat= value and treats "Tous" as active', async () => {
+  render(await Home({ searchParams: Promise.resolve({ cat: 'web-dev' }) }));
+  expect(screen.getByRole('link', { name: 'Tous' })).toHaveAttribute(
+    'aria-current',
+    'page'
+  );
 });

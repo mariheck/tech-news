@@ -10,7 +10,7 @@ sources:
     { label: 'CSS Design Awards Q1', url: 'cssdesignawards.com' },
     { label: 'Site Inspire collection', url: 'siteinspire.com/2026' }
   ]
-category: 'Autres'
+category: 'design'
 ---
 
 # Tendances web design 2026 : moins de visuels théâtraux, plus de clarté native

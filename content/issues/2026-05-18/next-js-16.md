@@ -10,7 +10,7 @@ sources:
     { label: 'RFC: cache directives', url: 'github.com/vercel/next.js' },
     { label: 'Migration codemods', url: 'github.com/vercel/next-codemod' }
   ]
-category: 'Autres'
+category: 'frontend'
 ---
 
 # Next.js 16, tour de la release : breaking changes et impact migration

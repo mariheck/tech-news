@@ -13,7 +13,7 @@ sources:
       url: 'github.com/anthropics/cookbook'
     }
   ]
-category: 'Autres'
+category: 'dev-ia'
 ---
 
 # Sortie de Claude Sonnet 4.6 : ce qui change pour le code agentique

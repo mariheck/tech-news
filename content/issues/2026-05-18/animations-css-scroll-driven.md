@@ -16,7 +16,7 @@ sources:
       url: 'caniuse.com/css-scroll-timeline'
     }
   ]
-category: 'Autres'
+category: 'design'
 ---
 
 # Animations CSS scroll-driven : chorégraphier la page au scroll

@@ -33,7 +33,7 @@ test('loadIssue maps article frontmatter into the Article shape', () => {
   expect(first.excerpt).toMatch(/^Turbopack stable/);
   expect(first.summary).toMatch(/^Vercel publie Next.js 16/);
   expect(first.readingTime).toBe(8);
-  expect(first.category).toBe('Autres');
+  expect(first.category).toBe('frontend');
   expect(first.date).toEqual(new Date('2026-05-18T00:00:00Z'));
   expect(first.sources).toHaveLength(3);
   expect(first.sources[0]).toEqual({
