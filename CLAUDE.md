@@ -46,6 +46,7 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 - **Module-level constants** in `UPPER_SNAKE_CASE` (`MAX_ITEMS`, `API_BASE_URL`). Local `const` bindings stay `camelCase`.
 - **No `any`** — reach for `unknown` + narrowing, generics, or a precise type. Don't silence the compiler with `as any` or `@ts-ignore` (`@ts-expect-error` is acceptable only with a written reason).
 - **Conditional classes**: compose with `classNames(...)` from the `classnames` dependency. Use the object form (`{ 'flex-col': direction === 'vertical' }`) for variant/state branching. Reserve template literals for simple static strings without conditionals.
+- **Class strings stay inline.** Don't extract Tailwind class strings to module-level `const`s — it breaks Tailwind IntelliSense (which only fires inside `className=` / `classNames(...)`) and forces a visual round-trip across the file. **In-function `const` bindings are acceptable** when the same class string appears in 2+ branches of the same component (see `baseBadge` / `accentBadge` in `components/ui/category-badge.tsx`).
 - **Sizing values**: prefer the Tailwind v4 spacing scale (`min-w-70`, `max-w-95`, `w-55` — unit is `0.25rem`, so `max-w-95` = `23.75rem`) over arbitrary values. When an arbitrary value is unavoidable (e.g. inside `clamp()`, or a measurement off the scale), prefer `rem` over `px` (`text-[1.07rem]` not `text-[17px]`). The exception is values that are inherently non-rem — percentages (`basis-[42%]`), viewport units, etc.
 - **Prop union types**: extract named `type` aliases (e.g. `type CardSize = 'sm' | 'md' | 'lg'`) before referencing them in the props type, rather than inlining the union inside `CardProps`.
 - **All unit tests in `__tests__/` at the repo root**, mirroring the source path (e.g. `app/page.tsx` → `__tests__/app/page.test.tsx`). Do not colocate `*.test.tsx` files next to source.
@@ -73,7 +74,13 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 
 ## Categories
 
-Single source of truth: `types/category.ts` exports `CategorySlug`, `AccentName`, `Category`, and `CATEGORIES` (ordered). The slugs are `frontend`, `design`, `dev-ia`, `actus-ia`, `autres`; their French labels and accent assignments (`turquoise`, `raspberry`, `copper`, `iris`, `linen`) live there too. Any new surface that needs a category (card pill, article sidebar, search modal grouping) imports from here.
+Category data is split by dimension:
+- `types/category.ts` → `CategorySlug` literal union (`frontend`, `design`, `dev-ia`, `actus-ia`, `autres`).
+- `utils/categories.ts` → `CATEGORIES: readonly CategorySlug[]` (canonical display order).
+- `utils/category-to-label.ts` → `Record<CategorySlug, string>` (French labels: `Frontend`, `Design`, `Dev IA`, `Actus IA`, `Autres`).
+- `utils/category-to-accent.ts` → `Record<CategorySlug, AccentName>` (accents: `turquoise`, `raspberry`, `copper`, `iris`, `linen`).
+
+Adding a new category means updating the union plus each `Record` — TS enforces exhaustiveness on the Records, so a missing entry fails the build. Consumers iterate `CATEGORIES` and resolve label/accent via the lookups (see `components/ui/category-filter.tsx`).
 
 ## Skills to reach for
 
