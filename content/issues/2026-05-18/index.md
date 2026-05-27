@@ -3,15 +3,18 @@ date: 2026-05-18T00:00:00Z
 articles:
   - nextjs-13-cves-security-release
   - gemini-3-5-flash-google-io
+  - openai-ipo-depot-confidentiel
+  - openai-erdos-conjecture-mathematiques
+  - figma-agent-ia-canvas
+  - google-stitch-agent-ia-design
   - claude-managed-agents-mcp-tunnels
   - cursor-composer-2-5
   - firefox-151-container-style-queries
   - css-sibling-index-sibling-count
   - next-js-16
   - animations-css-scroll-driven
-  - tendances-web-design-2026
   - sortie-de-claude-sonnet-4-6
+  - tendances-web-design-2026
 ---
 
-Semaine chargée en sécurité et en IA agentique : Next.js patch 13 failles en urgence pendant que Google I/O installe Gemini 3.5 Flash comme nouveau mètre-étalon de vitesse frontier. Côté CSS, Firefox 151 boucle enfin le support des container style queries et deux nouvelles fonctions éliminent le dernier recours au JavaScript pour les effets de cascade.
-
+Google I/O 2026 et l'IPO confidentielle d'OpenAI ont dominé une semaine d'actualité IA dense : Gemini 3.5 Flash, Figma Agent, Google Stitch et la réfutation par l'IA d'une conjecture d'Erdős vieille de 80 ans. Côté frontend, Next.js patche 13 failles en urgence pendant que Firefox 151 finalise les container style queries et que CSS gagne deux nouvelles fonctions pour les effets de cascade.
