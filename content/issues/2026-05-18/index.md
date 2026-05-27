@@ -1,11 +1,17 @@
 ---
 date: 2026-05-18T00:00:00Z
 articles:
+  - nextjs-13-cves-security-release
+  - gemini-3-5-flash-google-io
+  - claude-managed-agents-mcp-tunnels
+  - cursor-composer-2-5
+  - firefox-151-container-style-queries
+  - css-sibling-index-sibling-count
   - next-js-16
   - animations-css-scroll-driven
   - tendances-web-design-2026
   - sortie-de-claude-sonnet-4-6
 ---
 
-Semaine dense côté infrastructure et outillage IA. Next.js 16 redéfinit son modèle de cache, Sonnet 4.6 fiabilise enfin le tool use sur les chaînes longues. Côté front, les animations scroll-driven sortent du flag Chrome et le design web reprend goût à la sobriété éditoriale.
+Semaine chargée en sécurité et en IA agentique : Next.js patch 13 failles en urgence pendant que Google I/O installe Gemini 3.5 Flash comme nouveau mètre-étalon de vitesse frontier. Côté CSS, Firefox 151 boucle enfin le support des container style queries et deux nouvelles fonctions éliminent le dernier recours au JavaScript pour les effets de cascade.
 
