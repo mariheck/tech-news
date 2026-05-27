@@ -17,6 +17,7 @@ export const makeArticles = (count: number): ArticleMeta[] =>
   Array.from({ length: count }, (_, i) => ({
     slug: `a${i + 1}`,
     title: `Article ${numbered(i)}`,
+    summary: `Summary ${numbered(i)}.`,
     excerpt: `Excerpt ${numbered(i)}.`,
     image: `/a${i + 1}.jpg`,
     date: new Date('2026-05-18T00:00:00Z'),

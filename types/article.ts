@@ -16,3 +16,8 @@ export type Article = ArticleMeta & {
   sources: Source[];
   content: string;
 };
+
+export type ArticleParams = {
+  date: string;
+  slug: string;
+};

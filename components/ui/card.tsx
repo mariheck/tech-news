@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
-import { CategoryBadge } from './category-badge';
+import { CategoryBadge } from './category/category-badge';
 
 type CardVariant = 'large' | 'medium' | 'horizontal';
 

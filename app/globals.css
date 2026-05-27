@@ -33,6 +33,7 @@
 
   /* Motion */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
   --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
   /* Shadows */
@@ -47,6 +48,7 @@
 @layer base {
   :root {
     --accent: var(--color-accent-peach);
+    --accent-light: var(--color-accent-peach-light);
   }
 
   html {
@@ -64,7 +66,7 @@
 
   .text-headline {
     font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-    @apply leading-[1.02] tracking-tight font-semibold;
+    @apply leading-[1.05] tracking-[-0.022em] font-semibold;
   }
 
   .text-title {
@@ -77,6 +79,21 @@
 
   .text-label {
     @apply font-mono text-[0.65625rem] leading-none tracking-[0.09em] font-medium uppercase;
+  }
+
+  .halo-background {
+    background:
+      radial-gradient(
+        ellipse 65% 55% at 35% 30%,
+        color-mix(in oklab, var(--accent) 35%, transparent) 0%,
+        color-mix(in oklab, var(--accent) 14%, transparent) 35%,
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 90% 40% at 50% 0%,
+        color-mix(in oklab, var(--accent) 18%, transparent) 0%,
+        transparent 60%
+      );
   }
 
   /* Selected text */

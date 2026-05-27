@@ -7,5 +7,7 @@ export * from './filter-by-category';
 export * from './format-long-date';
 export * from './format-week-range';
 export * from './is-category-slug';
+export * from './list-article-params';
+export * from './load-article';
 export * from './load-issue';
 export * from './parse-frontmatter';
