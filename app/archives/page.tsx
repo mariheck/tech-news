@@ -22,7 +22,11 @@ const ArchivesPage = async ({ searchParams }: ArchivesPageProps) => {
         <CategoryFilter basePath='/archives' active={active} />
       </div>
 
-      <WeeklyEdition weekStart={issue.date} articles={articles} />
+      <WeeklyEdition
+        weekStart={issue.date}
+        articles={articles}
+        from='archives'
+      />
     </div>
   );
 };

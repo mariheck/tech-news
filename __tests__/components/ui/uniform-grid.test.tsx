@@ -41,7 +41,7 @@ test('UniformGrid renders one medium Card per article', () => {
 test('UniformGrid passes title, image and href through to each card', () => {
   const grid = renderGrid();
   const link = within(grid).getByRole('link', { name: /article one/i });
-  expect(link).toHaveAttribute('href', '#');
+  expect(link).toHaveAttribute('href', '/2026-05-18/a1');
   const image = within(grid).getByRole('img', { name: 'Article one' });
   expect(image).toHaveAttribute('src', expect.stringContaining('a1.jpg'));
 });
@@ -49,4 +49,13 @@ test('UniformGrid passes title, image and href through to each card', () => {
 test('UniformGrid renders an empty grid when articles is empty', () => {
   const grid = renderGrid([]);
   expect(grid.children).toHaveLength(0);
+});
+
+test('UniformGrid appends ?from=archives to card hrefs when from is set', () => {
+  const { container } = render(
+    <UniformGrid articles={articles} from='archives' />
+  );
+  const grid = container.firstChild as HTMLElement;
+  const link = within(grid).getByRole('link', { name: /article one/i });
+  expect(link).toHaveAttribute('href', '/2026-05-18/a1?from=archives');
 });

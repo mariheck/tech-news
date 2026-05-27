@@ -116,7 +116,7 @@ test('FeatureGrid passes title, excerpt, image and href through to each card', (
   const { mobile } = renderLayouts();
 
   const link = within(mobile).getByRole('link', { name: /article one/i });
-  expect(link).toHaveAttribute('href', '#');
+  expect(link).toHaveAttribute('href', '/2026-05-18/a1');
 
   const image = within(mobile).getByRole('img', { name: 'Article one' });
   expect(image).toHaveAttribute('src', expect.stringContaining('a1.jpg'));

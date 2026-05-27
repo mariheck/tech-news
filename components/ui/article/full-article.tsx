@@ -1,3 +1,4 @@
+import { ScrollToTop } from '@/components/ui/shared';
 import type { Article } from '@/types';
 import { accentToCssVar, accentToLightCssVar, categoryToAccent } from '@/utils';
 import type { CSSProperties } from 'react';
@@ -7,9 +8,10 @@ import { Sources } from './sources';
 
 type FullArticleProps = {
   article: Article;
+  backHref: string;
 };
 
-export const FullArticle = ({ article }: FullArticleProps) => {
+export const FullArticle = ({ article, backHref }: FullArticleProps) => {
   const accent = categoryToAccent[article.category];
   const style = {
     '--accent': accentToCssVar[accent],
@@ -21,12 +23,14 @@ export const FullArticle = ({ article }: FullArticleProps) => {
       style={style}
       className='grid grid-cols-1 md:grid-cols-[280px_1fr] md:gap-[clamp(2.5rem,6vw,5.5rem)]'
     >
+      <ScrollToTop />
       <MainInfo
         category={article.category}
         summary={article.summary}
         date={article.date}
         readingTime={article.readingTime}
         sources={article.sources}
+        backHref={backHref}
         className='mb-6 md:mb-0 md:sticky md:top-28 md:pt-2 md:self-start'
       />
 

@@ -10,6 +10,7 @@ type MainInfoProps = Pick<
   Article,
   'category' | 'summary' | 'date' | 'readingTime' | 'sources'
 > & {
+  backHref: string;
   className?: string;
 };
 
@@ -19,6 +20,7 @@ export const MainInfo = ({
   date,
   readingTime,
   sources,
+  backHref,
   className
 }: MainInfoProps) => {
   return (
@@ -30,7 +32,7 @@ export const MainInfo = ({
 
       <div className='flex flex-col gap-6'>
         <div className='flex items-center justify-between'>
-          <BackLink />
+          <BackLink href={backHref} />
           <CategoryBadge
             label={categoryToLabel[category]}
             accent={categoryToAccent[category]}
