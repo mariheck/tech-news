@@ -8,6 +8,12 @@ import { CategoryBadge } from './category/category-badge';
 
 type CardVariant = 'large' | 'medium' | 'horizontal';
 
+const variantToImageSizes: Record<CardVariant, string> = {
+  large: '(min-width: 1024px) 50vw, 100vw',
+  medium: '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw',
+  horizontal: '(min-width: 1024px) 25vw, 50vw'
+};
+
 type CardProps = {
   variant?: CardVariant;
   accent?: AccentName;
@@ -56,7 +62,13 @@ export const Card = ({
           { 'basis-[42%] shrink-0': variant === 'horizontal' }
         )}
       >
-        <Image src={image.src} alt={image.alt} fill className='object-cover' />
+        <Image
+          src={image.src}
+          alt={image.alt}
+          fill
+          sizes={variantToImageSizes[variant]}
+          className='object-cover'
+        />
       </div>
       <div
         className={classNames('flex flex-col', {

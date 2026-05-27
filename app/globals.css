@@ -52,7 +52,7 @@
   }
 
   html {
-    @apply h-full antialiased;
+    @apply h-full antialiased overscroll-none;
   }
 
   body {
@@ -98,7 +98,7 @@
 
   /* Selected text */
   ::selection {
-    @apply bg-accent-peach text-primary;
+    @apply bg-accent-peach text-plum-base;
   }
 
   /* Focus outline */
@@ -107,7 +107,7 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-solid outline-accent-peach outline-offset-2;
+    @apply outline-2 outline-solid outline-accent-peach outline-offset-2 rounded;
   }
 
   /* Reduced motion when requested */

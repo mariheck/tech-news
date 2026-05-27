@@ -12,7 +12,7 @@ export const Brand = ({ size = 'md' }: BrandProps) => {
     <Link
       href='/'
       className={classNames(
-        'group relative isolate inline-flex items-baseline gap-2 p-2 rounded-lg',
+        'group relative isolate inline-flex items-baseline gap-2 p-1',
         'font-mono tracking-wider text-primary no-underline',
         { 'text-sm': size === 'md', 'text-[0.8125rem]': size === 'sm' },
         'before:absolute before:-inset-y-3 before:-inset-x-1 before:content-[""]'

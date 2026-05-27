@@ -36,6 +36,33 @@ test('Card renders an image with the given src and alt', () => {
   expect(image).toHaveAttribute('src', expect.stringContaining('next-16.jpg'));
 });
 
+test('Card medium image hints sizes for the 1/2/3-column responsive layout', () => {
+  render(mediumCard);
+  const image = screen.getByRole('img', { name: 'Next.js 16 cover' });
+  expect(image).toHaveAttribute(
+    'sizes',
+    '(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw'
+  );
+});
+
+test('Card large image hints sizes for the full-width to half-width layout', () => {
+  render(largeCard);
+  const image = screen.getByRole('img', { name: 'Next.js 16 cover' });
+  expect(image).toHaveAttribute(
+    'sizes',
+    '(min-width: 1024px) 50vw, 100vw'
+  );
+});
+
+test('Card horizontal image hints sizes for the desktop-only side-by-side layout', () => {
+  render(horizontalCard);
+  const image = screen.getByRole('img', { name: 'Next.js 16 cover' });
+  expect(image).toHaveAttribute(
+    'sizes',
+    '(min-width: 1024px) 25vw, 50vw'
+  );
+});
+
 test('Card lifts and casts a peach halo on hover and keyboard focus', () => {
   render(mediumCard);
   const link = screen.getByRole('link', { name: /next\.js 16/i });
