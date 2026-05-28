@@ -10,4 +10,5 @@ export * from './is-category-slug';
 export * from './list-article-params';
 export * from './load-article';
 export * from './load-issue';
+export * from './load-page';
 export * from './parse-frontmatter';

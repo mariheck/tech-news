@@ -1,0 +1,21 @@
+import { StyledMarkdown } from '@/components/ui';
+import { loadPage } from '@/utils';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Mentions légales | tech.news',
+  description:
+    'Mentions légales du site tech.news : éditeur, hébergeur et sources des contenus.'
+};
+
+const LegalPage = async () => {
+  const content = await loadPage('mentions-legales');
+
+  return (
+    <div className='mx-auto max-w-180'>
+      <StyledMarkdown markdown={content} />
+    </div>
+  );
+};
+
+export default LegalPage;
