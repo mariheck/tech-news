@@ -16,12 +16,12 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className='text-[1.875rem] font-semibold leading-[1.2] tracking-[-0.014em] mt-15 mb-4.5 text-(--accent) text-balance'>
+          <h2 className='text-[1.875rem] font-semibold leading-[1.2] tracking-[-0.014em] mt-15 mb-4.5 text-primary text-balance'>
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className='text-title mt-8.75 mb-2.75 text-(--accent) text-balance'>
+          <h3 className='text-title mt-8.75 mb-2.75 text-primary text-balance'>
             {children}
           </h3>
         ),

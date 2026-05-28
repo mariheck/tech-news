@@ -23,7 +23,7 @@ test('StyledMarkdown renders the leading H1 with the headline typography', () =>
   expect(h1.className).toContain('text-primary');
 });
 
-test('StyledMarkdown renders H2 with the in-article H2 styles tinted to --accent', () => {
+test('StyledMarkdown renders H2 with the in-article H2 styles in text-primary', () => {
   render(<StyledMarkdown markdown={markdown} />);
   const h2 = screen.getByRole('heading', {
     level: 2,
@@ -31,17 +31,17 @@ test('StyledMarkdown renders H2 with the in-article H2 styles tinted to --accent
   });
   expect(h2.className).toContain('text-[1.875rem]');
   expect(h2.className).toContain('font-semibold');
-  expect(h2.className).toContain('text-(--accent)');
+  expect(h2.className).toContain('text-primary');
 });
 
-test('StyledMarkdown renders H3 tinted to --accent', () => {
+test('StyledMarkdown renders H3 in text-primary', () => {
   render(<StyledMarkdown markdown={markdown} />);
   const h3 = screen.getByRole('heading', {
     level: 3,
     name: 'A third-level heading'
   });
   expect(h3.className).toContain('text-title');
-  expect(h3.className).toContain('text-(--accent)');
+  expect(h3.className).toContain('text-primary');
 });
 
 test('StyledMarkdown renders inline code in a mono chip on bg-plum-overlay', () => {
