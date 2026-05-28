@@ -1,6 +1,5 @@
-import classNames from 'classnames';
-import { ArchiveIcon } from 'lucide-react';
-import Link from 'next/link';
+import { TextLink } from '@/components/ui';
+import { ArchiveIcon, NewspaperIcon } from 'lucide-react';
 import { Brand } from './brand';
 
 export const Header = () => {
@@ -8,20 +7,14 @@ export const Header = () => {
     <header className='sticky top-0 z-40 h-16 border-b border-plum-subtle bg-plum-base/85 backdrop-blur-sm'>
       <div className='mx-auto flex h-full max-w-7xl items-center justify-between px-6'>
         <Brand />
-        <Link
-          href='/archives'
-          aria-label='Archives'
-          className={classNames(
-            'relative text-secondary p-2 rounded-lg',
-            'hover:bg-primary/6 focus-visible:bg-primary/6',
-            'hover:text-primary focus-visible:text-primary',
-            'transition-colors',
-            'ease-in-out-circ duration-200',
-            "before:absolute before:-inset-1 before:content-['']"
-          )}
-        >
-          <ArchiveIcon strokeWidth={1.7} size={20} />
-        </Link>
+        <div className='flex gap-8'>
+          <TextLink href='/' icon={NewspaperIcon}>
+            Accueil
+          </TextLink>
+          <TextLink href='/archives' icon={ArchiveIcon}>
+            Archives
+          </TextLink>
+        </div>
       </div>
     </header>
   );
