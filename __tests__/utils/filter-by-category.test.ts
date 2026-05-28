@@ -6,6 +6,7 @@ const make = (category: CategorySlug, suffix: string): ArticleMeta => ({
   slug: `a-${suffix}`,
   title: `Article ${suffix}`,
   excerpt: `Excerpt ${suffix}.`,
+  summary: `Summary ${suffix}.`,
   image: `/${suffix}.jpg`,
   date: new Date('2026-05-18T00:00:00Z'),
   readingTime: 5,

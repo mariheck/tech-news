@@ -36,6 +36,7 @@ export const FullArticle = ({ article, backHref }: FullArticleProps) => {
 
       <ArticleBody
         title={article.title}
+        category={article.category}
         image={article.image}
         content={article.content}
       />
