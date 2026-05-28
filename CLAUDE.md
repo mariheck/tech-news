@@ -24,7 +24,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run test -- __tests__/app/page.test.tsx` — run a single test file
 - `npm run test -- -t 'Page'` — run tests matching a name pattern
 
-There is no separate typecheck script — `next build` and the editor's TS server handle it.
+There is no typecheck script — run `npx tsc --noEmit` for a fast typecheck without a full build. Vitest (esbuild) skips type errors, so a green `npm run test` does **not** mean types pass; run `tsc` (or `next build`) to be sure.
 
 ## Architecture
 
@@ -69,8 +69,9 @@ There is no separate typecheck script — `next build` and the editor's TS serve
 - **Body H1 contract**. The article body MUST start with `# {title}` matching the frontmatter `title`. The rendered article page H1 comes from this line — not from the frontmatter — because `StyledMarkdown` maps `h1` to the headline typography. Omitting it leaves the page without an H1 (a11y/SEO regression). The agent prompt must enforce this.
 - **Images**. Resolved by convention as `/images/<YYYY-MM-DD>/<slug>.jpg` — not in frontmatter.
 - **Loader**. `loadIssue(date)` in `utils/load-issue.ts` is the single entry point. Content root is hardcoded to `<cwd>/content`; tests run against real issues, no fixture override.
+- **Static pages on disk**. `content/pages/<slug>.md` holds standalone pages (raw markdown, **no frontmatter**), loaded via `loadPage(slug)` in `utils/load-page.ts` (returns the trimmed markdown string) and rendered with `StyledMarkdown`. Page `<title>`/description come from a `metadata` export in the route, not the file. See `app/mentions-legales/page.tsx`.
 - **Frontmatter parser**. Hand-rolled in `utils/parse-frontmatter.ts` (gray-matter–style `{ data, content }`). Covers scalars, block sequences, and flow sequences of inline mappings. Extend the parser rather than reach for a dep.
-- **Types**. `ArticleMeta` (slug, title, excerpt, image, date, readingTime, category) is the card-view shape; `Article = ArticleMeta & { summary, sources, content }` is the full editorial shape. Grids type `articles: ArticleMeta[]` so loader output flows in by subtyping. `slug` = URL identifier (filename); `summary` = accroche paragraph.
+- **Types**. `ArticleMeta` (slug, title, excerpt, summary, image, date, readingTime, category) is the card-view shape; `Article = ArticleMeta & { sources, content }` is the full editorial shape. Grids type `articles: ArticleMeta[]` so loader output flows in by subtyping. `slug` = URL identifier (filename); `summary` = accroche paragraph.
 - **Server Component data flow**. `app/page.tsx` and `app/archives/page.tsx` are async Server Components that `await loadIssue('2026-05-18')`. The date is hardcoded until we have multiple issues plus a `latestIssueDate()` helper.
 - **Agent IA contract**. The markdown frontmatter format is the agreement with the AI agent generating these files. Schema changes (renames, new fields) require updating the agent's prompt in parallel.
 
@@ -85,7 +86,7 @@ Category data is split by dimension:
 
 Adding a new category means updating the union plus each `Record` — TS enforces exhaustiveness on the Records, so a missing entry fails the build. Consumers iterate `CATEGORIES` and resolve label/accent via the lookups (see `components/ui/category/category-filter.tsx`).
 
-**Accent CSS variables.** Two scoped vars carry the category palette: `--accent` (saturated, for borders, markers, in-article H2/H3) and `--accent-light` (lighter tint, for link hover, decorations, soft borders). Both default to peach on `:root` (in `app/globals.css`) and are overridden on the article's `<article>` wrapper via `accentToCssVar[accent]` / `accentToLightCssVar[accent]`. Use the Tailwind v4 shorthand `text-(--accent)` / `border-(--accent-light)/25` rather than `text-[var(--accent)]`.
+**Accent CSS variables.** Two scoped vars carry the category palette: `--accent` (saturated, for borders and markers — e.g. the blockquote left border) and `--accent-light` (lighter tint, for link hover, decorations, soft borders). In-article H2/H3 are `text-primary`, not accent-tinted. Both default to peach on `:root` (in `app/globals.css`) and are overridden on the article's `<article>` wrapper via `accentToCssVar[accent]` / `accentToLightCssVar[accent]`. Use the Tailwind v4 shorthand `text-(--accent)` / `border-(--accent-light)/25` rather than `text-[var(--accent)]`.
 
 ## Skills to reach for
 
@@ -124,6 +125,7 @@ Do not write production code without a failing test pointing at it. Do not stack
 - **Shared test fixtures across files** live in `__tests__/fixtures/<name>.ts`, exported as factory functions (`makeArticles(n)`) rather than fixed arrays — the call site stays explicit about the size needed. Imported via the `@/` alias.
 - **Mocking one helper from `@/utils` while keeping the rest real**: `vi.mock('@/utils', async () => { const actual = await vi.importActual<typeof import('@/utils')>('@/utils'); return { ...actual, loadArticle: vi.fn() }; })`. Server Components that import multiple utils via the barrel (loaders + format helpers + lookups) will explode if the whole module is replaced — `importActual` preserves the rest while you stub the I/O-bound helper.
 - **Mocking `notFound()` from `next/navigation`**: `vi.mock('next/navigation', () => ({ notFound: vi.fn(() => { throw new Error('NEXT_NOT_FOUND'); }) }))`, then assert with `await expect(Page(...)).rejects.toThrow('NEXT_NOT_FOUND')`. `notFound()` returns `never` in prod, but vitest needs a thrown value to abort the async page render.
+- **Components reading `process.env`**: stub with `vi.stubEnv('KEY', 'value')` in the test and call `vi.unstubAllEnvs()` in `afterEach` so stubs don't leak across tests. See `__tests__/components/layout/footer.test.tsx`.
 
 ## Commits
 
