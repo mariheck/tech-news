@@ -17,7 +17,7 @@ export const ArticleBody = ({
 }: ArticleBodyProps) => {
   return (
     <div className='max-w-180'>
-      <div className='mb-12 md:mb-9 relative'>
+      <div className='mb-9 relative'>
         <div className='absolute top-3 right-4 z-10 md:hidden'>
           <CategoryBadge
             label={categoryToLabel[category]}

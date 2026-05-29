@@ -14,7 +14,7 @@ export const MetaData = ({ date, readingTime, className }: MetaDataProps) => {
         'flex justify-end md:justify-normal',
         'text-right md:text-left',
         'md:grid md:grid-cols-2',
-        'gap-14 md:gap-4',
+        'gap-6 md:gap-4',
         className
       )}
     >
