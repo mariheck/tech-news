@@ -1,10 +1,14 @@
 import { listIssueDates } from '@/utils';
 import { expect, test } from 'vitest';
 
-test('listIssueDates returns issue folder names sorted most-recent-first', async () => {
-  const dates = await listIssueDates();
-  const sortedDescending = [...dates].sort((a, b) => b.localeCompare(a));
-  expect(dates).toEqual(sortedDescending);
+// Reads the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT is
+// pointed there in vitest.config.mts): three editions, most-recent-first.
+test('listIssueDates returns the fixture issue folders sorted most-recent-first', async () => {
+  expect(await listIssueDates()).toEqual([
+    '2026-05-18',
+    '2026-05-11',
+    '2026-05-04'
+  ]);
 });
 
 test('listIssueDates returns only YYYY-MM-DD folder names', async () => {

@@ -1,6 +1,8 @@
 import { loadPage } from '@/utils';
 import { beforeAll, expect, test } from 'vitest';
 
+// Reads the fixture page under __tests__/fixtures/content/pages (CONTENT_ROOT is
+// pointed there in vitest.config.mts), never the live content/ directory.
 let content: string;
 
 beforeAll(async () => {

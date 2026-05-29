@@ -124,10 +124,9 @@ test('FeatureGrid passes title, excerpt, image and href through to each card', (
   expect(within(mobile).getByText('Excerpt one.')).toBeInTheDocument();
 });
 
-test('FeatureGrid renders all three layouts without crashing on an empty articles array', () => {
-  const { mobile, tablet, desktop } = renderLayouts([]);
-  expect(mobile).toBeDefined();
-  expect(tablet).toBeDefined();
-  expect(desktop).toBeDefined();
-  expect(within(mobile).queryAllByRole('heading')).toHaveLength(0);
+test('FeatureGrid shows an empty notice and no cards when given an empty articles array', () => {
+  const { container } = render(<FeatureGrid articles={[]} />);
+  expect(container.querySelectorAll('a')).toHaveLength(0);
+  expect(within(container).queryAllByRole('heading')).toHaveLength(0);
+  expect(within(container).getByText('Aucun article cette semaine.')).toBeInTheDocument();
 });

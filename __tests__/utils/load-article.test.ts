@@ -2,25 +2,25 @@ import { beforeAll, expect, test } from 'vitest';
 import type { Article } from '@/types';
 import { loadArticle } from '@/utils';
 
+// Reads the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT is
+// pointed there in vitest.config.mts), never the live content/ directory.
 let article: Article;
 
 beforeAll(async () => {
-  article = await loadArticle('2026-05-18', 'next-js-16');
+  article = await loadArticle('2026-05-18', 'fixture-alpha');
 });
 
 test('loadArticle reads frontmatter title and excerpt', () => {
-  expect(article.title).toBe(
-    'Next.js 16, tour de la release : breaking changes et impact migration'
-  );
-  expect(article.excerpt).toMatch(/^Turbopack stable/);
+  expect(article.title).toBe('Fixture Alpha : un titre de test pour le loader');
+  expect(article.excerpt).toMatch(/^Excerpt de fixture alpha/);
 });
 
 test('loadArticle reads the summary chapeau paragraph', () => {
-  expect(article.summary).toMatch(/^Vercel publie Next.js 16/);
+  expect(article.summary).toMatch(/^Résumé de fixture alpha/);
 });
 
 test('loadArticle reads reading_time as readingTime (number)', () => {
-  expect(article.readingTime).toBe(8);
+  expect(article.readingTime).toBe(7);
 });
 
 test('loadArticle reads the ISO date as a Date instance', () => {
@@ -32,19 +32,19 @@ test('loadArticle reads the category slug', () => {
 });
 
 test('loadArticle reads the sources flow sequence', () => {
-  expect(article.sources).toHaveLength(3);
+  expect(article.sources).toHaveLength(2);
   expect(article.sources[0]).toEqual({
-    label: 'Next.js 16 release notes',
-    url: 'nextjs.org/blog/next-16'
+    label: 'Source alpha un',
+    url: 'example.com/alpha-1'
   });
 });
 
 test('loadArticle resolves the image path by convention', () => {
-  expect(article.image).toBe('/images/2026-05-18/next-js-16.jpg');
+  expect(article.image).toBe('/images/2026-05-18/fixture-alpha.jpg');
 });
 
 test('loadArticle exposes the markdown body via content', () => {
-  expect(article.content).toContain('Vercel a publié Next.js 16');
+  expect(article.content).toContain('Corps de fixture alpha');
 });
 
 test('loadArticle rejects for an unknown slug', async () => {

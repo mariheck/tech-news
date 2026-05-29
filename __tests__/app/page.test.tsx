@@ -1,20 +1,29 @@
 import Home from '@/app/page';
 import { render, screen } from '@testing-library/react';
-import { expect, test } from 'vitest';
+import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 
+// Backed by the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT
+// is pointed there in vitest.config.mts): the latest edition is 2026-05-18. The
+// clock is frozen to the following week so getExpectedLastMonday() resolves to
+// that same Monday, making the "semaine dernière" heading deterministic.
 const emptySearchParams = Promise.resolve({});
 const designParams = Promise.resolve({ cat: 'design' });
 
-test('Home page displays a section heading above the feature grid', async () => {
+beforeEach(() => {
+  vi.useFakeTimers();
+  vi.setSystemTime(new Date('2026-05-28T10:00:00Z')); // Thursday after 2026-05-18
+});
+
+afterEach(() => {
+  vi.useRealTimers();
+});
+
+test('Home page displays the section heading for the latest edition', async () => {
   render(await Home({ searchParams: emptySearchParams }));
-  // The heading is either "Les actus de la semaine dernière" when the latest
-  // issue is genuinely last week, or a "Semaine du …" range otherwise. The
-  // choice depends on the real clock, so match either form rather than couple
-  // the test to today's date.
   expect(
     screen.getByRole('heading', {
       level: 2,
-      name: /^(Les actus de la semaine dernière|Semaine du )/
+      name: 'Les actus de la semaine dernière'
     })
   ).toBeInTheDocument();
 });

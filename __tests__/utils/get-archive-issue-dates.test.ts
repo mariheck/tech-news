@@ -1,14 +1,9 @@
-import { getArchiveIssueDates, listIssueDates } from '@/utils';
+import { getArchiveIssueDates } from '@/utils';
 import { expect, test } from 'vitest';
 
+// Backed by the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT
+// is pointed there in vitest.config.mts): three editions, so archives drop the
+// latest (2026-05-18) and keep the rest, most-recent-first.
 test('getArchiveIssueDates returns every issue except the latest', async () => {
-  const all = await listIssueDates();
-  const archives = await getArchiveIssueDates();
-  expect(archives).toEqual(all.slice(1));
-});
-
-test('getArchiveIssueDates keeps the most-recent-first ordering', async () => {
-  const archives = await getArchiveIssueDates();
-  const sortedDescending = [...archives].sort((a, b) => b.localeCompare(a));
-  expect(archives).toEqual(sortedDescending);
+  expect(await getArchiveIssueDates()).toEqual(['2026-05-11', '2026-05-04']);
 });
