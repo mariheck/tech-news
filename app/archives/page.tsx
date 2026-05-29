@@ -1,9 +1,7 @@
-import {
-  CategoryFilter,
-  EmptyNotice,
-  PageHeading,
-  WeeklyEdition
-} from '@/components/ui';
+import { CategoryFilter } from '@/components/category';
+import { WeeklyEdition } from '@/components/listing';
+import { EmptyNotice } from '@/components/shared';
+import { PageHeading } from '@/components/typo';
 import {
   filterByCategory,
   getArchiveIssueDates,

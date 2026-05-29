@@ -1,4 +1,4 @@
-import { StyledMarkdown } from '@/components/ui';
+import { StyledMarkdown } from '@/components/typo';
 import { loadPage } from '@/utils';
 import type { Metadata } from 'next';
 

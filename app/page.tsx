@@ -1,10 +1,7 @@
-import {
-  CategoryFilter,
-  EmptyNotice,
-  FeatureGrid,
-  PageHeading,
-  SectionHeading
-} from '@/components/ui';
+import { CategoryFilter } from '@/components/category';
+import { FeatureGrid } from '@/components/listing';
+import { EmptyNotice } from '@/components/shared';
+import { PageHeading, SectionHeading } from '@/components/typo';
 import {
   filterByCategory,
   formatWeekRange,

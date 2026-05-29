@@ -1,4 +1,4 @@
-import { FullArticle } from '@/components/ui';
+import { FullArticle } from '@/components/article';
 import { ISO_DATE, listArticleParams, loadArticle } from '@/utils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';

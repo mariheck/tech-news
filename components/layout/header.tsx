@@ -1,4 +1,4 @@
-import { TextLink } from '@/components/ui';
+import { TextLink } from '@/components/navigation';
 import { ArchiveIcon, NewspaperIcon } from 'lucide-react';
 import { Brand } from './brand';
 
