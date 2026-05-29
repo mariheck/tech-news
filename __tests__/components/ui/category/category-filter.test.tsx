@@ -9,7 +9,7 @@ test('CategoryFilter renders a nav landmark labelled "Filtrer par catégorie"', 
   ).toBeInTheDocument();
 });
 
-test('CategoryFilter renders 6 links in canonical order with "Tous" first', () => {
+test('CategoryFilter renders 5 links in canonical order with "Tous" first', () => {
   render(<CategoryFilter basePath='/' />);
   const nav = screen.getByRole('navigation', { name: 'Filtrer par catégorie' });
   const links = within(nav).getAllByRole('link');
@@ -18,8 +18,7 @@ test('CategoryFilter renders 6 links in canonical order with "Tous" first', () =
     'Frontend',
     'Design',
     'Dev IA',
-    'Actus IA',
-    'Autres'
+    'Actus IA'
   ]);
 });
 
@@ -31,7 +30,7 @@ test('When no active prop is passed, "Tous" carries aria-current="page"', () => 
 
 test('When no active prop is passed, no other link carries aria-current', () => {
   render(<CategoryFilter basePath='/' />);
-  for (const name of ['Frontend', 'Design', 'Dev IA', 'Actus IA', 'Autres']) {
+  for (const name of ['Frontend', 'Design', 'Dev IA', 'Actus IA']) {
     expect(screen.getByRole('link', { name })).not.toHaveAttribute(
       'aria-current'
     );
@@ -75,19 +74,19 @@ test('Each category link uses a relative ?cat=<slug> href', () => {
     'href',
     '?cat=dev-ia'
   );
-  expect(screen.getByRole('link', { name: 'Autres' })).toHaveAttribute(
+  expect(screen.getByRole('link', { name: 'Actus IA' })).toHaveAttribute(
     'href',
-    '?cat=autres'
+    '?cat=actus-ia'
   );
 });
 
 test('visible prop restricts the rendered categories, keeping CATEGORIES order', () => {
-  render(<CategoryFilter basePath='/' visible={['autres', 'frontend']} />);
+  render(<CategoryFilter basePath='/' visible={['actus-ia', 'frontend']} />);
   const nav = screen.getByRole('navigation', { name: 'Filtrer par catégorie' });
   const labels = within(nav)
     .getAllByRole('link')
     .map((l) => l.textContent);
-  expect(labels).toEqual(['Tous', 'Frontend', 'Autres']);
+  expect(labels).toEqual(['Tous', 'Frontend', 'Actus IA']);
 });
 
 test('visible={[]} still renders "Tous" on its own', () => {

@@ -6,8 +6,7 @@ test('categoryToLabel exposes the user-facing French label for every slug', () =
     frontend: 'Frontend',
     design: 'Design',
     'dev-ia': 'Dev IA',
-    'actus-ia': 'Actus IA',
-    autres: 'Autres'
+    'actus-ia': 'Actus IA'
   });
 });
 

@@ -19,8 +19,6 @@ colors:
   cat-dev-ia-light: '#E8AC97'
   cat-actus-ia: '#8E5FA8'
   cat-actus-ia-light: '#B189C6'
-  cat-autres: '#8E7A6E'
-  cat-autres-light: '#B0A095'
 typography:
   display:
     fontFamily: 'Geist, -apple-system, BlinkMacSystemFont, sans-serif'
@@ -140,7 +138,6 @@ Each editorial category gets a _saturated_ primary tone (for hero glow, source n
 - **Velvet Raspberry** — Design: `#A85676` / light `#C77F9B`.
 - **Copper Bloom** — Dev IA: `#D9896E` / light `#E8AC97`.
 - **Iris Amethyst** — Actus IA: `#8E5FA8` / light `#B189C6`.
-- **Warm Linen** — Autres: `#8E7A6E` / light `#B0A095`.
 
 ### Neutral
 

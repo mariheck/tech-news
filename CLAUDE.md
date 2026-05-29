@@ -65,7 +65,7 @@ There is no typecheck script — run `npx tsc --noEmit` for a fast typecheck wit
 ## Content model
 
 - **Issues on disk**. `content/issues/<YYYY-MM-DD>/` holds `index.md` (frontmatter: `date`, `articles[]` ordered slug list; body: weekly intro) and one `<slug>.md` per article. Article slug = filename.
-- **Article frontmatter**. `title`, `excerpt`, `summary` (accroche paragraph), `date` (ISO), `reading_time` (number), `sources` (flow-style `[ { label, url } ]`), `category` (one of the `CategorySlug` values from `types/category.ts`: `frontend`, `design`, `dev-ia`, `actus-ia`, `autres`). Body is raw markdown.
+- **Article frontmatter**. `title`, `excerpt`, `summary` (accroche paragraph), `date` (ISO), `reading_time` (number), `sources` (flow-style `[ { label, url } ]`), `category` (one of the `CategorySlug` values from `types/category.ts`: `frontend`, `design`, `dev-ia`, `actus-ia`). Body is raw markdown.
 - **Body H1 contract**. The article body MUST start with `# {title}` matching the frontmatter `title`. The rendered article page H1 comes from this line — not from the frontmatter — because `StyledMarkdown` maps `h1` to the headline typography. Omitting it leaves the page without an H1 (a11y/SEO regression). The agent prompt must enforce this.
 - **Images**. Resolved by convention as `/images/<YYYY-MM-DD>/<slug>.jpg` — not in frontmatter.
 - **Loader**. `loadIssue(date)` in `utils/load-issue.ts` is the single entry point. `CONTENT_ROOT` (`<cwd>/content`) and the `ISO_DATE` regex live in `utils/constants.ts` — import them, don't redeclare per loader. Tests run against real issues, no fixture override.
@@ -79,10 +79,10 @@ There is no typecheck script — run `npx tsc --noEmit` for a fast typecheck wit
 
 Category data is split by dimension:
 
-- `types/category.ts` → `CategorySlug` literal union (`frontend`, `design`, `dev-ia`, `actus-ia`, `autres`).
+- `types/category.ts` → `CategorySlug` literal union (`frontend`, `design`, `dev-ia`, `actus-ia`).
 - `utils/categories.ts` → `CATEGORIES: readonly CategorySlug[]` (canonical display order).
-- `utils/category-to-label.ts` → `Record<CategorySlug, string>` (French labels: `Frontend`, `Design`, `Dev IA`, `Actus IA`, `Autres`).
-- `utils/category-to-accent.ts` → `Record<CategorySlug, AccentName>` (accents: `turquoise`, `raspberry`, `copper`, `iris`, `linen`).
+- `utils/category-to-label.ts` → `Record<CategorySlug, string>` (French labels: `Frontend`, `Design`, `Dev IA`, `Actus IA`).
+- `utils/category-to-accent.ts` → `Record<CategorySlug, AccentName>` (accents: `turquoise`, `raspberry`, `copper`, `iris`).
 
 Adding a new category means updating the union plus each `Record` — TS enforces exhaustiveness on the Records, so a missing entry fails the build. Consumers iterate `CATEGORIES` and resolve label/accent via the lookups (see `components/ui/category/category-filter.tsx`).
 

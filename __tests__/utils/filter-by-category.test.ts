@@ -17,7 +17,7 @@ const ARTICLES: ArticleMeta[] = [
   make('frontend', '1'),
   make('design', '2'),
   make('frontend', '3'),
-  make('autres', '4'),
+  make('design', '4'),
   make('dev-ia', '5'),
   make('actus-ia', '6')
 ];
@@ -42,6 +42,6 @@ test('filterByCategory matches multi-word slugs (dev-ia, actus-ia)', () => {
 });
 
 test('filterByCategory returns an empty array when no article matches', () => {
-  const onlyAutres = [make('autres', '7')];
-  expect(filterByCategory(onlyAutres, 'frontend')).toEqual([]);
+  const onlyDesign = [make('design', '7')];
+  expect(filterByCategory(onlyDesign, 'frontend')).toEqual([]);
 });

@@ -6,7 +6,6 @@ test('categoryToAccent maps each editorial category to its accent name', () => {
     frontend: 'turquoise',
     design: 'raspberry',
     'dev-ia': 'copper',
-    'actus-ia': 'iris',
-    autres: 'linen'
+    'actus-ia': 'iris'
   });
 });

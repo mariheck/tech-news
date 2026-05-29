@@ -105,18 +105,6 @@
         "displayName": "Iris Bloom",
         "canonical": "oklch(66% 0.080 305)",
         "tonalRamp": ["#321E3F", "#442857", "#583370", "#6E458B", "#8E5FA8", "#B189C6", "#C3A4D4", "#D6BFE0"]
-      },
-      "cat-autres": {
-        "role": "secondary",
-        "displayName": "Warm Linen",
-        "canonical": "oklch(55% 0.020 60)",
-        "tonalRamp": ["#1F1B17", "#2E2823", "#3F3830", "#52483E", "#67594D", "#7C6B5E", "#8E7A6E", "#B0A095"]
-      },
-      "cat-autres-light": {
-        "role": "secondary",
-        "displayName": "Warm Linen Bloom",
-        "canonical": "oklch(68% 0.018 60)",
-        "tonalRamp": ["#2E2823", "#3F3830", "#52483E", "#67594D", "#7C6B5E", "#8E7A6E", "#B0A095", "#C7B7AB"]
       }
     },
     "typographyMeta": {
