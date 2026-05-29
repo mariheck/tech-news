@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-
-const CONTENT_ROOT = path.join(process.cwd(), 'content');
+import { CONTENT_ROOT } from './constants';
 
 export const loadPage = async (slug: string): Promise<string> => {
   const raw = await fs.readFile(

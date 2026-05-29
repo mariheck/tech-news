@@ -1,10 +1,9 @@
 import { ArticleParams } from '@/types';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { CONTENT_ROOT } from './constants';
+import { listIssueDates } from './list-issue-dates';
 import { parseFrontmatter } from './parse-frontmatter';
-
-const CONTENT_ROOT = path.join(process.cwd(), 'content');
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 type IndexFrontmatter = {
   date: Date;
@@ -12,17 +11,12 @@ type IndexFrontmatter = {
 };
 
 export const listArticleParams = async (): Promise<ArticleParams[]> => {
-  const issuesDir = path.join(CONTENT_ROOT, 'issues');
-  const entries = await fs.readdir(issuesDir, { withFileTypes: true });
-  const dates = entries
-    .filter((entry) => entry.isDirectory() && ISO_DATE.test(entry.name))
-    .map((entry) => entry.name)
-    .sort();
+  const dates = await listIssueDates();
 
   const params: ArticleParams[] = [];
   for (const date of dates) {
     const raw = await fs.readFile(
-      path.join(issuesDir, date, 'index.md'),
+      path.join(CONTENT_ROOT, 'issues', date, 'index.md'),
       'utf-8'
     );
     const { data } = parseFrontmatter<IndexFrontmatter>(raw);

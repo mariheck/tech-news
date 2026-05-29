@@ -1,9 +1,8 @@
 import type { Article, CategorySlug, Source } from '@/types';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { CONTENT_ROOT } from './constants';
 import { parseFrontmatter } from './parse-frontmatter';
-
-const CONTENT_ROOT = path.join(process.cwd(), 'content');
 
 type ArticleFrontmatter = {
   title: string;

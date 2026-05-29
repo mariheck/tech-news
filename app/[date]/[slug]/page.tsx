@@ -1,9 +1,7 @@
 import { FullArticle } from '@/components/ui';
-import { listArticleParams, loadArticle } from '@/utils';
+import { ISO_DATE, listArticleParams, loadArticle } from '@/utils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 type Params = { date: string; slug: string };
 type ArticlePageProps = {

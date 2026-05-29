@@ -1,6 +1,7 @@
 import type { ArticleMeta } from '@/types';
 import { formatWeekRange, type CardOrigin } from '@/utils';
 import { SectionHeading } from './section-heading';
+import { EmptyNotice } from './shared';
 import { UniformGrid } from './uniform-grid';
 
 type WeeklyEditionProps = {
@@ -15,9 +16,13 @@ export const WeeklyEdition = ({
   from
 }: WeeklyEditionProps) => {
   return (
-    <section className='flex flex-col gap-8'>
+    <section className='flex flex-col gap-8 w-full'>
       <SectionHeading>{formatWeekRange(weekStart)}</SectionHeading>
-      <UniformGrid articles={articles} from={from} />
+      {articles.length ? (
+        <UniformGrid articles={articles} from={from} />
+      ) : (
+        <EmptyNotice>Aucun article cette semaine.</EmptyNotice>
+      )}
     </section>
   );
 };

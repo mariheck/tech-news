@@ -5,12 +5,16 @@ import { expect, test } from 'vitest';
 const emptySearchParams = Promise.resolve({});
 const designParams = Promise.resolve({ cat: 'design' });
 
-test('Home page displays "last week" section heading', async () => {
+test('Home page displays a section heading above the feature grid', async () => {
   render(await Home({ searchParams: emptySearchParams }));
+  // The heading is either "Les actus de la semaine dernière" when the latest
+  // issue is genuinely last week, or a "Semaine du …" range otherwise. The
+  // choice depends on the real clock, so match either form rather than couple
+  // the test to today's date.
   expect(
     screen.getByRole('heading', {
       level: 2,
-      name: 'Les actus de la semaine dernière'
+      name: /^(Les actus de la semaine dernière|Semaine du )/
     })
   ).toBeInTheDocument();
 });
