@@ -2,6 +2,7 @@ import type { Article, CategorySlug, Source } from '@/types';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { CONTENT_ROOT } from './constants';
+import { isSafeSourceUrl } from './is-safe-source-url';
 import { parseFrontmatter } from './parse-frontmatter';
 
 type ArticleFrontmatter = {
@@ -23,6 +24,14 @@ export const loadArticle = async (
     'utf-8'
   );
   const { data, content } = parseFrontmatter<ArticleFrontmatter>(raw);
+
+  for (const source of data.sources) {
+    if (!isSafeSourceUrl(source.url)) {
+      throw new Error(
+        `loadArticle: unsafe source URL in ${date}/${slug}: ${source.url}`
+      );
+    }
+  }
 
   return {
     slug,
