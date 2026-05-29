@@ -1,7 +1,7 @@
 import type { Issue } from '@/types';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { CONTENT_ROOT } from './constants';
+import { CONTENT_ROOT, ISO_DATE } from './constants';
 import { loadArticle } from './load-article';
 import { parseFrontmatter } from './parse-frontmatter';
 
@@ -11,6 +11,10 @@ type IndexFrontmatter = {
 };
 
 export const loadIssue = async (date: string): Promise<Issue> => {
+  if (!ISO_DATE.test(date)) {
+    throw new Error(`loadIssue: invalid date: ${date}`);
+  }
+
   const indexRaw = await fs.readFile(
     path.join(CONTENT_ROOT, 'issues', date, 'index.md'),
     'utf-8'

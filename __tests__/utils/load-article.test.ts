@@ -50,3 +50,15 @@ test('loadArticle exposes the markdown body via content', () => {
 test('loadArticle rejects for an unknown slug', async () => {
   await expect(loadArticle('2026-05-18', 'does-not-exist')).rejects.toThrow();
 });
+
+test('loadArticle rejects a slug with a path-traversal segment', async () => {
+  await expect(
+    loadArticle('2026-05-18', '../../../etc/passwd')
+  ).rejects.toThrow(/invalid slug/i);
+});
+
+test('loadArticle rejects a non-ISO date before touching the filesystem', async () => {
+  await expect(loadArticle('../../etc', 'fixture-alpha')).rejects.toThrow(
+    /invalid date/i
+  );
+});

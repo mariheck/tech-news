@@ -45,3 +45,7 @@ test('loadIssue maps article frontmatter into the Article shape', () => {
 test('loadIssue assigns the default image path /images/<date>/<slug>.jpg', () => {
   expect(issue.articles[0].image).toBe('/images/2026-05-18/fixture-alpha.jpg');
 });
+
+test('loadIssue rejects a non-ISO date before touching the filesystem', async () => {
+  await expect(loadIssue('../../etc')).rejects.toThrow(/invalid date/i);
+});

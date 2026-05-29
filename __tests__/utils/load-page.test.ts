@@ -16,3 +16,7 @@ test('loadPage returns the markdown body starting with the page H1', () => {
 test('loadPage reads the full file, including later sections', () => {
   expect(content).toContain('## Hébergeur du site');
 });
+
+test('loadPage rejects a slug with a path-traversal segment', async () => {
+  await expect(loadPage('../../../etc/passwd')).rejects.toThrow(/invalid slug/i);
+});

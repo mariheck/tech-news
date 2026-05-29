@@ -1,7 +1,8 @@
 import type { Article, CategorySlug, Source } from '@/types';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { CONTENT_ROOT } from './constants';
+import { CONTENT_ROOT, ISO_DATE } from './constants';
+import { isSafeSlug } from './is-safe-slug';
 import { isSafeSourceUrl } from './is-safe-source-url';
 import { parseFrontmatter } from './parse-frontmatter';
 
@@ -19,6 +20,13 @@ export const loadArticle = async (
   date: string,
   slug: string
 ): Promise<Article> => {
+  if (!ISO_DATE.test(date)) {
+    throw new Error(`loadArticle: invalid date: ${date}`);
+  }
+  if (!isSafeSlug(slug)) {
+    throw new Error(`loadArticle: invalid slug: ${slug}`);
+  }
+
   const raw = await fs.readFile(
     path.join(CONTENT_ROOT, 'issues', date, `${slug}.md`),
     'utf-8'

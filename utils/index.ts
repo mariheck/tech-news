@@ -11,6 +11,7 @@ export * from './get-archive-issue-dates';
 export * from './get-expected-last-monday';
 export * from './get-last-issue-date';
 export * from './is-category-slug';
+export * from './is-safe-slug';
 export * from './is-safe-source-url';
 export * from './list-article-params';
 export * from './list-issue-dates';
