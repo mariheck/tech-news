@@ -1,6 +1,7 @@
 import type { ArticleMeta } from '@/types';
 import { articleToCardProps } from '@/utils';
 import { Card } from './card';
+import { EmptyNotice } from './shared';
 
 type FeatureGridProps = { articles: ArticleMeta[] };
 
@@ -11,7 +12,7 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
   const horizontalPeers = rest.slice(0, HORIZONTAL_PEER_COUNT);
   const desktopTail = rest.slice(HORIZONTAL_PEER_COUNT);
 
-  return (
+  return articles.length > 0 ? (
     <>
       <div className='flex flex-col gap-8 sm:hidden'>
         {articles.map((article, idx) => (
@@ -74,5 +75,7 @@ export const FeatureGrid = ({ articles }: FeatureGridProps) => {
         )}
       </div>
     </>
+  ) : (
+    <EmptyNotice>Aucun article cette semaine.</EmptyNotice>
   );
 };

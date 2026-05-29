@@ -5,7 +5,7 @@ type EmptyNoticeProps = {
 };
 
 export const EmptyNotice = ({ children }: EmptyNoticeProps) => (
-  <p className='py-10 text-center font-mono text-sm text-primary/50 bg-plum-elevated/30 rounded-xl'>
+  <p className='py-10 text-center font-mono text-sm text-primary/50 bg-primary/2 rounded-xl'>
     {children}
   </p>
 );
