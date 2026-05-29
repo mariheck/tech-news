@@ -73,6 +73,14 @@ test('Card lifts and casts a peach halo on hover and keyboard focus', () => {
   expect(link.className).toContain('focus-visible:shadow-lift');
 });
 
+test('Card gates its vertical lift behind motion-safe so reduced motion stays still', () => {
+  render(mediumCard);
+  const link = screen.getByRole('link', { name: /next\.js 16/i });
+
+  expect(link.className).toContain('motion-safe:hover:-translate-y-1');
+  expect(link.className).toContain('motion-safe:focus-visible:-translate-y-1');
+});
+
 test('Card defaults to the medium variant (20px title, vertical stack)', () => {
   render(mediumCard);
   const heading = screen.getByRole('heading', { level: 3 });

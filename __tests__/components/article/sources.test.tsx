@@ -45,12 +45,28 @@ test('Sources renders each URL as a tertiary mono line under the anchor', () => 
   expect(url.className).toContain('text-tertiary');
 });
 
+test('Sources expands the anchor hit area with a before pseudo-element', () => {
+  render(<Sources sources={sources} />);
+  const link = screen.getByRole('link', { name: 'Next.js 16 release notes' });
+  expect(link.className).toContain('relative');
+  expect(link.className).toContain('before:absolute');
+  expect(link.className).toContain('before:-inset-y-3');
+  expect(link.className).toContain("before:content-['']");
+});
+
+test('Sources exposes the full label via a title attribute despite the clamp', () => {
+  render(<Sources sources={sources} />);
+  const link = screen.getByRole('link', { name: 'Next.js 16 release notes' });
+  expect(link).toHaveAttribute('title', 'Next.js 16 release notes');
+});
+
 test('Sources caps each item and breaks long URLs so they cannot overflow', () => {
   const { container } = render(
     <Sources
       sources={[
         {
-          label: 'A very long source label that could overrun the sidebar width',
+          label:
+            'A very long source label that could overrun the sidebar width',
           url: 'example.com/a/very/long/unbroken/path/segmentthatcannotwrapnaturally'
         }
       ]}

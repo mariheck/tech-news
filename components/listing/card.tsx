@@ -46,7 +46,7 @@ export const Card = ({
         'p-4.5 border border-plum-subtle rounded-[0.875rem]',
         'bg-plum-elevated no-underline',
         'shadow-rest hover:shadow-lift focus-visible:shadow-lift',
-        'hover:-translate-y-1 focus-visible:-translate-y-1',
+        'motion-safe:hover:-translate-y-1 motion-safe:focus-visible:-translate-y-1',
         'transition-[translate,box-shadow]',
         'ease-in-out-circ duration-300',
         {
