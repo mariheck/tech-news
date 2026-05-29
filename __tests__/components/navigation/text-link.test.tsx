@@ -80,7 +80,7 @@ test('TextLink expands its hit area via a before pseudo-element', () => {
   const link = screen.getByRole('link', { name: 'Suivant' });
   expect(link.className).toContain('relative');
   expect(link.className).toContain('before:absolute');
-  expect(link.className).toContain('before:-inset-1');
+  expect(link.className).toContain('before:-inset-3.5');
   expect(link.className).toContain("before:content-['']");
 });
 

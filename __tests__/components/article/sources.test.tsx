@@ -45,6 +45,28 @@ test('Sources renders each URL as a tertiary mono line under the anchor', () => 
   expect(url.className).toContain('text-tertiary');
 });
 
+test('Sources caps each item and breaks long URLs so they cannot overflow', () => {
+  const { container } = render(
+    <Sources
+      sources={[
+        {
+          label: 'A very long source label that could overrun the sidebar width',
+          url: 'example.com/a/very/long/unbroken/path/segmentthatcannotwrapnaturally'
+        }
+      ]}
+    />
+  );
+  const item = container.querySelector('ol > li');
+  expect(item?.className).toContain('max-w-full');
+  const url = screen.getByText(/segmentthatcannotwrapnaturally/);
+  expect(url.className).toContain('break-all');
+});
+
+test('Sources renders nothing when there are no sources', () => {
+  const { container } = render(<Sources sources={[]} />);
+  expect(container).toBeEmptyDOMElement();
+});
+
 test('Sources forwards extra classes via the className prop', () => {
   const { container } = render(
     <Sources sources={sources} className='hidden md:flex' />

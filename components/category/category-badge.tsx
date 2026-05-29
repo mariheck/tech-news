@@ -41,7 +41,7 @@ export const CategoryBadge = ({
         'relative',
         'no-underline transition-[color,background-color,border-color]',
         'duration-200 ease-out-expo',
-        'before:absolute before:-inset-y-2 before:inset-x-0 before:content-[""]',
+        'before:absolute before:-inset-y-3 before:inset-x-0 before:content-[""]',
         {
           [accentBadge]: active,
           'bg-transparent border-plum-subtle text-secondary hover:text-primary':

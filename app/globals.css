@@ -8,7 +8,7 @@
   --color-plum-subtle: #3a3145;
   --color-primary: #f0e6d7;
   --color-secondary: #b0a695;
-  --color-tertiary: #76695e;
+  --color-tertiary: #91847b;
 
   /* Default accent */
   --color-accent-peach: #e8a598;
@@ -23,8 +23,6 @@
   --color-accent-raspberry-light: #c77f9b;
   --color-accent-iris: #8e5fa8;
   --color-accent-iris-light: #b189c6;
-  --color-accent-linen: #8e7a6e;
-  --color-accent-linen-light: #b0a095;
 
   /* Font families */
   --font-sans:

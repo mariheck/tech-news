@@ -31,7 +31,7 @@ export const MetaData = ({ date, readingTime, className }: MetaDataProps) => {
           Lecture
         </dt>
         <dd className='font-mono text-[0.8125rem] text-primary m-0'>
-          {readingTime} minutes
+          {readingTime} minute{readingTime > 1 ? 's' : ''}
         </dd>
       </div>
     </dl>

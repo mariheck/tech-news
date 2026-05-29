@@ -13,7 +13,7 @@ export const Footer = () => {
           <Brand size='sm' />
           <LastUpdate />
         </div>
-        <div className='flex items-center gap-8'>
+        <nav aria-label='Pied de page' className='flex items-center gap-8'>
           {repoUrl && (
             <TextLink
               href={repoUrl}
@@ -25,7 +25,7 @@ export const Footer = () => {
             </TextLink>
           )}
           <TextLink href='/mentions-legales'>Mentions légales</TextLink>
-        </div>
+        </nav>
       </div>
     </footer>
   );

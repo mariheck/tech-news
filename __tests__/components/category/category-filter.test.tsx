@@ -123,5 +123,5 @@ test('Every badge has a touch-target pseudo extending the vertical hit zone', ()
   const link = screen.getByRole('link', { name: 'Tous' });
   expect(link.className).toContain('relative');
   expect(link.className).toContain('before:absolute');
-  expect(link.className).toContain('before:-inset-y-2');
+  expect(link.className).toContain('before:-inset-y-3');
 });

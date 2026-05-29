@@ -23,6 +23,11 @@ test('MetaData renders the reading time as "<n> minutes"', () => {
   expect(screen.getByText('8 minutes')).toBeInTheDocument();
 });
 
+test('MetaData renders a singular "minute" for a one-minute read', () => {
+  render(<MetaData {...commonProps} readingTime={1} />);
+  expect(screen.getByText('1 minute')).toBeInTheDocument();
+});
+
 test('MetaData uses dt/dd semantic markup', () => {
   const { container } = render(<MetaData {...commonProps} />);
   expect(container.querySelector('dl')).not.toBeNull();

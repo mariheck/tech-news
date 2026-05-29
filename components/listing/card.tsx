@@ -47,7 +47,7 @@ export const Card = ({
         'bg-plum-elevated no-underline',
         'shadow-rest hover:shadow-lift focus-visible:shadow-lift',
         'hover:-translate-y-1 focus-visible:-translate-y-1',
-        'transition-[transform, box-shadow]',
+        'transition-[translate,box-shadow]',
         'ease-in-out-circ duration-300',
         {
           'flex-col min-w-70 max-w-full': variant === 'large',
