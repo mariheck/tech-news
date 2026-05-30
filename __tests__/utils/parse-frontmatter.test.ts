@@ -20,6 +20,11 @@ test('parseFrontmatter parses ISO date values into Date objects', () => {
   );
 });
 
+test('parseFrontmatter parses date-only values into Date objects', () => {
+  const raw = '---\ndate: 2026-05-04\n---\n';
+  expect(parseFrontmatter(raw).data.date).toEqual(new Date('2026-05-04'));
+});
+
 test('parseFrontmatter parses integer scalars as numbers', () => {
   const raw = '---\nreading_time: 8\n---\n';
   expect(parseFrontmatter(raw).data.reading_time).toBe(8);
