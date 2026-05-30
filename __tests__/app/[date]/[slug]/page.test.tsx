@@ -1,4 +1,4 @@
-import ArticlePage from '@/app/[date]/[slug]/page';
+import ArticlePage, { generateMetadata } from '@/app/[date]/[slug]/page';
 import type { Article } from '@/types';
 import { loadArticle } from '@/utils';
 import { render, screen } from '@testing-library/react';
@@ -125,6 +125,66 @@ test('ArticlePage falls back to / when from is an unknown value', async () => {
     'href',
     '/'
   );
+});
+
+test('generateMetadata sets the bare article title so the layout template adds the brand', async () => {
+  const meta = await generateMetadata({
+    params: validParams(),
+    searchParams: noSearchParams()
+  });
+  expect(meta.title).toBe('Article fictif pour le test');
+  expect(meta.description).toBe('Excerpt fictif.');
+});
+
+test('generateMetadata sets the canonical URL to the article path', async () => {
+  const meta = await generateMetadata({
+    params: validParams(),
+    searchParams: noSearchParams()
+  });
+  expect(meta.alternates?.canonical).toBe('/2026-05-18/test-slug');
+});
+
+test('generateMetadata enriches OpenGraph with url, publishedTime and section', async () => {
+  const meta = await generateMetadata({
+    params: validParams(),
+    searchParams: noSearchParams()
+  });
+  expect(meta.openGraph).toMatchObject({
+    type: 'article',
+    url: '/2026-05-18/test-slug',
+    title: 'Article fictif pour le test',
+    publishedTime: '2026-05-18T00:00:00.000Z',
+    section: 'Frontend'
+  });
+});
+
+test('generateMetadata sets a summary_large_image Twitter card with the hero image', async () => {
+  const meta = await generateMetadata({
+    params: validParams(),
+    searchParams: noSearchParams()
+  });
+  expect(meta.twitter).toMatchObject({
+    card: 'summary_large_image',
+    title: 'Article fictif pour le test',
+    images: ['/images/2026-05-18/test-slug.jpg']
+  });
+});
+
+test('generateMetadata omits OpenGraph/Twitter description so they inherit the excerpt', async () => {
+  const meta = await generateMetadata({
+    params: validParams(),
+    searchParams: noSearchParams()
+  });
+  expect(meta.openGraph).not.toHaveProperty('description');
+  expect(meta.twitter).not.toHaveProperty('description');
+});
+
+test('generateMetadata returns empty metadata for a malformed date', async () => {
+  const meta = await generateMetadata({
+    params: Promise.resolve({ date: 'not-a-date', slug: 'test-slug' }),
+    searchParams: noSearchParams()
+  });
+  expect(meta).toEqual({});
 });
 
 test('ArticlePage calls notFound() when the date param is malformed', async () => {

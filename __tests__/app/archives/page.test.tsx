@@ -1,6 +1,11 @@
-import ArchivesPage from '@/app/archives/page';
+import ArchivesPage, { metadata } from '@/app/archives/page';
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
+
+test('Archives page sets a bare title and its own canonical', () => {
+  expect(metadata.title).toBe('Archives');
+  expect(metadata.alternates?.canonical).toBe('/archives');
+});
 
 // Backed by the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT
 // is pointed there in vitest.config.mts): three editions, so the archives page

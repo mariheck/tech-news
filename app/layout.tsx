@@ -1,4 +1,5 @@
 import { Footer, Header } from '@/components/layout';
+import { SITE_URL } from '@/utils';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -14,9 +15,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'tech.news',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'tech.news',
+    template: '%s | tech.news'
+  },
   description:
-    'Récap hebdomadaire des dernières actus de la tech. Développement frontend, design engineering, web design, IA.'
+    "L'essentiel de la tech, chaque lundi. Développement frontend, design engineering, web design, IA.",
+  // og/twitter description are intentionally omitted: Next inherits them from
+  // `description` per route, so each page's social description always matches
+  // its own meta description. Setting one here would shadow that inheritance.
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'tech.news',
+    title: 'tech.news',
+    url: '/'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'tech.news'
+  }
 };
 
 type Props = {

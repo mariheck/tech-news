@@ -8,6 +8,14 @@ import {
   isCategorySlug,
   loadIssue
 } from '@/utils';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Archives',
+  description:
+    'Toutes les éditions hebdomadaires de tech.news, semaine après semaine.',
+  alternates: { canonical: '/archives' }
+};
 
 type ArchivesPageProps = {
   searchParams: Promise<{ cat?: string }>;

@@ -10,6 +10,11 @@ import {
   isCategorySlug,
   loadIssue
 } from '@/utils';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' }
+};
 
 type HomeProps = {
   searchParams: Promise<{ cat?: string }>;

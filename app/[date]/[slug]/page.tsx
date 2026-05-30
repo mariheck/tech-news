@@ -1,5 +1,10 @@
 import { FullArticle } from '@/components/article';
-import { ISO_DATE, listArticleParams, loadArticle } from '@/utils';
+import {
+  ISO_DATE,
+  categoryToLabel,
+  listArticleParams,
+  loadArticle
+} from '@/utils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -24,14 +29,25 @@ export const generateMetadata = async ({
 
   try {
     const article = await loadArticle(date, slug);
+    const canonical = `/${date}/${slug}`;
     return {
-      title: `${article.title} | tech.news`,
+      title: article.title,
       description: article.excerpt,
+      alternates: { canonical },
+      // og/twitter description omitted on purpose: Next inherits it from
+      // `description` (the excerpt) above. See app/layout.tsx for the rationale.
       openGraph: {
+        type: 'article',
         title: article.title,
-        description: article.excerpt,
+        url: canonical,
         images: [article.image],
-        type: 'article'
+        publishedTime: article.date.toISOString(),
+        section: categoryToLabel[article.category]
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: article.title,
+        images: [article.image]
       }
     };
   } catch {

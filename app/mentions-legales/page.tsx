@@ -3,9 +3,10 @@ import { loadPage } from '@/utils';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Mentions légales | tech.news',
+  title: 'Mentions légales',
   description:
-    'Mentions légales du site tech.news : éditeur, hébergeur et sources des contenus.'
+    'Mentions légales du site tech.news : éditeur, hébergeur et sources des contenus.',
+  alternates: { canonical: '/mentions-legales' }
 };
 
 const LegalPage = async () => {
