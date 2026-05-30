@@ -1,14 +1,23 @@
 ---
-title: 'Google I/O : le web agentique s''invite dans Chrome 147'
+title: "Google I/O : le web agentique s'invite dans Chrome 147"
 excerpt: 'Quinze APIs annoncées : WebMCP, HTML-in-Canvas, Partial Updates et animation-trigger.'
-summary: '15 APIs web annoncées à l''I/O 2026 : view transitions scoped stables dans Chrome 147, HTML-in-Canvas en origin trial, Declarative Partial Updates, WebMCP pour les agents IA, et animation-trigger pour déclencher les animations au scroll.'
+summary: "15 APIs web annoncées à l'I/O 2026 : view transitions scoped stables dans Chrome 147, HTML-in-Canvas en origin trial, Declarative Partial Updates, WebMCP pour les agents IA, et animation-trigger pour déclencher les animations au scroll."
 date: 2026-05-18T00:00:00Z
 reading_time: 7
 sources:
   [
-    { label: 'Chrome for Developers – I/O 26', url: 'https://developer.chrome.com/blog/chrome-at-io26' },
-    { label: 'Google I/O – Web UI session', url: 'https://io.google/2026/explore/pa-keynote-10' },
-    { label: '9to5Google – tout de l''I/O', url: 'https://9to5google.com/2026/05/19/google-io-2026-news/' }
+    {
+      label: 'Chrome for Developers – I/O 26',
+      url: 'https://developer.chrome.com/blog/chrome-at-io26'
+    },
+    {
+      label: 'Google I/O – Web UI session',
+      url: 'https://io.google/2026/explore/pa-keynote-10'
+    },
+    {
+      label: "9to5Google – tout de l'I/O",
+      url: 'https://9to5google.com/2026/05/19/google-io-2026-news/'
+    }
   ]
 category: 'frontend'
 ---

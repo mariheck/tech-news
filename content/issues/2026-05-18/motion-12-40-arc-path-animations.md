@@ -1,13 +1,10 @@
 ---
 title: 'Motion 12.40 : trajectoires arc et contrôle des boucles'
-excerpt: 'Deux versions en une semaine qui comblent deux lacunes importantes de l''API animations.'
+excerpt: "Deux versions en une semaine qui comblent deux lacunes importantes de l'API animations."
 summary: 'Motion sort 12.39 (repeatType/repeatDelay dans les séquences) et 12.40 (helper arc() et option path pour les trajectoires courbes) en une semaine. Les animations de chemin arrivent nativement dans React sans GSAP MotionPath ni calcul SVG.'
 date: 2026-05-18T00:00:00Z
 reading_time: 4
-sources:
-  [
-    { label: 'Motion changelog', url: 'https://motion.dev/changelog' }
-  ]
+sources: [{ label: 'Motion changelog', url: 'https://motion.dev/changelog' }]
 category: 'design'
 ---
 
@@ -23,9 +20,13 @@ Jusqu'à cette version, le contrôle des boucles (`repeatType`, `repeatDelay`) n
 
 ```ts
 sequence([
-  [element, { x: 100 }, { duration: 0.4, repeat: 2, repeatType: "mirror", repeatDelay: 0.1 }],
-  [otherElement, { opacity: 1 }],
-])
+  [
+    element,
+    { x: 100 },
+    { duration: 0.4, repeat: 2, repeatType: 'mirror', repeatDelay: 0.1 }
+  ],
+  [otherElement, { opacity: 1 }]
+]);
 ```
 
 La release corrige également deux régressions : les re-runs de variants sur des tableaux de keyframes identiques (faux positifs qui déclenchaient une ré-animation inutile) et un bug drag en présence de layout reorders React 19.
@@ -39,7 +40,7 @@ La release corrige également deux régressions : les re-runs de variants sur de
 **Le helper `arc()`** — génère un arc de cercle paramétrique entre la position initiale et la position finale d'une animation. Au lieu de définir un chemin SVG entier, on passe simplement les coordonnées et le rayon d'arc souhaité :
 
 ```ts
-animate(element, { x: 200, y: 0 }, { path: arc({ radius: 80 }) })
+animate(element, { x: 200, y: 0 }, { path: arc({ radius: 80 }) });
 ```
 
 Avant cette version, animer un élément le long d'une trajectoire courbe dans React requérait soit le plugin MotionPath de GSAP, soit une implémentation manuelle de courbes de Bézier paramétriques. Les deux approches ajoutaient de la complexité pour des cas d'usage courants : icône qui décrit un arc, carte qui sort en courbe, badge qui rejoint sa cible.

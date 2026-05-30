@@ -1,14 +1,23 @@
 ---
-title: 'Claude Managed Agents s''ouvre aux infras privées'
+title: "Claude Managed Agents s'ouvre aux infras privées"
 excerpt: 'Sandboxes self-hosted et tunnels MCP : vos agents sur votre infrastructure, orchestrés par Anthropic.'
 summary: 'Anthropic passe les sandboxes self-hosted en public beta et lance les MCP tunnels en research preview : les agents Claude peuvent désormais exécuter des outils sur votre propre infra (Cloudflare, Modal, Vercel) et atteindre des serveurs MCP en réseau privé.'
 date: 2026-05-18T00:00:00Z
 reading_time: 6
 sources:
   [
-    { label: 'Claude – Managed Agents updates', url: 'https://claude.com/blog/claude-managed-agents-updates' },
-    { label: 'The Decoder – self-hosted sandbox', url: 'https://the-decoder.com/anthropic-adds-self-hosted-sandboxes-and-mcp-tunnels-to-claude-managed-agents/' },
-    { label: 'TechCrunch – Code with Claude', url: 'https://techcrunch.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/' }
+    {
+      label: 'Claude – Managed Agents updates',
+      url: 'https://claude.com/blog/claude-managed-agents-updates'
+    },
+    {
+      label: 'The Decoder – self-hosted sandbox',
+      url: 'https://the-decoder.com/anthropic-adds-self-hosted-sandboxes-and-mcp-tunnels-to-claude-managed-agents/'
+    },
+    {
+      label: 'TechCrunch – Code with Claude',
+      url: 'https://techcrunch.com/2026/05/21/1137735/anthropics-code-with-claude-showed-off-codings-future-whether-you-like-it-or-not/'
+    }
   ]
 category: 'dev-ia'
 ---

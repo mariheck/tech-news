@@ -1,12 +1,15 @@
 ---
 title: 'Anthropic acquiert Stainless, maître de ses SDKs'
 excerpt: 'Pour ~300 M$, Anthropic absorbe le générateur de SDKs qui équipait aussi OpenAI et Google.'
-summary: 'Anthropic rachète Stainless (~300 M$), la startup qui génère automatiquement SDKs, CLIs et serveurs MCP depuis des specs OpenAPI. Elle alimentait déjà tous les SDKs Anthropic officiels — et ceux d''OpenAI et Google, qui perdent l''accès.'
+summary: "Anthropic rachète Stainless (~300 M$), la startup qui génère automatiquement SDKs, CLIs et serveurs MCP depuis des specs OpenAPI. Elle alimentait déjà tous les SDKs Anthropic officiels — et ceux d''OpenAI et Google, qui perdent l'accès."
 date: 2026-05-18T00:00:00Z
 reading_time: 4
 sources:
   [
-    { label: 'TechCrunch – acquisition Stainless', url: 'https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/' }
+    {
+      label: 'TechCrunch – acquisition Stainless',
+      url: 'https://techcrunch.com/2026/05/18/anthropic-has-acquired-the-dev-tools-startup-used-by-openai-google-and-cloudflare/'
+    }
   ]
 category: 'actus-ia'
 ---

@@ -1,13 +1,19 @@
 ---
 title: 'WordPress 7.0 Armstrong : refonte admin et IA native'
-excerpt: 'Première refonte visuelle de l''admin depuis 2013 et client IA multi-provider pour 43 % du web.'
+excerpt: "Première refonte visuelle de l'admin depuis 2013 et client IA multi-provider pour 43 % du web."
 summary: 'WordPress 7.0 livre la première refonte admin depuis 2013 avec DataViews, quatre nouveaux blocs, un client IA natif compatible OpenAI/Gemini/Claude, et une visibilité responsive par bloc sans CSS. La collaboration temps réel est reportée à la 7.1.'
 date: 2026-05-18T00:00:00Z
 reading_time: 6
 sources:
   [
-    { label: 'WordPress News – Armstrong', url: 'https://wordpress.org/news/2026/05/armstrong/' },
-    { label: 'InMotion – WP 7.0 features', url: 'https://www.inmotionhosting.com/support/edu/wordpress/wordpress-news/wordpress-7-0-armstrong-released/' }
+    {
+      label: 'WordPress News – Armstrong',
+      url: 'https://wordpress.org/news/2026/05/armstrong/'
+    },
+    {
+      label: 'InMotion – WP 7.0 features',
+      url: 'https://www.inmotionhosting.com/support/edu/wordpress/wordpress-news/wordpress-7-0-armstrong-released/'
+    }
   ]
 category: 'design'
 ---

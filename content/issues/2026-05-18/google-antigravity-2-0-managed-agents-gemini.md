@@ -1,15 +1,27 @@
 ---
-title: 'Google Antigravity 2.0 : l''IDE agentique selon Google'
+title: "Google Antigravity 2.0 : l'IDE agentique selon Google"
 excerpt: 'Desktop app, CLI, SDK multi-agents : Google lance sa réponse à Cursor et Claude Code.'
 summary: 'Antigravity 2.0 est une plateforme agent-first avec desktop app, CLI, SDK multi-agents et plan AI Ultra à $100/mois. La Gemini API lance en parallèle ses Managed Agents en preview : un POST suffit pour déployer un agent Linux isolé avec outils.'
 date: 2026-05-18T00:00:00Z
 reading_time: 6
 sources:
   [
-    { label: 'TechCrunch – Antigravity 2.0', url: 'https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/' },
-    { label: 'Marktechpost – Antigravity SDK', url: 'https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/' },
-    { label: 'Managed Agents – Gemini API', url: 'https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/' },
-    { label: 'Winbuzzer – Managed Agents', url: 'https://winbuzzer.com/2026/05/20/google-opens-managed-agents-preview-in-gemini-api-xcxwbn/' }
+    {
+      label: 'TechCrunch – Antigravity 2.0',
+      url: 'https://techcrunch.com/2026/05/19/google-launches-antigravity-2-0-with-an-updated-desktop-app-and-cli-tool-at-io-2026/'
+    },
+    {
+      label: 'Marktechpost – Antigravity SDK',
+      url: 'https://www.marktechpost.com/2026/05/19/google-launches-antigravity-2-0-at-i-o-2026-a-standalone-agent-first-platform-with-cli-sdk-managed-execution-and-enterprise-support/'
+    },
+    {
+      label: 'Managed Agents – Gemini API',
+      url: 'https://blog.google/innovation-and-ai/technology/developers-tools/managed-agents-gemini-api/'
+    },
+    {
+      label: 'Winbuzzer – Managed Agents',
+      url: 'https://winbuzzer.com/2026/05/20/google-opens-managed-agents-preview-in-gemini-api-xcxwbn/'
+    }
   ]
 category: 'dev-ia'
 ---
@@ -23,6 +35,7 @@ Google a lancé deux produits complémentaires le 19 mai à l'I/O 2026 : **Antig
 Antigravity 2.0 est une application desktop et un outil CLI entièrement repensés autour de l'orchestration multi-agents. Ce n'est plus un addon à un IDE existant : c'est une plateforme autonome avec son propre SDK et un support entreprise.
 
 Les fonctionnalités clés :
+
 - **Spawn et coordination de sous-agents en parallèle** : lancer plusieurs agents simultanément, chacun avec son propre contexte et ses propres outils, orchestrés par un agent supervisor
 - **Tâches en arrière-plan** : planifier des exécutions différées sans garder une session active
 - **Antigravity SDK** : API programmatique pour intégrer l'orchestration agentique dans des pipelines existants

@@ -1,13 +1,19 @@
 ---
 title: 'Cursor 3.5 : les agents opèrent sur plusieurs repos'
-excerpt: 'Multi-repo simultané, Automations dans l''Agents Window et templates no-repo : Cursor 3.5 s''affirme.'
-summary: 'Cursor 3.5 intègre les Automations dans l''Agents Window, ouvre le support multi-repo (commits coordonnés sur plusieurs dépôts simultanément) et lance cinq templates no-repo prêts à l''emploi pour Slack, analytics et finance.'
+excerpt: "Multi-repo simultané, Automations dans l'Agents Window et templates no-repo : Cursor 3.5 s''affirme."
+summary: "Cursor 3.5 intègre les Automations dans l'Agents Window, ouvre le support multi-repo (commits coordonnés sur plusieurs dépôts simultanément) et lance cinq templates no-repo prêts à l''emploi pour Slack, analytics et finance."
 date: 2026-05-18T00:00:00Z
 reading_time: 4
 sources:
   [
-    { label: 'Cursor changelog – 3.5', url: 'https://cursor.com/changelog/05-20-26' },
-    { label: 'ChatForest – Cursor 3.3–3.5', url: 'https://chatforest.com/builders-log/cursor-3-3-3-5-parallel-agents-pr-review-automations/' }
+    {
+      label: 'Cursor changelog – 3.5',
+      url: 'https://cursor.com/changelog/05-20-26'
+    },
+    {
+      label: 'ChatForest – Cursor 3.3–3.5',
+      url: 'https://chatforest.com/builders-log/cursor-3-3-3-5-parallel-agents-pr-review-automations/'
+    }
   ]
 category: 'dev-ia'
 ---

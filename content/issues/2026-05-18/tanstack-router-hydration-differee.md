@@ -1,12 +1,15 @@
 ---
-title: 'TanStack Router introduit l''hydratation différée'
-excerpt: 'Code-split des boundaries d''hydration, HTML SSR préservé et replay des interactions : une réponse au PPR de Next.js.'
-summary: 'TanStack Start peut code-splitter ses boundaries d''hydratation, préserver le HTML SSR pendant le chargement des bundles et rejouer les interactions en file. Une alternative au Partial Pre-Rendering de Next.js, disponible dans @tanstack/react-router 1.170.5.'
+title: "TanStack Router introduit l'hydratation différée"
+excerpt: "Code-split des boundaries d'hydration, HTML SSR préservé et replay des interactions : une réponse au PPR de Next.js."
+summary: "TanStack Start peut code-splitter ses boundaries d'hydratation, préserver le HTML SSR pendant le chargement des bundles et rejouer les interactions en file. Une alternative au Partial Pre-Rendering de Next.js, disponible dans @tanstack/react-router 1.170.5."
 date: 2026-05-18T00:00:00Z
 reading_time: 5
 sources:
   [
-    { label: 'TanStack Router release', url: 'https://github.com/TanStack/router/releases/tag/release-2026-05-20-1004' }
+    {
+      label: 'TanStack Router release',
+      url: 'https://github.com/TanStack/router/releases/tag/release-2026-05-20-1004'
+    }
   ]
 category: 'frontend'
 ---

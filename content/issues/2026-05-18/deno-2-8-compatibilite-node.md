@@ -1,13 +1,16 @@
 ---
 title: 'Deno 2.8 : de 42 % à 76 % de compatibilité Node.js'
-excerpt: 'Le plus grand saut de compatibilité de l''histoire de Deno, en une seule release mineure.'
+excerpt: "Le plus grand saut de compatibilité de l'histoire de Deno, en une seule release mineure."
 summary: 'Deno 2.8 passe la compatibilité Node.js de 42 à 76,4 % en une release, ajoute deno pack, deno ci, deno transpile, triple la vitesse des installs npm à froid, supporte TypeScript 6.0 et import defer. V8 passe à 14.9.'
 date: 2026-05-18T00:00:00Z
 reading_time: 6
 sources:
   [
     { label: 'Deno blog – v2.8', url: 'https://deno.com/blog/v2.8' },
-    { label: 'GitHub – Deno 2.8.0 release', url: 'https://github.com/denoland/deno/releases/tag/v2.8.0' }
+    {
+      label: 'GitHub – Deno 2.8.0 release',
+      url: 'https://github.com/denoland/deno/releases/tag/v2.8.0'
+    }
   ]
 category: 'frontend'
 ---

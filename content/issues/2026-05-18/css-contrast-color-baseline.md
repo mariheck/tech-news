@@ -1,12 +1,15 @@
 ---
-title: 'contrast-color() : l''accessibilité couleur en CSS natif'
+title: "contrast-color() : l'accessibilité couleur en CSS natif"
 excerpt: 'La fonction qui calcule le bon contraste est enfin cross-browser et Baseline Newly Available.'
-summary: 'contrast-color() atteint le Baseline Newly Available dans Chrome 147, Firefox 146 et Safari 26.0. Le navigateur calcule à la volée la couleur de texte accessible sur n''importe quel fond, avec une syntaxe étendue pour contrôler le ratio cible.'
+summary: "contrast-color() atteint le Baseline Newly Available dans Chrome 147, Firefox 146 et Safari 26.0. Le navigateur calcule à la volée la couleur de texte accessible sur n'importe quel fond, avec une syntaxe étendue pour contrôler le ratio cible."
 date: 2026-05-18T00:00:00Z
 reading_time: 5
 sources:
   [
-    { label: 'Smashing Mag – contrast-color()', url: 'https://www.smashingmagazine.com/2026/05/building-self-correcting-color-systems-contrast-color/' }
+    {
+      label: 'Smashing Mag – contrast-color()',
+      url: 'https://www.smashingmagazine.com/2026/05/building-self-correcting-color-systems-contrast-color/'
+    }
   ]
 category: 'design'
 ---
@@ -31,9 +34,9 @@ CSS Color Level 6 étend la fonction avec deux paramètres supplémentaires : un
 
 ```css
 color: contrast-color(
-  var(--surface-color)
-  vs var(--text-primary), var(--text-secondary), black
-  target 4.5
+  var(--surface-color) vs var(--text-primary),
+  var(--text-secondary),
+  black target 4.5
 );
 ```
 
@@ -60,10 +63,10 @@ L'avantage par rapport à JavaScript : le calcul se fait au niveau du style, ava
 ## Support navigateur
 
 | Navigateur | Version supportée |
-|------------|-------------------|
-| Chrome | 147+ |
-| Firefox | 146+ |
-| Safari | 26.0+ |
-| Edge | 147+ (Chromium) |
+| ---------- | ----------------- |
+| Chrome     | 147+              |
+| Firefox    | 146+              |
+| Safari     | 26.0+             |
+| Edge       | 147+ (Chromium)   |
 
 Le polyfill JavaScript reste utile pour les navigateurs plus anciens (en particulier Firefox 145- et Safari 25-), mais la large majorité des navigateurs en production supportent maintenant la fonction nativement.
