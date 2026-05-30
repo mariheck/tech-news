@@ -1,5 +1,5 @@
 import type { AccentName } from '@/types';
-import { accentToCssVar } from '@/utils';
+import { accentToCssVar } from '@/utils/accent-to-css-var';
 import classNames from 'classnames';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
@@ -18,7 +18,7 @@ export const CategoryBadge = ({
   const style = { '--accent': accentToCssVar[accent] } as CSSProperties;
 
   const baseBadge =
-    'text-label inline-flex items-center rounded-full px-2 py-1.5 border';
+    'text-label inline-flex items-center rounded-full px-2 py-1.5 border w-fit';
   const accentBadge =
     'bg-[color-mix(in_oklab,var(--accent)_9%,transparent)] border-[color-mix(in_oklab,var(--accent)_18%,transparent)] text-[color-mix(in_oklab,var(--accent)_85%,var(--color-primary))]';
 

@@ -30,7 +30,7 @@ export const TextLink = ({
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
       className={classNames(
-        'relative flex gap-2 items-center',
+        'relative w-fit flex gap-2 items-center',
         "before:absolute before:-inset-3.5 before:content-['']",
         'font-mono text-[0.75rem] tracking-wider',
         'text-secondary hover:text-primary focus-visible:text-primary',

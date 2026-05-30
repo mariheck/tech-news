@@ -9,6 +9,7 @@ export * from './format-long-date';
 export * from './format-week-range';
 export * from './get-archive-issue-dates';
 export * from './get-expected-last-monday';
+export * from './get-hero-slides';
 export * from './get-last-issue-date';
 export * from './is-category-slug';
 export * from './is-safe-slug';
