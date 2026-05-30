@@ -23,7 +23,7 @@ export const Brand = ({ size = 'md' }: BrandProps) => {
         className={classNames(
           'pointer-events-none absolute -z-10',
           '-inset-y-6 -inset-x-6 rounded-full',
-          'bg-[radial-gradient(ellipse_at_right_center,var(--color-accent-peach),transparent_60%)]',
+          'bg-[radial-gradient(ellipse_at_right_center,var(--accent),transparent_60%)]',
           'blur-md opacity-0',
           'group-hover:opacity-30 group-focus-visible:opacity-30',
           'transition-opacity duration-300 ease-in-out-circ'
@@ -32,7 +32,7 @@ export const Brand = ({ size = 'md' }: BrandProps) => {
       tech.news
       <span
         aria-hidden='true'
-        className='size-2 rounded-full bg-accent-peach shadow-wordmark-dot-glow'
+        className='size-2 rounded-full bg-(--accent) shadow-wordmark-dot-glow'
       />
     </Link>
   );

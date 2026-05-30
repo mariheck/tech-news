@@ -20,6 +20,7 @@ export const FullArticle = ({ article, backHref }: FullArticleProps) => {
 
   return (
     <article
+      data-accent={accent}
       style={style}
       className='grid grid-cols-1 md:grid-cols-[280px_1fr] md:gap-[clamp(2.5rem,6vw,5.5rem)]'
     >

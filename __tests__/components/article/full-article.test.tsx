@@ -35,6 +35,12 @@ test('FullArticle sets --accent and --accent-light from the category accent', ()
   expect(style).toMatch(/--accent-light:\s*var\(--color-accent-turquoise-light\)/);
 });
 
+test('FullArticle marks the <article> with a data-accent for the category accent', () => {
+  const { container } = render(<FullArticle article={baseArticle} backHref='/' />);
+  const article = container.querySelector('article');
+  expect(article?.getAttribute('data-accent')).toBe('turquoise');
+});
+
 test('FullArticle renders MainInfo with the sticky desktop classes wired in', () => {
   const { container } = render(<FullArticle article={baseArticle} backHref='/' />);
   const aside = container.querySelector('aside');
