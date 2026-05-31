@@ -5,13 +5,15 @@ summary: "Chrome 148 passe stable avec la Prompt API (Gemini Nano embarqué), le
 date: 2026-05-04T00:00:00Z
 reading_time: 5
 sources:
-  - { label: "New in Chrome 148", url: "https://developer.chrome.com/blog/new-in-chrome-148" }
-  - { label: "Chrome 148 release notes", url: "https://developer.chrome.com/release-notes/148" }
-  - { label: "Chrome 149 Beta", url: "https://developer.chrome.com/blog/chrome-149-beta" }
-  - { label: "Chrome 148 Security", url: "https://cybersecuritynews.com/chrome148-vulnerabilities-patched/" }
-  - { label: "Gemini Nano téléchargement", url: "https://gigazine.net/gsc_news/en/20260506-google-chrome-148/" }
-  - { label: "WebMCP origin trial", url: "https://scriptwalker.app/blog/webmcp-chrome-149-origin-trial-agentic-web-may-2026" }
-category: frontend
+  [
+    { label: 'New in Chrome 148', url: 'https://developer.chrome.com/blog/new-in-chrome-148' },
+    { label: 'Chrome 148 release notes', url: 'https://developer.chrome.com/release-notes/148' },
+    { label: 'Chrome 149 Beta', url: 'https://developer.chrome.com/blog/chrome-149-beta' },
+    { label: 'Chrome 148 Security', url: 'https://cybersecuritynews.com/chrome148-vulnerabilities-patched/' },
+    { label: 'Gemini Nano téléchargement', url: 'https://gigazine.net/gsc_news/en/20260506-google-chrome-148/' },
+    { label: 'WebMCP origin trial', url: 'https://scriptwalker.app/blog/webmcp-chrome-149-origin-trial-agentic-web-may-2026' }
+  ]
+category: 'frontend'
 ---
 
 # Chrome 148 : Prompt API, CSS et 127 failles

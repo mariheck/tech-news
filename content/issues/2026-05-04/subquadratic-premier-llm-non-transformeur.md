@@ -5,9 +5,11 @@ summary: "La startup Subquadratic présente SubQ 1M-Preview, premier LLM fondé 
 date: 2026-05-04T00:00:00Z
 reading_time: 3
 sources:
-  - { label: "Subquadratic - Introducing SubQ", url: "https://subq.ai/introducing-subq" }
-  - { label: "SiliconAngle", url: "https://siliconangle.com/2026/05/05/subquadratic-launches-29m-bring-12m-token-context-windows-ai/" }
-category: actus-ia
+  [
+    { label: 'Subquadratic - Introducing SubQ', url: 'https://subq.ai/introducing-subq' },
+    { label: 'SiliconAngle', url: 'https://siliconangle.com/2026/05/05/subquadratic-launches-29m-bring-12m-token-context-windows-ai/' }
+  ]
+category: 'actus-ia'
 ---
 
 # SubQ 1M : le premier LLM sans architecture transformer

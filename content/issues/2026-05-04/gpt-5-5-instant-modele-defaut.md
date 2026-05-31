@@ -5,9 +5,11 @@ summary: "GPT-5.5 Instant remplace GPT-5.3 Instant comme modèle par défaut pou
 date: 2026-05-04T00:00:00Z
 reading_time: 3
 sources:
-  - { label: "OpenAI - GPT-5.5 Instant", url: "https://openai.com/index/gpt-5-5-instant/" }
-  - { label: "TechCrunch", url: "https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/" }
-category: actus-ia
+  [
+    { label: 'OpenAI - GPT-5.5 Instant', url: 'https://openai.com/index/gpt-5-5-instant/' },
+    { label: 'TechCrunch', url: 'https://techcrunch.com/2026/05/05/openai-releases-gpt-5-5-instant-a-new-default-model-for-chatgpt/' }
+  ]
+category: 'actus-ia'
 ---
 
 # GPT-5.5 Instant : le nouveau modèle par défaut

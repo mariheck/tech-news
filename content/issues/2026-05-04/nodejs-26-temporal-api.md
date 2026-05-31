@@ -5,11 +5,13 @@ summary: "Node.js 26.0.0 active par défaut l'API Temporal, embarque V8 14.6 et 
 date: 2026-05-04T00:00:00Z
 reading_time: 4
 sources:
-  - { label: "Node.js 26.0.0 blog", url: "https://nodejs.org/en/blog/release/v26.0.0" }
-  - { label: "Node.js 26.1.0 blog", url: "https://nodejs.org/en/blog/release/v26.1.0" }
-  - { label: "Node.js v26.0.0 release", url: "https://github.com/nodejs/node/releases/tag/v26.0.0" }
-  - { label: "Node.js v26.1.0 release", url: "https://github.com/nodejs/node/releases/tag/v26.1.0" }
-category: frontend
+  [
+    { label: 'Node.js 26.0.0 blog', url: 'https://nodejs.org/en/blog/release/v26.0.0' },
+    { label: 'Node.js 26.1.0 blog', url: 'https://nodejs.org/en/blog/release/v26.1.0' },
+    { label: 'Node.js v26.0.0 release', url: 'https://github.com/nodejs/node/releases/tag/v26.0.0' },
+    { label: 'Node.js v26.1.0 release', url: 'https://github.com/nodejs/node/releases/tag/v26.1.0' }
+  ]
+category: 'frontend'
 ---
 
 # Node.js 26 : Temporal API activée par défaut

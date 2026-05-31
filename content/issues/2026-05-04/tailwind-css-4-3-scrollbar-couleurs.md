@@ -5,9 +5,11 @@ summary: "Tailwind CSS 4.3 ajoute les utilitaires de scrollbar natifs, @containe
 date: 2026-05-04T00:00:00Z
 reading_time: 4
 sources:
-  - { label: "Tailwind CSS v4.3 blog", url: "https://tailwindcss.com/blog/tailwindcss-v4-3" }
-  - { label: "GitHub release v4.3.0", url: "https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.3.0" }
-category: design
+  [
+    { label: 'Tailwind CSS v4.3 blog', url: 'https://tailwindcss.com/blog/tailwindcss-v4-3' },
+    { label: 'GitHub release v4.3.0', url: 'https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.3.0' }
+  ]
+category: 'design'
 ---
 
 # Tailwind CSS 4.3 : scrollbars, couleurs et webpack

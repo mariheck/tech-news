@@ -5,9 +5,11 @@ summary: "Edge 148 livre une vingtaine de features web : Digital Credentials API
 date: 2026-05-04T00:00:00Z
 reading_time: 4
 sources:
-  - { label: "Edge 148 release notes", url: "https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/148" }
-  - { label: "Edge 148 GitHub source", url: "https://github.com/MicrosoftDocs/edge-developer/blob/main/microsoft-edge/web-platform/release-notes/148.md" }
-category: frontend
+  [
+    { label: 'Edge 148 release notes', url: 'https://learn.microsoft.com/en-us/microsoft-edge/web-platform/release-notes/148' },
+    { label: 'Edge 148 GitHub source', url: 'https://github.com/MicrosoftDocs/edge-developer/blob/main/microsoft-edge/web-platform/release-notes/148.md' }
+  ]
+category: 'frontend'
 ---
 
 # Edge 148 : Digital Credentials, WebGPU et IA locale

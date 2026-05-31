@@ -5,10 +5,12 @@ summary: "Lors de sa conférence Code with Claude à San Francisco, Anthropic a 
 date: 2026-05-04T00:00:00Z
 reading_time: 4
 sources:
-  - { label: "Code with Claude 2026", url: "https://claude.com/code-with-claude" }
-  - { label: "Simon Willison recap", url: "https://simonwillison.net/2026/May/6/code-w-claude-2026/" }
-  - { label: "The Register - SpaceX deal", url: "https://www.theregister.com/ai-and-ml/2026/05/06/claude-hitches-a-ride-on-spacexs-datacenter-capacity/5231252" }
-category: actus-ia
+  [
+    { label: 'Code with Claude 2026', url: 'https://claude.com/code-with-claude' },
+    { label: 'Simon Willison recap', url: 'https://simonwillison.net/2026/May/6/code-w-claude-2026/' },
+    { label: 'The Register - SpaceX deal', url: 'https://www.theregister.com/ai-and-ml/2026/05/06/claude-hitches-a-ride-on-spacexs-datacenter-capacity/5231252' }
+  ]
+category: 'actus-ia'
 ---
 
 # Anthropic lance ses agents managés et signe SpaceX

@@ -5,8 +5,10 @@ summary: "Astro 6.3 lance en expérimental l'advancedRouting : un fichier src/ap
 date: 2026-05-04T00:00:00Z
 reading_time: 3
 sources:
-  - { label: "Astro 6.3.0 release", url: "https://github.com/withastro/astro/releases/tag/astro%406.3.0" }
-category: frontend
+  [
+    { label: 'Astro 6.3.0 release', url: 'https://github.com/withastro/astro/releases/tag/astro%406.3.0' }
+  ]
+category: 'frontend'
 ---
 
 # Astro 6.3 : routing avancé et intégration Hono

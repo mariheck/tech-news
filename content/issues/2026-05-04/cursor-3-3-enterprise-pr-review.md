@@ -5,10 +5,12 @@ summary: "En une semaine, Cursor a lancé des contrôles enterprise (allow/block
 date: 2026-05-04T00:00:00Z
 reading_time: 3
 sources:
-  - { label: "Cursor Changelog 04-05-26", url: "https://cursor.com/changelog/05-04-26" }
-  - { label: "Cursor Changelog 07-05-26", url: "https://cursor.com/changelog/05-07-26" }
-  - { label: "Opsera + Cursor partnership", url: "https://www.prnewswire.com/news-releases/opsera-and-cursor-partner-to-embed-autonomous-ai-agents-directly-into-ai-sdlc-workflows-for-next-gen-ai-driven-development-302762277.html" }
-category: dev-ia
+  [
+    { label: 'Cursor Changelog 04-05-26', url: 'https://cursor.com/changelog/05-04-26' },
+    { label: 'Cursor Changelog 07-05-26', url: 'https://cursor.com/changelog/05-07-26' },
+    { label: 'Opsera + Cursor partnership', url: 'https://www.prnewswire.com/news-releases/opsera-and-cursor-partner-to-embed-autonomous-ai-agents-directly-into-ai-sdlc-workflows-for-next-gen-ai-driven-development-302762277.html' }
+  ]
+category: 'dev-ia'
 ---
 
 # Cursor 3.3 : PR Review intégré et contrôles enterprise

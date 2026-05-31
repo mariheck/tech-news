@@ -5,9 +5,11 @@ summary: "Google passe Gemini 3.1 Flash-Lite en disponibilité générale, à 0,
 date: 2026-05-04T00:00:00Z
 reading_time: 3
 sources:
-  - { label: "Google Cloud Blog", url: "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-flash-lite-is-now-generally-available" }
-  - { label: "Gemini API docs", url: "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite" }
-category: actus-ia
+  [
+    { label: 'Google Cloud Blog', url: 'https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-1-flash-lite-is-now-generally-available' },
+    { label: 'Gemini API docs', url: 'https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite' }
+  ]
+category: 'actus-ia'
 ---
 
 # Gemini 3.1 Flash-Lite en disponibilité générale

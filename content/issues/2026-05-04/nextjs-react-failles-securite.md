@@ -5,12 +5,14 @@ summary: "Vercel a publié un patch coordonné pour Next.js (15.5.18 et 16.2.6) 
 date: 2026-05-04T00:00:00Z
 reading_time: 4
 sources:
-  - { label: "Next.js Security Release", url: "https://vercel.com/changelog/next-js-may-2026-security-release" }
-  - { label: "Cloudflare WAF mitigation", url: "https://developers.cloudflare.com/changelog/post/2026-05-06-react-nextjs-vulnerabilities/" }
-  - { label: "Netlify response", url: "https://www.netlify.com/changelog/2026-05-08-react-nextjs-security-vulnerabilities/" }
-  - { label: "React 19.2.6 release", url: "https://github.com/facebook/react/releases/tag/v19.2.6" }
-  - { label: "Webhani - analyse du patch", url: "https://www.webhani.com/blog/nextjs-security-release-may-2026" }
-category: frontend
+  [
+    { label: 'Next.js Security Release', url: 'https://vercel.com/changelog/next-js-may-2026-security-release' },
+    { label: 'Cloudflare WAF mitigation', url: 'https://developers.cloudflare.com/changelog/post/2026-05-06-react-nextjs-vulnerabilities/' },
+    { label: 'Netlify response', url: 'https://www.netlify.com/changelog/2026-05-08-react-nextjs-security-vulnerabilities/' },
+    { label: 'React 19.2.6 release', url: 'https://github.com/facebook/react/releases/tag/v19.2.6' },
+    { label: 'Webhani - analyse du patch', url: 'https://www.webhani.com/blog/nextjs-security-release-may-2026' }
+  ]
+category: 'frontend'
 ---
 
 # Next.js et React : alerte sécurité, 13 CVE

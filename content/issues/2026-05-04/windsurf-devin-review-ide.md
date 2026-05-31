@@ -5,8 +5,10 @@ summary: "Windsurf intègre Devin Review dans l'IDE pour tous les abonnés avec 
 date: 2026-05-04T00:00:00Z
 reading_time: 3
 sources:
-  - { label: "Windsurf - Devin Review", url: "https://windsurf.com/blog/devin-review-windsurf" }
-category: dev-ia
+  [
+    { label: 'Windsurf - Devin Review', url: 'https://windsurf.com/blog/devin-review-windsurf' }
+  ]
+category: 'dev-ia'
 ---
 
 # Windsurf apporte Devin Review directement dans l'IDE
