@@ -47,26 +47,31 @@
   :root {
     --accent: var(--color-accent-peach);
     --accent-light: var(--color-accent-peach-light);
+    --chrome-accent: var(--color-accent-peach);
   }
 
   body:has(article[data-accent='turquoise']) {
     --accent: var(--color-accent-turquoise);
     --accent-light: var(--color-accent-turquoise-light);
+    --chrome-accent: var(--color-accent-turquoise);
   }
 
   body:has(article[data-accent='raspberry']) {
     --accent: var(--color-accent-raspberry);
     --accent-light: var(--color-accent-raspberry-light);
+    --chrome-accent: var(--color-accent-raspberry);
   }
 
   body:has(article[data-accent='copper']) {
     --accent: var(--color-accent-copper);
     --accent-light: var(--color-accent-copper-light);
+    --chrome-accent: var(--color-accent-copper);
   }
 
   body:has(article[data-accent='iris']) {
     --accent: var(--color-accent-iris);
     --accent-light: var(--color-accent-iris-light);
+    --chrome-accent: var(--color-accent-iris);
   }
 
   html {
@@ -116,7 +121,7 @@
 
   /* Selected text */
   ::selection {
-    @apply bg-(--accent) text-plum-base;
+    @apply bg-(--chrome-accent) text-plum-base;
   }
 
   /* Focus outline */
@@ -125,7 +130,7 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-solid outline-(--accent) outline-offset-2 rounded;
+    @apply outline-2 outline-solid outline-(--chrome-accent) outline-offset-2 rounded;
   }
 
   /* Reduced motion when requested */

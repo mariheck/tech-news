@@ -172,7 +172,7 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
                       // Stretched hit area: the link covers the whole carousel
                       // section so a tap anywhere (outside the dots) opens the article.
                       'after:absolute after:inset-0 after:rounded-2xl after:content-[""]',
-                      'focus-visible:after:ring-2 focus-visible:after:ring-(--accent)'
+                      'focus-visible:after:ring-2 focus-visible:after:ring-(--chrome-accent)'
                     )}
                   >
                     {slide.title}
