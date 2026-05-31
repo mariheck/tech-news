@@ -40,8 +40,13 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
             {children}
           </a>
         ),
+        pre: ({ children }) => (
+          <pre className='mb-6 bg-plum-overlay rounded-lg p-4 [font-variant-ligatures:none] [&_code]:block [&_code]:bg-transparent [&_code]:p-0 [&_code]:rounded-none [&_code]:whitespace-pre-wrap [&_code]:wrap-break-word'>
+            {children}
+          </pre>
+        ),
         code: ({ children }) => (
-          <code className='font-mono text-[0.88em] bg-plum-overlay rounded-sm px-1.25 py-0.5 text-primary'>
+          <code className='inline-block font-mono text-[0.88em] bg-plum-overlay rounded-sm px-1.25 py-0.5 text-primary [font-variant-ligatures:none]'>
             {children}
           </code>
         ),
@@ -61,10 +66,34 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
           </ol>
         ),
         li: ({ children }) => <li className='my-2'>{children}</li>,
+        table: ({ children }) => (
+          <div className='my-8 overflow-x-auto'>
+            <table className='w-full border-collapse text-body'>
+              {children}
+            </table>
+          </div>
+        ),
+        th: ({ children, style }) => (
+          <th
+            style={style}
+            className='border-b border-plum-subtle px-4 py-2.5 text-left font-semibold text-primary'
+          >
+            {children}
+          </th>
+        ),
+        td: ({ children, style }) => (
+          <td
+            style={style}
+            className='border-b border-plum-subtle px-4 py-2.5 text-secondary'
+          >
+            {children}
+          </td>
+        ),
         strong: ({ children }) => (
           <strong className='font-semibold'>{children}</strong>
         ),
-        em: ({ children }) => <em className='italic'>{children}</em>
+        em: ({ children }) => <em className='italic'>{children}</em>,
+        hr: () => <hr className='my-15 text-(--accent-light)/25' />
       }}
     >
       {markdown}

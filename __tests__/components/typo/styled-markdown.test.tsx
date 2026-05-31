@@ -48,8 +48,10 @@ test('StyledMarkdown renders inline code in a mono chip on bg-plum-overlay', () 
   render(<StyledMarkdown markdown={markdown} />);
   const code = screen.getByText('inline code');
   expect(code.tagName).toBe('CODE');
+  expect(code.className).toContain('inline-block');
   expect(code.className).toContain('font-mono');
   expect(code.className).toContain('bg-plum-overlay');
+  expect(code.className).toContain('[font-variant-ligatures:none]');
 });
 
 test('StyledMarkdown opens external links in a new tab with noopener noreferrer', () => {
@@ -80,4 +82,91 @@ test('StyledMarkdown caps paragraphs at 65ch (per the DESIGN.md rule)', () => {
   const p = screen.getByText(/A paragraph with/);
   expect(p.tagName).toBe('P');
   expect(p.className).toContain('max-w-[65ch]');
+});
+
+const tableMarkdown = `| Navigateur | Version |
+| :--------- | :-----: |
+| Chrome     | 147+    |
+| Firefox    | 146+    |
+`;
+
+test('StyledMarkdown renders GFM tables inside a horizontally scrollable wrapper', () => {
+  const { container } = render(<StyledMarkdown markdown={tableMarkdown} />);
+  const table = container.querySelector('table');
+  expect(table).not.toBeNull();
+  expect(table?.className).toContain('border-collapse');
+  expect(table?.parentElement?.className).toContain('overflow-x-auto');
+});
+
+test('StyledMarkdown renders table headers in emphasized primary text', () => {
+  render(<StyledMarkdown markdown={tableMarkdown} />);
+  const th = screen.getByRole('columnheader', { name: 'Navigateur' });
+  expect(th.className).toContain('font-semibold');
+  expect(th.className).toContain('text-primary');
+  expect(th.className).toContain('border-plum-subtle');
+});
+
+test('StyledMarkdown renders table cells in secondary body text', () => {
+  render(<StyledMarkdown markdown={tableMarkdown} />);
+  const td = screen.getByRole('cell', { name: 'Chrome' });
+  expect(td.tagName).toBe('TD');
+  expect(td.className).toContain('text-secondary');
+  expect(td.className).toContain('border-plum-subtle');
+});
+
+test('StyledMarkdown preserves GFM column alignment on cells', () => {
+  render(<StyledMarkdown markdown={tableMarkdown} />);
+  const td = screen.getByRole('cell', { name: '147+' });
+  expect(td.style.textAlign).toBe('center');
+});
+
+const codeBlockMarkdown = `\`\`\`css
+color: contrast-color(var(--surface));
+\`\`\`
+`;
+
+test('StyledMarkdown renders fenced code blocks in a padded pre on bg-plum-overlay', () => {
+  const { container } = render(<StyledMarkdown markdown={codeBlockMarkdown} />);
+  const pre = container.querySelector('pre');
+  expect(pre).not.toBeNull();
+  expect(pre?.className).toContain('bg-plum-overlay');
+  expect(pre?.className).toContain('rounded-lg');
+  expect(pre?.className).toContain('p-4');
+  expect(pre?.textContent).toContain('color: contrast-color(var(--surface));');
+});
+
+test('StyledMarkdown disables ligatures in code blocks so "--" stays as two hyphens', () => {
+  const { container } = render(<StyledMarkdown markdown={codeBlockMarkdown} />);
+  const pre = container.querySelector('pre');
+  expect(pre?.className).toContain('[font-variant-ligatures:none]');
+});
+
+test('StyledMarkdown wraps long code-block lines instead of letting them overflow', () => {
+  const { container } = render(<StyledMarkdown markdown={codeBlockMarkdown} />);
+  const pre = container.querySelector('pre');
+  expect(pre?.className).toContain('[&_code]:whitespace-pre-wrap');
+  expect(pre?.className).toContain('[&_code]:wrap-break-word');
+});
+
+test('StyledMarkdown strips the inline chip styling from code nested in a block', () => {
+  const { container } = render(<StyledMarkdown markdown={codeBlockMarkdown} />);
+  const pre = container.querySelector('pre');
+  expect(pre?.className).toContain('[&_code]:block');
+  expect(pre?.className).toContain('[&_code]:bg-transparent');
+  expect(pre?.className).toContain('[&_code]:p-0');
+});
+
+const hrMarkdown = `Above the rule.
+
+---
+
+Below the rule.
+`;
+
+test('StyledMarkdown renders thematic breaks as an accent-tinted rule with vertical rhythm', () => {
+  const { container } = render(<StyledMarkdown markdown={hrMarkdown} />);
+  const hr = container.querySelector('hr');
+  expect(hr).not.toBeNull();
+  expect(hr?.className).toContain('my-15');
+  expect(hr?.className).toContain('text-(--accent-light)/25');
 });
