@@ -127,7 +127,7 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
                         'cursor-pointer',
                         'relative h-1.25 rounded-full',
                         'transition-[width,background-color] duration-300 ease-out-circ',
-                        'before:absolute before:-inset-x-1 before:-inset-y-3 before:content-[""]',
+                        'before:absolute before:-inset-x-1 before:-inset-y-5 before:content-[""]',
                         {
                           'w-8.5 bg-primary': isActive,
                           'w-5.5 bg-primary/60 hover:bg-primary/90 focus-visible:bg-primary/90':

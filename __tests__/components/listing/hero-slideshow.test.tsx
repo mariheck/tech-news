@@ -79,6 +79,14 @@ describe('HeroSlideshow — structure', () => {
     expect(allDots[0]).toHaveAttribute('aria-current', 'true');
     expect(allDots[1]).not.toHaveAttribute('aria-current');
   });
+
+  test('each dot exposes a touch-sized tap zone via vertical inset expansion', () => {
+    render(<HeroSlideshow slides={SLIDES} />);
+
+    for (const dot of dots()) {
+      expect(dot.className).toContain('before:-inset-y-5');
+    }
+  });
 });
 
 describe('HeroSlideshow — manual navigation', () => {

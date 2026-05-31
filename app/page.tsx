@@ -33,7 +33,7 @@ const Home = async ({ searchParams }: HomeProps) => {
     latestDate === getExpectedLastMonday().toISOString().slice(0, 10);
 
   return (
-    <div className='flex flex-col gap-16 w-full'>
+    <div className='flex flex-col gap-8 md:gap-16 w-full'>
       <div>
         <p className='mt-4 font-mono text-xs uppercase tracking-[0.04em] text-tertiary'>
           tech.news

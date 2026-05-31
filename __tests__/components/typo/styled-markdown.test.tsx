@@ -98,6 +98,13 @@ test('StyledMarkdown renders GFM tables inside a horizontally scrollable wrapper
   expect(table?.parentElement?.className).toContain('overflow-x-auto');
 });
 
+test('StyledMarkdown sizes tables to their content so wide ones scroll instead of cramming', () => {
+  const { container } = render(<StyledMarkdown markdown={tableMarkdown} />);
+  const table = container.querySelector('table');
+  expect(table?.className).toContain('w-max');
+  expect(table?.className).toContain('min-w-full');
+});
+
 test('StyledMarkdown renders table headers in emphasized primary text', () => {
   render(<StyledMarkdown markdown={tableMarkdown} />);
   const th = screen.getByRole('columnheader', { name: 'Navigateur' });

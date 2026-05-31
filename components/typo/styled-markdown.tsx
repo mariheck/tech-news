@@ -68,7 +68,7 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
         li: ({ children }) => <li className='my-2'>{children}</li>,
         table: ({ children }) => (
           <div className='my-8 overflow-x-auto'>
-            <table className='w-full border-collapse text-body'>
+            <table className='w-max min-w-full border-collapse text-body'>
               {children}
             </table>
           </div>

@@ -36,8 +36,8 @@ const ArchivesPage = async ({ searchParams }: ArchivesPageProps) => {
   }));
 
   return (
-    <div className='flex flex-col gap-8 w-full'>
-      <div className='mb-8'>
+    <div className='flex flex-col gap-8 md:gap-16 w-full'>
+      <div>
         <p className='mt-4 font-mono text-xs uppercase tracking-[0.04em] text-tertiary'>
           Archives
         </p>
