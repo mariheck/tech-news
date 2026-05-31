@@ -11,7 +11,7 @@ const NAV_ITEMS = [
 
 export const Header = () => {
   return (
-    <header className='sticky top-0 z-40 h-16 border-b border-plum-subtle bg-plum-base/85 backdrop-blur-sm'>
+    <header className='sticky top-0 z-40 h-16 border-b border-plum-subtle bg-plum-base md:bg-plum-base/85 md:backdrop-blur-sm'>
       <div className='mx-auto flex h-full max-w-7xl items-center justify-between px-6'>
         <Brand />
 
