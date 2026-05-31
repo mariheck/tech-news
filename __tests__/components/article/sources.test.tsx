@@ -9,7 +9,7 @@ const sources: Source[] = [
   { label: 'Migration codemods', url: 'github.com/vercel/next-codemod' }
 ];
 
-test('Sources renders the "— Sources" eyebrow label', () => {
+test('Sources renders the "Sources" eyebrow label', () => {
   render(<Sources sources={sources} />);
   const label = screen.getByText(/Sources/);
   expect(label.className).toContain('text-label');
@@ -21,11 +21,11 @@ test('Sources renders one list item per source', () => {
   expect(container.querySelectorAll('ol > li')).toHaveLength(3);
 });
 
-test('Sources renders the [n] markers in mono using --accent color', () => {
+test('Sources renders the [n] markers in mono using --accent-light color', () => {
   render(<Sources sources={sources} />);
   const marker = screen.getByText('[1]');
   expect(marker.className).toContain('font-mono');
-  expect(marker.className).toContain('text-(--accent)');
+  expect(marker.className).toContain('text-(--accent-light)');
 });
 
 test('Sources renders each source label inside an external anchor', () => {
@@ -45,13 +45,22 @@ test('Sources renders each URL as a tertiary mono line under the anchor', () => 
   expect(url.className).toContain('text-tertiary');
 });
 
-test('Sources expands the anchor hit area with a before pseudo-element', () => {
+test('Sources drives the label hover/focus state from the anchor group', () => {
   render(<Sources sources={sources} />);
   const link = screen.getByRole('link', { name: 'Next.js 16 release notes' });
-  expect(link.className).toContain('relative');
-  expect(link.className).toContain('before:absolute');
-  expect(link.className).toContain('before:-inset-y-3');
-  expect(link.className).toContain("before:content-['']");
+  expect(link.className).toContain('group');
+  const label = screen.getByText('Next.js 16 release notes');
+  expect(label.className).toContain('group-hover:text-(--accent-light)');
+  expect(label.className).toContain('group-focus-visible:text-(--accent-light)');
+});
+
+test('Sources hides the decorative marker and URL from the accessible name', () => {
+  render(<Sources sources={sources} />);
+  expect(screen.getByText('[1]')).toHaveAttribute('aria-hidden', 'true');
+  expect(screen.getByText('nextjs.org/blog/next-16')).toHaveAttribute(
+    'aria-hidden',
+    'true'
+  );
 });
 
 test('Sources exposes the full label via a title attribute despite the clamp', () => {

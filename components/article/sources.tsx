@@ -11,31 +11,40 @@ export const Sources = ({ sources, className }: SourcesProps) => {
 
   return (
     <div className={classNames('flex flex-col gap-4', className)}>
-      <span className='text-label text-tertiary'>— Sources</span>
+      <span className='text-label text-tertiary'>Sources</span>
       <ol className='flex flex-col gap-5 list-none'>
         {sources.map((source, index) => (
-          <li key={source.url} className='flex flex-col gap-1 w-fit max-w-full'>
-            <span className='font-mono text-[0.8125rem] leading-[1.4] tracking-[0.02em] text-(--accent)'>
-              [{index + 1}]
-            </span>
+          <li key={source.url} className='max-w-full'>
             <a
               href={source.url}
               target='_blank'
               rel='noopener noreferrer'
               title={source.label}
-              className={classNames(
-                'relative text-sm text-primary',
-                "before:absolute before:-inset-y-3 before:inset-x-0 before:content-['']",
-                'hover:text-(--accent-light) focus-visible:text-(--accent-light)',
-                'transition-colors ease-out-circ duration-200',
-                'line-clamp-1 w-fit max-w-full wrap-break-word'
-              )}
+              className='flex flex-col gap-1 w-fit group'
             >
-              {source.label}
+              <span
+                aria-hidden={true}
+                className='font-mono text-[0.8125rem] leading-[1.4] tracking-[0.02em] text-(--accent-light)'
+              >
+                [{index + 1}]
+              </span>
+              <span
+                className={classNames(
+                  'text-sm text-primary',
+                  'line-clamp-1 w-fit max-w-full wrap-break-word',
+                  'group-hover:text-(--accent-light) group-focus-visible:text-(--accent-light)',
+                  'transition-colors ease-out-circ duration-200'
+                )}
+              >
+                {source.label}
+              </span>
+              <span
+                aria-hidden={true}
+                className='font-mono text-xs tracking-normal text-tertiary line-clamp-1 max-w-full break-all'
+              >
+                {source.url.replace(/^https?:\/\//, '')}
+              </span>
             </a>
-            <span className='font-mono text-xs tracking-normal text-tertiary line-clamp-1 max-w-full break-all'>
-              {source.url}
-            </span>
           </li>
         ))}
       </ol>
