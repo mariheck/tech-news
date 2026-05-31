@@ -118,6 +118,8 @@ This project is developed test-first. Before writing implementation code for any
 
 Do not write production code without a failing test pointing at it. Do not stack multiple behaviors into one test. If a bug slips through, the first step is a regression test that reproduces it — then the fix.
 
+**"Fix the failing tests" never means delete the code that makes them fail.** When tests break after intentional code changes (especially uncommitted working-tree edits), the source of truth is the new code — update the test assertions to match it. Never `git checkout`/revert just-made modifications to make a suite green. If the code itself looks wrong, propose a fix and let the user decide; don't silently discard their work.
+
 ## Testing
 
 - `vitest.setup.ts` already loads `@testing-library/jest-dom/vitest` matchers and runs `cleanup()` after each test — don't re-import matchers or call cleanup in test files.
