@@ -20,7 +20,7 @@ export const HeroImage = ({ src, alt, className }: HeroImageProps) => {
         alt={alt}
         fill
         sizes='(max-width: 768px) 100vw, 60vw'
-        priority
+        preload
         className='object-cover'
       />
       <span

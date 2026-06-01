@@ -132,7 +132,7 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
                 alt={card.image.alt}
                 fill
                 sizes='(min-width: 1024px) 60vw, 100vw'
-                priority={index === 0}
+                preload={index === 0}
                 className='object-cover'
               />
             </div>
