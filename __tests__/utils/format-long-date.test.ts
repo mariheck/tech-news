@@ -10,3 +10,9 @@ test('formatLongDate omits leading zero on single-digit days', () => {
     '3 janvier 2026'
   );
 });
+
+test('formatLongDate writes "1er" for the first day of the month', () => {
+  expect(formatLongDate(new Date('2026-06-01T10:00:00Z'))).toBe(
+    '1er juin 2026'
+  );
+});
