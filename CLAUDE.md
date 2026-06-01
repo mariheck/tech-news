@@ -12,6 +12,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **ESLint 9** flat config (`eslint-config-next/core-web-vitals` + `/typescript`)
 
 > ⚠️ **Next.js 16 and React 19 are newer than most training data.** APIs, conventions, and file structure may differ from what you remember. Before touching a Next.js or React API, read the relevant guide in `node_modules/next/dist/docs/` and heed deprecation notices. Prefer fetching docs via `context7` over relying on memory — pinned IDs: Next.js → `/vercel/next.js`, React → `/websites/react_dev`.
+>
+> Known Next 16 trap (training data uses the old prop): on `next/image`, **`priority` is deprecated — use the `preload` boolean instead** (same semantics, inserts a `<link rel="preload">` for the LCP image).
 
 ## Commands
 
