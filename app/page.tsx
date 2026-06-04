@@ -1,5 +1,5 @@
 import { CategoryFilter } from '@/components/category';
-import { FeatureGrid, HeroSlideshow } from '@/components/listing';
+import { HeroSlideshow, UniformGrid } from '@/components/listing';
 import { EmptyNotice } from '@/components/shared';
 import { PageHeading, SectionHeading } from '@/components/typo';
 import {
@@ -54,7 +54,7 @@ const Home = async ({ searchParams }: HomeProps) => {
               : formatWeekRange(issue.date)}
           </SectionHeading>
 
-          <FeatureGrid articles={filterByCategory(issue.articles, active)} />
+          <UniformGrid articles={filterByCategory(issue.articles, active)} />
         </div>
       ) : (
         <EmptyNotice>Aucun article disponible pour le moment.</EmptyNotice>
