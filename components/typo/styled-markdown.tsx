@@ -1,3 +1,4 @@
+import { MoveUpRightIcon } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -38,6 +39,12 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
             className='text-(--accent-light) underline-offset-5 hover:underline focus-visible:underline hover:decoration-(--accent-light) focus-visible:decoration-(--accent-light)'
           >
             {children}
+            <MoveUpRightIcon
+              aria-hidden='true'
+              strokeWidth={1.7}
+              size={14}
+              className='inline-block ml-0.5 translate-y-[-0.05em]'
+            />
           </a>
         ),
         pre: ({ children }) => (
