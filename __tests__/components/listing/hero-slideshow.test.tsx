@@ -134,23 +134,25 @@ describe('HeroSlideshow — hover affordance', () => {
     expect(dotsContainer.className).toContain('pointer-events-auto');
   });
 
-  test('the image panel scopes --accent to the active slide accent', () => {
+  test('the carousel root scopes --accent to the active slide accent', () => {
     render(<HeroSlideshow slides={SLIDES} />);
 
-    const panel = carousel().firstElementChild as HTMLElement;
-    // First slide is 'frontend' → turquoise; --shadow-lift reads var(--accent).
-    expect(panel.style.getPropertyValue('--accent')).toBe(
+    // First slide is 'frontend' → turquoise. The accent vars live on the root so
+    // both the image panel's --shadow-lift and the content's --accent-light read them.
+    expect(carousel().style.getPropertyValue('--accent')).toBe(
       'var(--color-accent-turquoise)'
+    );
+    expect(carousel().style.getPropertyValue('--accent-light')).toBe(
+      'var(--color-accent-turquoise-light)'
     );
   });
 
-  test('the panel accent follows the active slide', () => {
+  test('the root accent follows the active slide', () => {
     render(<HeroSlideshow slides={SLIDES} />);
 
     fireEvent.click(dots()[1]); // second slide is 'design' → raspberry
 
-    const panel = carousel().firstElementChild as HTMLElement;
-    expect(panel.style.getPropertyValue('--accent')).toBe(
+    expect(carousel().style.getPropertyValue('--accent')).toBe(
       'var(--color-accent-raspberry)'
     );
   });

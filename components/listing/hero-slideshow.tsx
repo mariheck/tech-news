@@ -1,8 +1,7 @@
 'use client';
 
-import { CategoryBadge } from '@/components/category/category-badge';
 import type { ArticleMeta } from '@/types';
-import { accentToCssVar } from '@/utils/accent-to-css-var';
+import { accentToCssVar, accentToLightCssVar } from '@/utils/accent-to-css-var';
 import { articleToCardProps } from '@/utils/article-to-card-props';
 import { formatLongDate } from '@/utils/format-long-date';
 import classNames from 'classnames';
@@ -95,6 +94,12 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
       onKeyDown={onKeyDown}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
+      style={
+        {
+          '--accent': accentToCssVar[activeAccent],
+          '--accent-light': accentToLightCssVar[activeAccent]
+        } as CSSProperties
+      }
       className={classNames(
         'group relative grid grid-cols-1 items-stretch',
         'md:gap-[clamp(1.75rem,4vw,3.5rem)]',
@@ -102,7 +107,6 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
       )}
     >
       <div
-        style={{ '--accent': accentToCssVar[activeAccent] } as CSSProperties}
         className={classNames(
           'relative z-10 w-full overflow-hidden rounded-2xl pointer-events-none',
           'bg-plum-overlay aspect-square lg:aspect-video',
@@ -159,25 +163,27 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
               )}
             >
               <div className='grow flex flex-col gap-4 md:gap-6'>
-                <div className='hidden md:block'>
-                  <CategoryBadge label={card.badge} accent={card.accent} />
-                </div>
+                <div>
+                  <p className='mb-2 ml-0.5 font-mono text-xs uppercase tracking-[0.04em] text-(--accent-light)/80'>
+                    {card.category}
+                  </p>
 
-                <h2 className='text-headline text-balance text-primary'>
-                  <Link
-                    href={card.href}
-                    tabIndex={isActive ? undefined : -1}
-                    className={classNames(
-                      'outline-none transition-colors',
-                      // Stretched hit area: the link covers the whole carousel
-                      // section so a tap anywhere (outside the dots) opens the article.
-                      'after:absolute after:inset-0 after:rounded-2xl after:content-[""]',
-                      'focus-visible:after:ring-2 focus-visible:after:ring-(--chrome-accent)'
-                    )}
-                  >
-                    {slide.title}
-                  </Link>
-                </h2>
+                  <h2 className='text-headline text-balance text-primary'>
+                    <Link
+                      href={card.href}
+                      tabIndex={isActive ? undefined : -1}
+                      className={classNames(
+                        'outline-none transition-colors',
+                        // Stretched hit area: the link covers the whole carousel
+                        // section so a tap anywhere (outside the dots) opens the article.
+                        'after:absolute after:inset-0 after:rounded-2xl after:content-[""]',
+                        'focus-visible:after:ring-2 focus-visible:after:ring-(--chrome-accent)'
+                      )}
+                    >
+                      {slide.title}
+                    </Link>
+                  </h2>
+                </div>
 
                 <div className='flex items-center gap-3 font-mono text-[0.8125rem] text-secondary'>
                   <time dateTime={slide.date.toISOString().slice(0, 10)}>

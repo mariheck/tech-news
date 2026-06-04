@@ -13,7 +13,7 @@ export const articleToCardProps = (article: ArticleMeta, from?: CardOrigin) => {
     href,
     title: article.title,
     excerpt: article.excerpt,
-    badge: categoryToLabel[article.category],
+    category: categoryToLabel[article.category],
     image: { src: article.image, alt: article.title },
     accent: categoryToAccent[article.category]
   };

@@ -1,10 +1,9 @@
 import type { AccentName } from '@/types';
-import { accentToCssVar } from '@/utils';
+import { accentToCssVar, accentToLightCssVar } from '@/utils';
 import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
-import { CategoryBadge } from '@/components/category';
 
 type CardVariant = 'large' | 'medium' | 'horizontal';
 
@@ -20,7 +19,7 @@ type CardProps = {
   href: string;
   title: string;
   excerpt: string;
-  badge?: string;
+  category?: string;
   image: { src: string; alt: string };
 };
 
@@ -30,7 +29,7 @@ export const Card = ({
   href,
   title,
   excerpt,
-  badge,
+  category,
   image
 }: CardProps) => {
   return (
@@ -38,7 +37,10 @@ export const Card = ({
       href={href}
       style={
         accent
-          ? ({ '--accent': accentToCssVar[accent] } as CSSProperties)
+          ? ({
+              '--accent': accentToCssVar[accent],
+              '--accent-light': accentToLightCssVar[accent]
+            } as CSSProperties)
           : undefined
       }
       className={classNames(
@@ -69,6 +71,11 @@ export const Card = ({
           sizes={variantToImageSizes[variant]}
           className='object-cover'
         />
+        {category && (
+          <span className='absolute top-2.5 right-3 text-label text-[0.6rem] text-(--accent-light)'>
+            {category}
+          </span>
+        )}
       </div>
       <div
         className={classNames('flex flex-col', {
@@ -76,16 +83,6 @@ export const Card = ({
           'gap-3': variant === 'large'
         })}
       >
-        {badge && (
-          <div
-            className={classNames({
-              'mb-1': variant !== 'large',
-              'mb-2': variant === 'large'
-            })}
-          >
-            <CategoryBadge label={badge} accent={accent ?? 'peach'} />
-          </div>
-        )}
         <h3
           className={classNames(
             'leading-[1.2] tracking-[-0.012em] font-semibold text-primary text-balance line-clamp-2',

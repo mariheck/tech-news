@@ -12,10 +12,10 @@ const commonProps = {
 const mediumCard = <Card {...commonProps} />;
 const largeCard = <Card variant='large' {...commonProps} />;
 const horizontalCard = <Card variant='horizontal' {...commonProps} />;
-const badgedCard = (
-  <Card {...commonProps} badge='Frontend' accent='raspberry' />
+const categorizedCard = (
+  <Card {...commonProps} category='Frontend' accent='raspberry' />
 );
-const badgedCardNoAccent = <Card {...commonProps} badge='Frontend' />;
+const categorizedCardNoAccent = <Card {...commonProps} category='Frontend' />;
 
 test('Card renders a link pointing to the given href', () => {
   render(mediumCard);
@@ -152,29 +152,34 @@ test('Card horizontal variant renders excerpt at 0.95rem clamped to 2 lines', ()
   expect(paragraph.className).toContain('line-clamp-2');
 });
 
-test('Card renders the badge label as a span when a badge prop is provided', () => {
-  render(badgedCard);
-  const badge = screen.getByText('Frontend');
-  expect(badge.tagName).toBe('SPAN');
+test('Card renders the category label as a span when a category prop is provided', () => {
+  render(categorizedCard);
+  const category = screen.getByText('Frontend');
+  expect(category.tagName).toBe('SPAN');
 });
 
-test('Card omits the badge when no badge prop is provided', () => {
+test('Card omits the category when no category prop is provided', () => {
   render(mediumCard);
   expect(screen.queryByText('Frontend')).not.toBeInTheDocument();
 });
 
-test('Card badge inherits the card accent via the --accent CSS variable', () => {
-  render(badgedCard);
-  const badge = screen.getByText('Frontend');
-  expect(badge.getAttribute('style')).toMatch(
+test('Card hoists the accent vars onto the card root and tints the category with --accent-light', () => {
+  render(categorizedCard);
+  const link = screen.getByRole('link', { name: /next\.js 16/i });
+  expect(link.getAttribute('style')).toMatch(
     /--accent:\s*var\(--color-accent-raspberry\)/
   );
+  expect(link.getAttribute('style')).toMatch(
+    /--accent-light:\s*var\(--color-accent-raspberry-light\)/
+  );
+  expect(screen.getByText('Frontend').className).toContain('text-(--accent-light)');
 });
 
-test('Card badge falls back to the peach accent when no accent is provided', () => {
-  render(badgedCardNoAccent);
-  const badge = screen.getByText('Frontend');
-  expect(badge.getAttribute('style')).toMatch(
-    /--accent:\s*var\(--color-accent-peach\)/
-  );
+test('Card inherits the page-level accent when no accent is provided', () => {
+  render(categorizedCardNoAccent);
+  const link = screen.getByRole('link', { name: /next\.js 16/i });
+  // No accent prop → no inline override; the category text reads the peach
+  // --accent-light default hoisted on :root rather than a card-local fallback.
+  expect(link.style.getPropertyValue('--accent')).toBe('');
+  expect(screen.getByText('Frontend').className).toContain('text-(--accent-light)');
 });
