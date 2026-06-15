@@ -2,7 +2,7 @@ import type { Article, ArticleMeta, CategorySlug } from '@/types';
 import { listIssueDates } from './list-issue-dates';
 import { loadIssue } from './load-issue';
 
-const HERO_WEEKS = 4;
+const HERO_WEEKS = 5;
 
 // The home hero shows one lead article per edition over the last HERO_WEEKS, newest
 // first. With a category filter, each week contributes its highest-priority article of

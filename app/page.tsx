@@ -27,7 +27,7 @@ const Home = async ({ searchParams }: HomeProps) => {
 
   const latestDate = await getLastIssueDate();
   const issue = latestDate ? await loadIssue(latestDate) : null;
-  const heroSlides = (await getHeroSlides(active)).reverse();
+  const heroSlides = await getHeroSlides(active);
 
   const isLastWeek =
     latestDate === getExpectedLastMonday().toISOString().slice(0, 10);
