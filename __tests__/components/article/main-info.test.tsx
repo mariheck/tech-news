@@ -3,7 +3,6 @@ import { render, screen, within } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
 const commonProps = {
-  category: 'frontend' as const,
   summary: 'Vercel publie Next.js 16 avec Turbopack stable.',
   date: new Date('2026-05-18T00:00:00Z'),
   readingTime: 8,
@@ -29,14 +28,6 @@ test('MainInfo forwards backHref to the BackLink', () => {
   render(<MainInfo {...commonProps} backHref='/archives' />);
   const link = screen.getByRole('link', { name: /Retour/ });
   expect(link).toHaveAttribute('href', '/archives');
-});
-
-test('MainInfo renders the category badge with the French label and the matching accent', () => {
-  render(<MainInfo {...commonProps} />);
-  const badge = screen.getByText('Frontend');
-  expect(badge.getAttribute('style')).toMatch(
-    /--accent:\s*var\(--color-accent-turquoise\)/
-  );
 });
 
 test('MainInfo renders the summary paragraph at body+ size', () => {

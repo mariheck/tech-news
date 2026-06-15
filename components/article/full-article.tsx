@@ -26,7 +26,6 @@ export const FullArticle = ({ article, backHref }: FullArticleProps) => {
     >
       <ScrollToTop />
       <MainInfo
-        category={article.category}
         summary={article.summary}
         date={article.date}
         readingTime={article.readingTime}

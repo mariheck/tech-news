@@ -63,17 +63,19 @@ test('ArticlePage renders the hero image with the article title as alt', async (
   expect(img).toHaveAttribute('src', expect.stringContaining('test-slug.jpg'));
 });
 
-test('ArticlePage renders the category badge in the sidebar landmark', async () => {
+test('ArticlePage renders the category label over the hero image, not in the sidebar', async () => {
   render(
     await ArticlePage({
       params: validParams(),
       searchParams: noSearchParams()
     })
   );
+  const label = screen.getByText('Frontend');
+  expect(label).toBeInTheDocument();
   const aside = screen.getByRole('complementary', {
     name: "Métadonnées de l'article"
   });
-  expect(aside.textContent).toContain('Frontend');
+  expect(aside).not.toContainElement(label);
 });
 
 test('ArticlePage exposes the loaded article body — first paragraph from markdown', async () => {
