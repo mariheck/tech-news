@@ -1,4 +1,5 @@
 import { HaloAccent } from '@/components/decoration';
+import { StyledMarkdown } from '@/components/typo';
 import type { Article } from '@/types';
 import classNames from 'classnames';
 import { MetaData } from './meta-data';
@@ -26,9 +27,9 @@ export const MainInfo = ({
       <HaloAccent className='hidden md:block -top-30 -left-30 -right-10' />
 
       <div className='flex md:flex-col gap-6 justify-between md:justify-normal'>
-        <p className='hidden md:block text-[1.0625rem] leading-[1.55] text-primary text-balance'>
-          {summary}
-        </p>
+        <div className='hidden md:block'>
+          <StyledMarkdown markdown={summary} />
+        </div>
 
         <MetaData
           date={date}

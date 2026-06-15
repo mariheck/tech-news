@@ -18,11 +18,11 @@ test('MainInfo renders as an <aside> labelled "Métadonnées de l\'article"', ()
   ).toBeInTheDocument();
 });
 
-test('MainInfo renders the summary paragraph at body+ size', () => {
+test('MainInfo renders the summary as styled markdown', () => {
   render(<MainInfo {...commonProps} />);
   const summary = screen.getByText(/Vercel publie Next\.js 16/);
   expect(summary.tagName).toBe('P');
-  expect(summary.className).toContain('text-[1.0625rem]');
+  expect(summary.className).toContain('text-body');
 });
 
 test('MainInfo renders the MetaData rows (Publié / Lecture)', () => {
