@@ -8,10 +8,9 @@ import { Sources } from './sources';
 
 type FullArticleProps = {
   article: Article;
-  backHref: string;
 };
 
-export const FullArticle = ({ article, backHref }: FullArticleProps) => {
+export const FullArticle = ({ article }: FullArticleProps) => {
   const accent = categoryToAccent[article.category];
   const style = {
     '--accent': accentToCssVar[accent],
@@ -30,7 +29,6 @@ export const FullArticle = ({ article, backHref }: FullArticleProps) => {
         date={article.date}
         readingTime={article.readingTime}
         sources={article.sources}
-        backHref={backHref}
         className='mb-8 md:mb-0 md:sticky md:top-28 md:pt-2 md:self-start'
       />
 

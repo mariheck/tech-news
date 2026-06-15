@@ -34,7 +34,6 @@ const fixture: Article = {
 
 const validParams = () =>
   Promise.resolve({ date: '2026-05-18', slug: 'test-slug' });
-const noSearchParams = () => Promise.resolve({});
 
 beforeEach(() => {
   vi.mocked(loadArticle).mockResolvedValue(fixture);
@@ -43,8 +42,7 @@ beforeEach(() => {
 test('ArticlePage renders the article title as a level-1 heading', async () => {
   render(
     await ArticlePage({
-      params: validParams(),
-      searchParams: noSearchParams()
+      params: validParams()
     })
   );
   expect(
@@ -55,8 +53,7 @@ test('ArticlePage renders the article title as a level-1 heading', async () => {
 test('ArticlePage renders the hero image with the article title as alt', async () => {
   render(
     await ArticlePage({
-      params: validParams(),
-      searchParams: noSearchParams()
+      params: validParams()
     })
   );
   const img = screen.getByRole('img', { name: 'Article fictif pour le test' });
@@ -66,8 +63,7 @@ test('ArticlePage renders the hero image with the article title as alt', async (
 test('ArticlePage renders the category label over the hero image, not in the sidebar', async () => {
   render(
     await ArticlePage({
-      params: validParams(),
-      searchParams: noSearchParams()
+      params: validParams()
     })
   );
   const label = screen.getByText('Frontend');
@@ -81,8 +77,7 @@ test('ArticlePage renders the category label over the hero image, not in the sid
 test('ArticlePage exposes the loaded article body — first paragraph from markdown', async () => {
   render(
     await ArticlePage({
-      params: validParams(),
-      searchParams: noSearchParams()
+      params: validParams()
     })
   );
   expect(
@@ -90,49 +85,9 @@ test('ArticlePage exposes the loaded article body — first paragraph from markd
   ).toBeInTheDocument();
 });
 
-test('ArticlePage points the back link to / when no from search param is provided', async () => {
-  render(
-    await ArticlePage({
-      params: validParams(),
-      searchParams: noSearchParams()
-    })
-  );
-  expect(screen.getByRole('link', { name: /Retour/ })).toHaveAttribute(
-    'href',
-    '/'
-  );
-});
-
-test('ArticlePage points the back link to /archives when from=archives is set', async () => {
-  render(
-    await ArticlePage({
-      params: validParams(),
-      searchParams: Promise.resolve({ from: 'archives' })
-    })
-  );
-  expect(screen.getByRole('link', { name: /Retour/ })).toHaveAttribute(
-    'href',
-    '/archives'
-  );
-});
-
-test('ArticlePage falls back to / when from is an unknown value', async () => {
-  render(
-    await ArticlePage({
-      params: validParams(),
-      searchParams: Promise.resolve({ from: 'someplace' })
-    })
-  );
-  expect(screen.getByRole('link', { name: /Retour/ })).toHaveAttribute(
-    'href',
-    '/'
-  );
-});
-
 test('generateMetadata sets the bare article title so the layout template adds the brand', async () => {
   const meta = await generateMetadata({
-    params: validParams(),
-    searchParams: noSearchParams()
+    params: validParams()
   });
   expect(meta.title).toBe('Article fictif pour le test');
   expect(meta.description).toBe('Excerpt fictif.');
@@ -140,16 +95,14 @@ test('generateMetadata sets the bare article title so the layout template adds t
 
 test('generateMetadata sets the canonical URL to the article path', async () => {
   const meta = await generateMetadata({
-    params: validParams(),
-    searchParams: noSearchParams()
+    params: validParams()
   });
   expect(meta.alternates?.canonical).toBe('/2026-05-18/test-slug');
 });
 
 test('generateMetadata enriches OpenGraph with url, publishedTime and section', async () => {
   const meta = await generateMetadata({
-    params: validParams(),
-    searchParams: noSearchParams()
+    params: validParams()
   });
   expect(meta.openGraph).toMatchObject({
     type: 'article',
@@ -162,8 +115,7 @@ test('generateMetadata enriches OpenGraph with url, publishedTime and section', 
 
 test('generateMetadata sets a summary_large_image Twitter card with the hero image', async () => {
   const meta = await generateMetadata({
-    params: validParams(),
-    searchParams: noSearchParams()
+    params: validParams()
   });
   expect(meta.twitter).toMatchObject({
     card: 'summary_large_image',
@@ -174,8 +126,7 @@ test('generateMetadata sets a summary_large_image Twitter card with the hero ima
 
 test('generateMetadata omits OpenGraph/Twitter description so they inherit the excerpt', async () => {
   const meta = await generateMetadata({
-    params: validParams(),
-    searchParams: noSearchParams()
+    params: validParams()
   });
   expect(meta.openGraph).not.toHaveProperty('description');
   expect(meta.twitter).not.toHaveProperty('description');
@@ -183,8 +134,7 @@ test('generateMetadata omits OpenGraph/Twitter description so they inherit the e
 
 test('generateMetadata returns empty metadata for a malformed date', async () => {
   const meta = await generateMetadata({
-    params: Promise.resolve({ date: 'not-a-date', slug: 'test-slug' }),
-    searchParams: noSearchParams()
+    params: Promise.resolve({ date: 'not-a-date', slug: 'test-slug' })
   });
   expect(meta).toEqual({});
 });
@@ -194,8 +144,7 @@ test('ArticlePage calls notFound() when the date param is malformed', async () =
   vi.mocked(notFound).mockClear();
   await expect(
     ArticlePage({
-      params: Promise.resolve({ date: 'not-a-date', slug: 'test-slug' }),
-      searchParams: noSearchParams()
+      params: Promise.resolve({ date: 'not-a-date', slug: 'test-slug' })
     })
   ).rejects.toThrow('NEXT_NOT_FOUND');
   expect(notFound).toHaveBeenCalled();
@@ -207,8 +156,7 @@ test('ArticlePage calls notFound() when loadArticle rejects (unknown slug)', asy
   vi.mocked(loadArticle).mockRejectedValueOnce(new Error('ENOENT'));
   await expect(
     ArticlePage({
-      params: Promise.resolve({ date: '2026-05-18', slug: 'unknown' }),
-      searchParams: noSearchParams()
+      params: Promise.resolve({ date: '2026-05-18', slug: 'unknown' })
     })
   ).rejects.toThrow('NEXT_NOT_FOUND');
   expect(notFound).toHaveBeenCalled();

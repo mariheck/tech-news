@@ -8,8 +8,7 @@ const commonProps = {
   readingTime: 8,
   sources: [
     { label: 'Next.js 16 release notes', url: 'nextjs.org/blog/next-16' }
-  ],
-  backHref: '/'
+  ]
 };
 
 test('MainInfo renders as an <aside> labelled "Métadonnées de l\'article"', () => {
@@ -17,17 +16,6 @@ test('MainInfo renders as an <aside> labelled "Métadonnées de l\'article"', ()
   expect(
     screen.getByRole('complementary', { name: "Métadonnées de l'article" })
   ).toBeInTheDocument();
-});
-
-test('MainInfo renders the BackLink "Retour" text', () => {
-  render(<MainInfo {...commonProps} />);
-  expect(screen.getByText(/Retour/)).toBeInTheDocument();
-});
-
-test('MainInfo forwards backHref to the BackLink', () => {
-  render(<MainInfo {...commonProps} backHref='/archives' />);
-  const link = screen.getByRole('link', { name: /Retour/ });
-  expect(link).toHaveAttribute('href', '/archives');
 });
 
 test('MainInfo renders the summary paragraph at body+ size', () => {

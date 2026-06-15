@@ -23,12 +23,12 @@ const baseArticle: Article = {
 };
 
 test('FullArticle renders an <article> element', () => {
-  const { container } = render(<FullArticle article={baseArticle} backHref='/' />);
+  const { container } = render(<FullArticle article={baseArticle} />);
   expect(container.querySelector('article')).not.toBeNull();
 });
 
 test('FullArticle sets --accent and --accent-light from the category accent', () => {
-  const { container } = render(<FullArticle article={baseArticle} backHref='/' />);
+  const { container } = render(<FullArticle article={baseArticle} />);
   const article = container.querySelector('article');
   const style = article?.getAttribute('style') ?? '';
   expect(style).toMatch(/--accent:\s*var\(--color-accent-turquoise\)/);
@@ -36,27 +36,27 @@ test('FullArticle sets --accent and --accent-light from the category accent', ()
 });
 
 test('FullArticle marks the <article> with a data-accent for the category accent', () => {
-  const { container } = render(<FullArticle article={baseArticle} backHref='/' />);
+  const { container } = render(<FullArticle article={baseArticle} />);
   const article = container.querySelector('article');
   expect(article?.getAttribute('data-accent')).toBe('turquoise');
 });
 
 test('FullArticle renders MainInfo with the sticky desktop classes wired in', () => {
-  const { container } = render(<FullArticle article={baseArticle} backHref='/' />);
+  const { container } = render(<FullArticle article={baseArticle} />);
   const aside = container.querySelector('aside');
   expect(aside?.className).toContain('md:sticky');
   expect(aside?.className).toContain('md:top-28');
 });
 
 test('FullArticle renders the article hero image once', () => {
-  render(<FullArticle article={baseArticle} backHref='/' />);
+  render(<FullArticle article={baseArticle} />);
   expect(
     screen.getAllByRole('img', { name: /Next\.js 16/i })
   ).toHaveLength(1);
 });
 
 test('FullArticle surfaces the sources list on mobile below the body', () => {
-  const { container } = render(<FullArticle article={baseArticle} backHref='/' />);
+  const { container } = render(<FullArticle article={baseArticle} />);
   // Two instances of Sources: one inside the aside (hidden md:flex), one as a
   // direct child of <article> with md:hidden — the latter has a top border.
   const articleEl = container.querySelector('article')!;

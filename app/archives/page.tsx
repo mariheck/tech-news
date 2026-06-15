@@ -52,7 +52,6 @@ const ArchivesPage = async ({ searchParams }: ArchivesPageProps) => {
               key={issue.date.toISOString()}
               weekStart={issue.date}
               articles={issue.articles}
-              from='archives'
             />
           ))}
         </div>

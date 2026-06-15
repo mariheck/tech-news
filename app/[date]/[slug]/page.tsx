@@ -11,7 +11,6 @@ import { notFound } from 'next/navigation';
 type Params = { date: string; slug: string };
 type ArticlePageProps = {
   params: Promise<Params>;
-  searchParams: Promise<{ from?: string }>;
 };
 
 export const dynamicParams = false;
@@ -55,9 +54,8 @@ export const generateMetadata = async ({
   }
 };
 
-const ArticlePage = async ({ params, searchParams }: ArticlePageProps) => {
+const ArticlePage = async ({ params }: ArticlePageProps) => {
   const { date, slug } = await params;
-  const { from } = await searchParams;
 
   if (!ISO_DATE.test(date)) notFound();
 
@@ -65,9 +63,7 @@ const ArticlePage = async ({ params, searchParams }: ArticlePageProps) => {
 
   if (!article) notFound();
 
-  const backHref = from === 'archives' ? '/archives' : '/';
-
-  return <FullArticle article={article} backHref={backHref} />;
+  return <FullArticle article={article} />;
 };
 
 export default ArticlePage;
