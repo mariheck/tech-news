@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/components/navigation/button';
 import classNames from 'classnames';
 import { CopyIcon, SquareCheckBigIcon } from 'lucide-react';
 import { useRef, useState, type ReactNode } from 'react';
@@ -21,7 +22,7 @@ export const CodeBlock = ({ children }: CodeBlockProps) => {
     setTimeout(() => setCopied(false), 1500);
   };
 
-  const iconBase = '[grid-area:1/1] transition-[opacity,scale] duration-200';
+  const iconBase = '[grid-area:1/1] transition-[opacity,scale] duration-300';
   const iconShown = 'opacity-100 motion-safe:scale-100';
   const iconHidden = 'opacity-0 motion-safe:scale-50';
 
@@ -39,22 +40,11 @@ export const CodeBlock = ({ children }: CodeBlockProps) => {
       >
         {children}
       </pre>
-      <button
-        type='button'
+      <Button
+        variant='icon'
         onClick={handleCopy}
         aria-label='Copier le code'
-        className={classNames(
-          'cursor-pointer',
-          'absolute top-2 right-2 size-8',
-          'grid place-items-center rounded-md text-primary',
-          'bg-plum-subtle/60 hover:bg-plum-subtle focus-visible:bg-plum-subtle',
-          'active:scale-95',
-          'before:absolute before:-inset-1.5 before:content-[""]',
-          'transition-[color,transform,opacity] ease-out-circ duration-200',
-          {
-            'opacity-60 hover:opacity-100 focus-visible:opacity-100': !copied
-          }
-        )}
+        className='absolute top-2 right-2'
       >
         <CopyIcon
           aria-hidden='true'
@@ -68,7 +58,7 @@ export const CodeBlock = ({ children }: CodeBlockProps) => {
           strokeWidth={1.7}
           className={classNames(iconBase, copied ? iconShown : iconHidden)}
         />
-      </button>
+      </Button>
       <span role='status' aria-live='polite' className='sr-only'>
         {copied ? 'Copié' : ''}
       </span>

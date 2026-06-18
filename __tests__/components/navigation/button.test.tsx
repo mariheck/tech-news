@@ -1,6 +1,6 @@
 import { Button } from '@/components/navigation';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { RotateCcw } from 'lucide-react';
+import { CopyIcon, RotateCcw } from 'lucide-react';
 import { expect, test, vi } from 'vitest';
 
 test('Button renders its label as a button', () => {
@@ -33,6 +33,31 @@ test('Button renders an optional icon as decorative', () => {
   const { container } = render(<Button icon={RotateCcw}>Réessayer</Button>);
   const icon = container.querySelector('svg');
   expect(icon).toHaveAttribute('aria-hidden', 'true');
+});
+
+test('Button icon variant exposes its aria-label as the accessible name', () => {
+  render(
+    <Button variant='icon' aria-label='Copier le code'>
+      <CopyIcon aria-hidden='true' />
+    </Button>
+  );
+  expect(
+    screen.getByRole('button', { name: 'Copier le code' })
+  ).toBeInTheDocument();
+});
+
+test('Button icon variant leaves positioning to the consumer', () => {
+  // The icon variant must not force `relative`: Tailwind orders `.relative`
+  // after `.absolute`, so a base `relative` would override the `absolute`
+  // a consumer (e.g. CodeBlock) passes to overlay the button.
+  render(
+    <Button variant='icon' aria-label='Copier le code' className='absolute'>
+      <CopyIcon aria-hidden='true' />
+    </Button>
+  );
+  const button = screen.getByRole('button', { name: 'Copier le code' });
+  expect(button).toHaveClass('absolute');
+  expect(button).not.toHaveClass('relative');
 });
 
 test('Button is disabled when the disabled prop is set', () => {
