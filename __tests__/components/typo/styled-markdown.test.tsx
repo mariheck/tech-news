@@ -163,6 +163,18 @@ test('StyledMarkdown strips the inline chip styling from code nested in a block'
   expect(pre?.className).toContain('[&_code]:p-0');
 });
 
+test('StyledMarkdown gives detached code blocks a copy button', () => {
+  render(<StyledMarkdown markdown={codeBlockMarkdown} />);
+  expect(
+    screen.getByRole('button', { name: 'Copier le code' })
+  ).toBeInTheDocument();
+});
+
+test('StyledMarkdown does not add a copy button to inline code', () => {
+  render(<StyledMarkdown markdown={markdown} />);
+  expect(screen.queryByRole('button', { name: 'Copier le code' })).toBeNull();
+});
+
 const hrMarkdown = `Above the rule.
 
 ---

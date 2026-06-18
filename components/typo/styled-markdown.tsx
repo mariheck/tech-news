@@ -1,6 +1,7 @@
 import { MoveUpRightIcon } from 'lucide-react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { CodeBlock } from './code-block';
 
 type StyledMarkdownProps = {
   markdown: string;
@@ -47,11 +48,7 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
             />
           </a>
         ),
-        pre: ({ children }) => (
-          <pre className='mb-6 bg-plum-overlay rounded-lg p-4 [font-variant-ligatures:none] [&_code]:block [&_code]:bg-transparent [&_code]:p-0 [&_code]:rounded-none [&_code]:whitespace-pre-wrap [&_code]:wrap-break-word'>
-            {children}
-          </pre>
-        ),
+        pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
         code: ({ children }) => (
           <code className='inline-block font-mono text-[0.88em] bg-plum-overlay rounded-sm px-1.25 py-0.5 text-primary [font-variant-ligatures:none]'>
             {children}
