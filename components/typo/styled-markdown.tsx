@@ -1,10 +1,16 @@
 import { MoveUpRightIcon } from 'lucide-react';
+import { isValidElement } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { CodeBlock } from './code-block';
 
 type StyledMarkdownProps = {
   markdown: string;
+};
+
+const extractCodeLanguage = (children: unknown): string | undefined => {
+  if (!isValidElement<{ className?: string }>(children)) return undefined;
+  return children.props.className?.match(/language-(\w+)/)?.[1];
 };
 
 export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
@@ -48,7 +54,11 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
             />
           </a>
         ),
-        pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
+        pre: ({ children }) => (
+          <CodeBlock language={extractCodeLanguage(children)}>
+            {children}
+          </CodeBlock>
+        ),
         code: ({ children }) => (
           <code className='inline-block font-mono text-[0.88em] bg-plum-overlay rounded-sm px-1.25 py-0.5 text-primary [font-variant-ligatures:none]'>
             {children}

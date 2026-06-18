@@ -175,6 +175,23 @@ test('StyledMarkdown does not add a copy button to inline code', () => {
   expect(screen.queryByRole('button', { name: 'Copier le code' })).toBeNull();
 });
 
+test('StyledMarkdown surfaces the fenced language as a discreet label', () => {
+  render(<StyledMarkdown markdown={codeBlockMarkdown} />);
+  expect(screen.getByText('css')).toBeInTheDocument();
+});
+
+const codeBlockNoLangMarkdown = `\`\`\`
+plain unlabelled code
+\`\`\`
+`;
+
+test('StyledMarkdown omits the label for a fenced block without a language', () => {
+  const { container } = render(
+    <StyledMarkdown markdown={codeBlockNoLangMarkdown} />
+  );
+  expect(container.querySelector('[data-code-language]')).toBeNull();
+});
+
 const hrMarkdown = `Above the rule.
 
 ---

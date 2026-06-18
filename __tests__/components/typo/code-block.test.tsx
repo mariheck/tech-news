@@ -23,6 +23,20 @@ const renderBlock = () =>
     </CodeBlock>
   );
 
+test('CodeBlock shows a discreet label for the provided language', () => {
+  render(
+    <CodeBlock language='css'>
+      <code>{'color: contrast-color(var(--surface));'}</code>
+    </CodeBlock>
+  );
+  expect(screen.getByText('css')).toBeInTheDocument();
+});
+
+test('CodeBlock renders no language label when none is provided', () => {
+  const { container } = renderBlock();
+  expect(container.querySelector('[data-code-language]')).toBeNull();
+});
+
 test('CodeBlock exposes a copy button with an accessible name', () => {
   renderBlock();
   expect(

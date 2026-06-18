@@ -7,15 +7,16 @@ import { useRef, useState, type ReactNode } from 'react';
 
 type CodeBlockProps = {
   children: ReactNode;
+  language?: string;
 };
 
-export const CodeBlock = ({ children }: CodeBlockProps) => {
-  const preRef = useRef<HTMLPreElement>(null);
+export const CodeBlock = ({ children, language }: CodeBlockProps) => {
+  const codeRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     if (copied) return;
-    const code = preRef.current?.textContent;
+    const code = codeRef.current?.textContent;
     if (!code || !navigator.clipboard) return;
     await navigator.clipboard.writeText(code);
     setCopied(true);
@@ -27,9 +28,8 @@ export const CodeBlock = ({ children }: CodeBlockProps) => {
   const iconHidden = 'opacity-0 motion-safe:scale-50';
 
   return (
-    <div className='relative group mb-6'>
+    <div className='relative group my-6'>
       <pre
-        ref={preRef}
         className={classNames(
           'bg-plum-overlay rounded-lg p-4',
           '[font-variant-ligatures:none]',
@@ -38,8 +38,21 @@ export const CodeBlock = ({ children }: CodeBlockProps) => {
           '[&_code]:whitespace-pre-wrap [&_code]:wrap-break-word'
         )}
       >
-        {children}
+        {language && (
+          <span
+            data-code-language
+            className={classNames(
+              'mb-2 inline-block',
+              'font-mono text-[0.625rem] tracking-wider text-tertiary',
+              'select-none [font-variant-ligatures:none]'
+            )}
+          >
+            {language}
+          </span>
+        )}
+        <div ref={codeRef}>{children}</div>
       </pre>
+
       <Button
         variant='icon'
         onClick={handleCopy}
