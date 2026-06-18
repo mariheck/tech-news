@@ -53,6 +53,14 @@ sources:
   ]);
 });
 
+test('parseFrontmatter parses an inline flow sequence on the key line', () => {
+  const raw =
+    "---\nsources: [{ label: 'Motion changelog', url: 'https://motion.dev/changelog' }]\n---\n";
+  expect(parseFrontmatter(raw).data.sources).toEqual([
+    { label: 'Motion changelog', url: 'https://motion.dev/changelog' }
+  ]);
+});
+
 test('parseFrontmatter throws when frontmatter delimiters are missing', () => {
   expect(() => parseFrontmatter('no delimiters here')).toThrow();
 });

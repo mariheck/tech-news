@@ -41,7 +41,10 @@ const parseYamlBlock = (
     const inlineValue = line.slice(colonIdx + 1).trim();
 
     if (inlineValue) {
-      data[key] = parseScalar(inlineValue);
+      data[key] =
+        inlineValue.startsWith('[') || inlineValue.startsWith('{')
+          ? parseValue(inlineValue, 0).value
+          : parseScalar(inlineValue);
       i++;
       continue;
     }
