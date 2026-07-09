@@ -22,6 +22,13 @@ const baseArticle: Article = {
   content: '# Next.js 16\n\nVercel a publié Next.js 16 mardi soir.'
 };
 
+test('FullArticle marks the article as read on mount', () => {
+  render(<FullArticle article={baseArticle} />);
+  expect(localStorage.getItem('read-articles')).toBe(
+    '["/2026-05-18/next-js-16"]'
+  );
+});
+
 test('FullArticle renders an <article> element', () => {
   const { container } = render(<FullArticle article={baseArticle} />);
   expect(container.querySelector('article')).not.toBeNull();

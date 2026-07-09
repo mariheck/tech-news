@@ -4,6 +4,7 @@ import type { ArticleMeta } from '@/types';
 import { accentToCssVar, accentToLightCssVar } from '@/utils/accent-to-css-var';
 import { articleToCardProps } from '@/utils/article-to-card-props';
 import { formatLongDate } from '@/utils/format-long-date';
+import { toIsoDay } from '@/utils/to-iso-day';
 import classNames from 'classnames';
 import { ClockIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -186,7 +187,7 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
                 </div>
 
                 <div className='flex items-center gap-3 font-mono text-[0.8125rem] text-secondary'>
-                  <time dateTime={slide.date.toISOString().slice(0, 10)}>
+                  <time dateTime={toIsoDay(slide.date)}>
                     {formatLongDate(slide.date)}
                   </time>
                   <span aria-hidden='true'>·</span>

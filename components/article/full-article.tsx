@@ -1,9 +1,15 @@
 import { ScrollToTop } from '@/components/shared';
 import type { Article } from '@/types';
-import { accentToCssVar, accentToLightCssVar, categoryToAccent } from '@/utils';
+import {
+  accentToCssVar,
+  accentToLightCssVar,
+  articleHref,
+  categoryToAccent
+} from '@/utils';
 import type { CSSProperties } from 'react';
 import { ArticleBody } from './article-body';
 import { MainInfo } from './main-info';
+import { MarkAsRead } from './mark-as-read';
 import { Sources } from './sources';
 
 type FullArticleProps = {
@@ -24,6 +30,7 @@ export const FullArticle = ({ article }: FullArticleProps) => {
       className='grid grid-cols-1 md:grid-cols-[280px_1fr] md:gap-[clamp(2.5rem,6vw,5.5rem)]'
     >
       <ScrollToTop />
+      <MarkAsRead href={articleHref({ date: article.date, slug: article.slug })} />
       <MainInfo
         summary={article.summary}
         date={article.date}

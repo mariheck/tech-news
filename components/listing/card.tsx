@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CSSProperties } from 'react';
+import { ReadIndicator } from './read-indicator';
 
 type CardVariant = 'large' | 'medium' | 'horizontal';
 
@@ -71,11 +72,12 @@ export const Card = ({
           sizes={variantToImageSizes[variant]}
           className='object-cover'
         />
-        {category && (
-          <span className='absolute top-2.5 right-3 text-label text-[0.6rem] text-(--accent-light)'>
+        <span className='absolute top-2.5 right-3 flex flex-col gap-2 items-end'>
+          <span className='text-label text-[0.6rem] text-(--accent-light)'>
             {category}
           </span>
-        )}
+          <ReadIndicator href={href} />
+        </span>
       </div>
       <div
         className={classNames('flex flex-col', {

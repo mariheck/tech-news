@@ -9,7 +9,8 @@ import {
   getHeroSlides,
   getLastIssueDate,
   isCategorySlug,
-  loadIssue
+  loadIssue,
+  toIsoDay
 } from '@/utils';
 import type { Metadata } from 'next';
 
@@ -29,8 +30,7 @@ const Home = async ({ searchParams }: HomeProps) => {
   const issue = latestDate ? await loadIssue(latestDate) : null;
   const heroSlides = await getHeroSlides(active);
 
-  const isLastWeek =
-    latestDate === getExpectedLastMonday().toISOString().slice(0, 10);
+  const isLastWeek = latestDate === toIsoDay(getExpectedLastMonday());
 
   return (
     <div className='flex flex-col gap-8 md:gap-16 w-full'>

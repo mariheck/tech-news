@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest';
 import { cleanup } from '@testing-library/react';
-import { afterEach, vi } from 'vitest';
+import { afterEach, beforeEach, vi } from 'vitest';
 
 window.scrollTo = vi.fn() as typeof window.scrollTo;
 
@@ -19,6 +19,12 @@ window.matchMedia =
     removeListener: vi.fn(),
     dispatchEvent: vi.fn()
   })) as unknown as typeof window.matchMedia);
+
+// No pre-existing test uses localStorage, so clearing it before every test
+// isolates the storage-backed suites (read-state) without a per-file beforeEach.
+beforeEach(() => {
+  localStorage.clear();
+});
 
 afterEach(() => {
   cleanup();

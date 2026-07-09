@@ -1,4 +1,5 @@
 import { Card } from '@/components/listing';
+import { markArticleRead } from '@/storage';
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
@@ -173,6 +174,19 @@ test('Card hoists the accent vars onto the card root and tints the category with
     /--accent-light:\s*var\(--color-accent-raspberry-light\)/
   );
   expect(screen.getByText('Frontend').className).toContain('text-(--accent-light)');
+});
+
+test('Card shows the "Vu" indicator inside the image area once the article is read', () => {
+  markArticleRead(commonProps.href);
+
+  render(mediumCard);
+  const image = screen.getByRole('img', { name: 'Next.js 16 cover' });
+  expect(image.parentElement).toContainElement(screen.getByText('Vu'));
+});
+
+test('Card shows no "Vu" indicator for an unread article', () => {
+  render(mediumCard);
+  expect(screen.queryByText('Vu')).not.toBeInTheDocument();
 });
 
 test('Card inherits the page-level accent when no accent is provided', () => {
