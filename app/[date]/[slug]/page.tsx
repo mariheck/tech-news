@@ -1,10 +1,6 @@
 import { FullArticle } from '@/components/article';
-import {
-  ISO_DATE,
-  categoryToLabel,
-  listArticleParams,
-  loadArticle
-} from '@/utils';
+import { listArticleParams, loadArticle } from '@/server';
+import { ISO_DATE, categoryToLabel } from '@/utils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 

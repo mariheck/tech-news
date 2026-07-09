@@ -1,4 +1,4 @@
-import { loadPage } from '@/utils';
+import { loadPage } from '@/server';
 import { beforeAll, expect, test } from 'vitest';
 
 // Reads the fixture page under __tests__/fixtures/content/pages (CONTENT_ROOT is

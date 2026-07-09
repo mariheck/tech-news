@@ -1,7 +1,8 @@
+import 'server-only';
+import { isSafeSlug } from '@/utils';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { CONTENT_ROOT } from './constants';
-import { isSafeSlug } from './is-safe-slug';
 
 export const loadPage = async (slug: string): Promise<string> => {
   if (!isSafeSlug(slug)) {

@@ -1,6 +1,6 @@
 import { beforeAll, expect, test } from 'vitest';
 import type { Article } from '@/types';
-import { loadArticle } from '@/utils';
+import { loadArticle } from '@/server';
 
 // Reads the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT is
 // pointed there in vitest.config.mts), never the live content/ directory.

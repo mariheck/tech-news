@@ -1,4 +1,5 @@
-import { SITE_URL, listArticleParams } from '@/utils';
+import { listArticleParams } from '@/server';
+import { SITE_URL } from '@/utils';
 import type { MetadataRoute } from 'next';
 
 const STATIC_PATHS = ['', '/archives', '/mentions-legales'] as const;

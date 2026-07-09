@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { parseFrontmatter } from '@/utils';
+import { parseFrontmatter } from '@/server';
 
 test('parseFrontmatter separates frontmatter data from body content', () => {
   const raw = "---\ntitle: 'Hello'\n---\n\nBody text\n";

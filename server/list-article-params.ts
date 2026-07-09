@@ -1,3 +1,4 @@
+import 'server-only';
 import { ArticleParams } from '@/types';
 import fs from 'node:fs/promises';
 import path from 'node:path';

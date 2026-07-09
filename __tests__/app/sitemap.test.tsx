@@ -1,5 +1,6 @@
 import sitemap from '@/app/sitemap';
-import { SITE_URL, listArticleParams } from '@/utils';
+import { listArticleParams } from '@/server';
+import { SITE_URL } from '@/utils';
 import { expect, test } from 'vitest';
 
 // Backed by the fixture issue tree (CONTENT_ROOT points there in

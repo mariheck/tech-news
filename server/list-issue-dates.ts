@@ -1,6 +1,8 @@
+import 'server-only';
+import { ISO_DATE } from '@/utils';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { CONTENT_ROOT, ISO_DATE } from './constants';
+import { CONTENT_ROOT } from './constants';
 
 export const listIssueDates = async (): Promise<string[]> => {
   const issuesDir = path.join(CONTENT_ROOT, 'issues');

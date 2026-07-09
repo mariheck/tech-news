@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import { listArticleParams } from '@/utils';
+import { listArticleParams } from '@/server';
 
 // Backed by the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT
 // is pointed there in vitest.config.mts): one entry per article across editions.

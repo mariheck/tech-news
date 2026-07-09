@@ -1,4 +1,4 @@
-import { getArchiveIssueDates } from '@/utils';
+import { getArchiveIssueDates } from '@/server';
 import { expect, test } from 'vitest';
 
 // Backed by the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT

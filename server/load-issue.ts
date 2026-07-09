@@ -1,7 +1,9 @@
+import 'server-only';
 import type { Issue } from '@/types';
+import { ISO_DATE } from '@/utils';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { CONTENT_ROOT, ISO_DATE } from './constants';
+import { CONTENT_ROOT } from './constants';
 import { loadArticle } from './load-article';
 import { parseFrontmatter } from './parse-frontmatter';
 

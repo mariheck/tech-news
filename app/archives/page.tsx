@@ -2,12 +2,8 @@ import { CategoryFilter } from '@/components/category';
 import { WeeklyEdition } from '@/components/listing';
 import { EmptyNotice } from '@/components/shared';
 import { PageHeading } from '@/components/typo';
-import {
-  filterByCategory,
-  getArchiveIssueDates,
-  isCategorySlug,
-  loadIssue
-} from '@/utils';
+import { getArchiveIssueDates, loadIssue } from '@/server';
+import { filterByCategory, isCategorySlug } from '@/utils';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

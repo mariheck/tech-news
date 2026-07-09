@@ -1,3 +1,4 @@
+import 'server-only';
 import { listIssueDates } from './list-issue-dates';
 
 // Archives list every issue except the latest one, which is the headline

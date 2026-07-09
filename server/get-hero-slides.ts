@@ -1,3 +1,4 @@
+import 'server-only';
 import type { Article, ArticleMeta, CategorySlug } from '@/types';
 import { listIssueDates } from './list-issue-dates';
 import { loadIssue } from './load-issue';

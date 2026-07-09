@@ -1,5 +1,5 @@
 import { StyledMarkdown } from '@/components/typo';
-import { loadPage } from '@/utils';
+import { loadPage } from '@/server';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

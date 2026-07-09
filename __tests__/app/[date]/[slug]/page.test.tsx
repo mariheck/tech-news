@@ -1,6 +1,6 @@
 import ArticlePage, { generateMetadata } from '@/app/[date]/[slug]/page';
 import type { Article } from '@/types';
-import { loadArticle } from '@/utils';
+import { loadArticle } from '@/server';
 import { render, screen } from '@testing-library/react';
 import { beforeEach, expect, test, vi } from 'vitest';
 
@@ -11,8 +11,8 @@ vi.mock('next/navigation', () => ({
   usePathname: () => '/2026-05-18/test-slug'
 }));
 
-vi.mock('@/utils', async () => {
-  const actual = await vi.importActual<typeof import('@/utils')>('@/utils');
+vi.mock('@/server', async () => {
+  const actual = await vi.importActual<typeof import('@/server')>('@/server');
   return {
     ...actual,
     loadArticle: vi.fn()

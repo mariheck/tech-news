@@ -1,3 +1,4 @@
+import 'server-only';
 import type { FrontmatterValue, ParsedMarkdown } from '@/types';
 
 const FRONTMATTER_DELIMITERS = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/;

@@ -1,4 +1,4 @@
-import { loadArticle } from '@/utils';
+import { loadArticle } from '@/server';
 import { expect, test, vi } from 'vitest';
 
 // load-article reads via `import fs from 'node:fs/promises'`; mocking the

@@ -1,4 +1,4 @@
-import { listIssueDates } from '@/utils';
+import { listIssueDates } from '@/server';
 import { expect, test } from 'vitest';
 
 // Reads the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT is

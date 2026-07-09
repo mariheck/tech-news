@@ -2,14 +2,12 @@ import { CategoryFilter } from '@/components/category';
 import { HeroSlideshow, UniformGrid } from '@/components/listing';
 import { EmptyNotice } from '@/components/shared';
 import { PageHeading, SectionHeading } from '@/components/typo';
+import { getHeroSlides, getLastIssueDate, loadIssue } from '@/server';
 import {
   filterByCategory,
   formatWeekRange,
   getExpectedLastMonday,
-  getHeroSlides,
-  getLastIssueDate,
   isCategorySlug,
-  loadIssue,
   toIsoDay
 } from '@/utils';
 import type { Metadata } from 'next';

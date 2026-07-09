@@ -1,9 +1,9 @@
+import 'server-only';
 import type { Article, CategorySlug, Source } from '@/types';
+import { ISO_DATE, isSafeSlug, isSafeSourceUrl } from '@/utils';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { CONTENT_ROOT, ISO_DATE } from './constants';
-import { isSafeSlug } from './is-safe-slug';
-import { isSafeSourceUrl } from './is-safe-source-url';
+import { CONTENT_ROOT } from './constants';
 import { parseFrontmatter } from './parse-frontmatter';
 
 type ArticleFrontmatter = {
