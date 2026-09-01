@@ -1,4 +1,4 @@
-import type { AccentName } from '@/types';
+import type { AccentName, ArticleRoute } from '@/types';
 import { accentToCssVar, accentToLightCssVar } from '@/utils';
 import classNames from 'classnames';
 import Image from 'next/image';
@@ -17,7 +17,7 @@ const variantToImageSizes: Record<CardVariant, string> = {
 type CardProps = {
   variant?: CardVariant;
   accent?: AccentName;
-  href: string;
+  href: ArticleRoute;
   title: string;
   excerpt: string;
   category?: string;

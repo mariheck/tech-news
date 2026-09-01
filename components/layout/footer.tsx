@@ -1,10 +1,11 @@
 import { TextLink } from '@/components/navigation';
+import type { Route } from 'next';
 import { MoveUpRightIcon } from 'lucide-react';
 import { Brand } from './brand';
 import { LastUpdate } from './last-update';
 
 export const Footer = () => {
-  const repoUrl = process.env.GITHUB_REPO_URL;
+  const repoUrl = process.env.GITHUB_REPO_URL as Route | undefined;
 
   return (
     <footer className='border-t border-plum-subtle py-6'>

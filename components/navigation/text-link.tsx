@@ -1,10 +1,11 @@
 import classNames from 'classnames';
 import { LucideIcon } from 'lucide-react';
+import type { Route } from 'next';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
 type TextLinkProps = {
-  href: string;
+  href: Route;
   icon?: LucideIcon;
   iconPosition?: 'left' | 'right';
   children: ReactNode;

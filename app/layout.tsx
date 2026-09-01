@@ -38,11 +38,9 @@ export const metadata: Metadata = {
   }
 };
 
-type Props = {
-  children: React.ReactNode;
-};
+type RootLayoutProps = LayoutProps<'/'>;
 
-const RootLayout = ({ children }: Readonly<Props>) => {
+const RootLayout = ({ children }: Readonly<RootLayoutProps>) => {
   return (
     <html lang='fr' className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>

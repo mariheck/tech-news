@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
 const commonProps = {
-  href: '/articles/next-16',
+  href: '/articles/next-16' as const,
   title: 'Next.js 16',
   excerpt: 'Lorem ipsum dolor sit amet.',
   image: { src: '/images/next-16.jpg', alt: 'Next.js 16 cover' }

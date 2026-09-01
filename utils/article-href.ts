@@ -1,11 +1,11 @@
-import type { ArticleMeta } from '@/types';
+import type { ArticleMeta, ArticleRoute } from '@/types';
 import { toIsoDay } from './to-iso-day';
 
 type Params = Pick<ArticleMeta, 'date' | 'slug'>;
 
-export const articleHref = ({ date, slug }: Params) => {
+export const articleHref = ({ date, slug }: Params): ArticleRoute => {
   const formattedDate = toIsoDay(date);
-  const href = `/${formattedDate}/${slug}`;
+  const href: ArticleRoute = `/${formattedDate}/${slug}`;
 
   return href;
 };

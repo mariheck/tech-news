@@ -3,6 +3,7 @@ import { SECURITY_HEADERS } from './security-headers';
 
 const nextConfig: NextConfig = {
   /* config options here */
+  typedRoutes: true,
   reactCompiler: true,
   turbopack: {
     // Pin the Turbopack root to this project. Without it, Turbopack's

@@ -19,3 +19,9 @@ test('isCategorySlug rejects unknown or mis-cased values', () => {
   expect(isCategorySlug('web-dev')).toBe(false);
   expect(isCategorySlug('foo')).toBe(false);
 });
+
+test('isCategorySlug rejects a repeated search param (?cat=a&cat=b)', () => {
+  expect(isCategorySlug(['design', 'frontend'])).toBe(false);
+  expect(isCategorySlug(['design'])).toBe(false);
+  expect(isCategorySlug([])).toBe(false);
+});

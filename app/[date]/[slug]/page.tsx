@@ -4,10 +4,8 @@ import { ISO_DATE, categoryToLabel } from '@/utils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-type Params = { date: string; slug: string };
-type ArticlePageProps = {
-  params: Promise<Params>;
-};
+type ArticlePageProps = Pick<PageProps<'/[date]/[slug]'>, 'params'>;
+type Params = Awaited<ArticlePageProps['params']>;
 
 export const dynamicParams = false;
 

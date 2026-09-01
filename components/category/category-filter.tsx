@@ -1,9 +1,10 @@
 import type { CategorySlug } from '@/types';
+import type { Route } from 'next';
 import { CATEGORIES, categoryToAccent, categoryToLabel } from '@/utils';
 import { CategoryBadge } from './category-badge';
 
 type CategoryFilterProps = {
-  basePath: string;
+  basePath: Route;
   visible?: CategorySlug[];
   active?: CategorySlug;
 };

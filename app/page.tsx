@@ -16,9 +16,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' }
 };
 
-type HomeProps = {
-  searchParams: Promise<{ cat?: string }>;
-};
+type HomeProps = Pick<PageProps<'/'>, 'searchParams'>;
 
 const Home = async ({ searchParams }: HomeProps) => {
   const { cat } = await searchParams;
