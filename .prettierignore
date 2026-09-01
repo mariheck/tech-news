@@ -1,0 +1,16 @@
+# Build output
+.next/
+out/
+build/
+coverage/
+
+# Dependencies
+node_modules/
+
+# Generated
+next-env.d.ts
+*.tsbuildinfo
+package-lock.json
+
+# Editorial content (hand-authored markdown)
+content/
