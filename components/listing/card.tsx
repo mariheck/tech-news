@@ -45,24 +45,24 @@ export const Card = ({
           : undefined
       }
       className={classNames(
-        'group flex gap-4.5 w-full',
-        'p-4.5 border border-plum-subtle rounded-[0.875rem]',
+        'group flex w-full gap-4.5',
+        'rounded-[0.875rem] border border-plum-subtle p-4.5',
         'bg-plum-elevated no-underline',
         'shadow-rest hover:shadow-lift focus-visible:shadow-lift',
         'motion-safe:hover:-translate-y-1 motion-safe:focus-visible:-translate-y-1',
         'transition-[translate,box-shadow]',
-        'ease-in-out-circ duration-300',
+        'duration-300 ease-in-out-circ',
         {
-          'flex-col min-w-70 max-w-full': variant === 'large',
-          'flex-col min-w-55 max-w-full': variant === 'medium',
-          'items-start min-w-80 max-w-full': variant === 'horizontal'
+          'max-w-full min-w-70 flex-col': variant === 'large',
+          'max-w-full min-w-55 flex-col': variant === 'medium',
+          'max-w-full min-w-80 items-start': variant === 'horizontal'
         }
       )}
     >
       <div
         className={classNames(
           'relative aspect-video overflow-hidden rounded-[0.625rem] bg-plum-overlay',
-          { 'basis-[42%] shrink-0': variant === 'horizontal' }
+          { 'shrink-0 basis-[42%]': variant === 'horizontal' }
         )}
       >
         <Image
@@ -72,7 +72,7 @@ export const Card = ({
           sizes={variantToImageSizes[variant]}
           className='object-cover'
         />
-        <span className='absolute top-2.5 right-3 flex flex-col gap-2 items-end'>
+        <span className='absolute top-2.5 right-3 flex flex-col items-end gap-2'>
           <span className='text-label text-[0.6rem] text-(--accent-light)'>
             {category}
           </span>
@@ -87,7 +87,7 @@ export const Card = ({
       >
         <h3
           className={classNames(
-            'leading-[1.2] tracking-[-0.012em] font-semibold text-primary text-balance line-clamp-2',
+            'line-clamp-2 leading-[1.2] font-semibold tracking-[-0.012em] text-balance text-primary',
             {
               'text-[clamp(1.5rem,2.2vw,1.875rem)]': variant === 'large',
               'text-xl': variant === 'medium',
@@ -99,9 +99,9 @@ export const Card = ({
         </h3>
         <p
           className={classNames('leading-[1.55] text-secondary', {
-            'text-[1.07rem] line-clamp-3': variant === 'large',
-            'text-base line-clamp-2': variant === 'medium',
-            'text-[0.95rem] line-clamp-2': variant === 'horizontal'
+            'line-clamp-3 text-[1.07rem]': variant === 'large',
+            'line-clamp-2 text-base': variant === 'medium',
+            'line-clamp-2 text-[0.95rem]': variant === 'horizontal'
           })}
         >
           {excerpt}

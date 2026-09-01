@@ -49,19 +49,13 @@ test('Card medium image hints sizes for the 1/2/3-column responsive layout', () 
 test('Card large image hints sizes for the full-width to half-width layout', () => {
   render(largeCard);
   const image = screen.getByRole('img', { name: 'Next.js 16 cover' });
-  expect(image).toHaveAttribute(
-    'sizes',
-    '(min-width: 1024px) 50vw, 100vw'
-  );
+  expect(image).toHaveAttribute('sizes', '(min-width: 1024px) 50vw, 100vw');
 });
 
 test('Card horizontal image hints sizes for the desktop-only side-by-side layout', () => {
   render(horizontalCard);
   const image = screen.getByRole('img', { name: 'Next.js 16 cover' });
-  expect(image).toHaveAttribute(
-    'sizes',
-    '(min-width: 1024px) 25vw, 50vw'
-  );
+  expect(image).toHaveAttribute('sizes', '(min-width: 1024px) 25vw, 50vw');
 });
 
 test('Card lifts and casts a peach halo on hover and keyboard focus', () => {
@@ -173,7 +167,9 @@ test('Card hoists the accent vars onto the card root and tints the category with
   expect(link.getAttribute('style')).toMatch(
     /--accent-light:\s*var\(--color-accent-raspberry-light\)/
   );
-  expect(screen.getByText('Frontend').className).toContain('text-(--accent-light)');
+  expect(screen.getByText('Frontend').className).toContain(
+    'text-(--accent-light)'
+  );
 });
 
 test('Card shows the "Vu" indicator inside the image area once the article is read', () => {
@@ -195,5 +191,7 @@ test('Card inherits the page-level accent when no accent is provided', () => {
   // No accent prop → no inline override; the category text reads the peach
   // --accent-light default hoisted on :root rather than a card-local fallback.
   expect(link.style.getPropertyValue('--accent')).toBe('');
-  expect(screen.getByText('Frontend').className).toContain('text-(--accent-light)');
+  expect(screen.getByText('Frontend').className).toContain(
+    'text-(--accent-light)'
+  );
 });

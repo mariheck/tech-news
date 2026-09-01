@@ -26,15 +26,15 @@ export const CategoryBadge = ({
       aria-current={active ? 'page' : undefined}
       style={style}
       className={classNames(
-        'text-label inline-flex items-center rounded-full px-2 py-1.5 border w-fit',
+        'text-label inline-flex w-fit items-center rounded-full border px-2 py-1.5',
         'relative',
         'no-underline transition-[color,background-color,border-color]',
         'duration-200 ease-out-expo',
-        'before:absolute before:-inset-y-3 before:inset-x-0 before:content-[""]',
+        'before:absolute before:inset-x-0 before:-inset-y-3 before:content-[""]',
         {
-          'bg-[color-mix(in_oklab,var(--accent)_9%,transparent)] border-[color-mix(in_oklab,var(--accent)_18%,transparent)] text-[color-mix(in_oklab,var(--accent)_85%,var(--color-primary))]':
+          'border-[color-mix(in_oklab,var(--accent)_18%,transparent)] bg-[color-mix(in_oklab,var(--accent)_9%,transparent)] text-[color-mix(in_oklab,var(--accent)_85%,var(--color-primary))]':
             active,
-          'bg-transparent border-plum-subtle text-secondary hover:text-primary':
+          'border-plum-subtle bg-transparent text-secondary hover:text-primary':
             !active
         }
       )}

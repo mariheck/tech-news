@@ -8,8 +8,8 @@ export const Footer = () => {
 
   return (
     <footer className='border-t border-plum-subtle py-6'>
-      <div className='mx-auto flex flex-col md:flex-row max-w-7xl items-center justify-between gap-x-8 gap-y-4 px-6'>
-        <div className='flex flex-col md:flex-row items-center gap-x-8 gap-y-4'>
+      <div className='mx-auto flex max-w-7xl flex-col items-center justify-between gap-x-8 gap-y-4 px-6 md:flex-row'>
+        <div className='flex flex-col items-center gap-x-8 gap-y-4 md:flex-row'>
           <Brand size='sm' />
           <LastUpdate />
         </div>

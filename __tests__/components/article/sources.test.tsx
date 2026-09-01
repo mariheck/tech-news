@@ -51,7 +51,9 @@ test('Sources drives the label hover/focus state from the anchor group', () => {
   expect(link.className).toContain('group');
   const label = screen.getByText('Next.js 16 release notes');
   expect(label.className).toContain('group-hover:text-(--accent-light)');
-  expect(label.className).toContain('group-focus-visible:text-(--accent-light)');
+  expect(label.className).toContain(
+    'group-focus-visible:text-(--accent-light)'
+  );
 });
 
 test('Sources hides the decorative marker and URL from the accessible name', () => {

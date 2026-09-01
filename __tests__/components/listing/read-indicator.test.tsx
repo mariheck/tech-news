@@ -21,10 +21,7 @@ test('ReadIndicator hides its icon from assistive tech', () => {
   markArticleRead(href);
 
   const { container } = render(<ReadIndicator href={href} />);
-  expect(container.querySelector('svg')).toHaveAttribute(
-    'aria-hidden',
-    'true'
-  );
+  expect(container.querySelector('svg')).toHaveAttribute('aria-hidden', 'true');
 });
 
 test('ReadIndicator matches the category marker size in the tertiary tone, inline with its icon', () => {

@@ -5,9 +5,7 @@ import { expect, test, vi } from 'vitest';
 
 test('Button renders its label as a button', () => {
   render(<Button>Réessayer</Button>);
-  expect(
-    screen.getByRole('button', { name: 'Réessayer' })
-  ).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: 'Réessayer' })).toBeInTheDocument();
 });
 
 test('Button defaults to type="button"', () => {

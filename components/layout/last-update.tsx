@@ -7,7 +7,7 @@ export const LastUpdate = () => {
   return (
     <time
       dateTime={buildTime.toISOString()}
-      className='text-xs text-secondary font-mono'
+      className='font-mono text-xs text-secondary'
     >
       Dernière mise à jour{'\u202F'}: {formatLongDate(buildTime)}
     </time>

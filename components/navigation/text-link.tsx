@@ -30,11 +30,11 @@ export const TextLink = ({
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
       className={classNames(
-        'relative w-fit flex gap-2 items-center',
+        'relative flex w-fit items-center gap-2',
         "before:absolute before:-inset-3.5 before:content-['']",
         'font-mono text-[0.75rem] tracking-wider',
         'text-secondary hover:text-primary focus-visible:text-primary',
-        'transition-colors ease-out-circ duration-200',
+        'transition-colors duration-200 ease-out-circ',
         className
       )}
     >

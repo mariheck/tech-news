@@ -19,22 +19,22 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
       remarkPlugins={[remarkGfm]}
       components={{
         h1: ({ children }) => (
-          <h1 className='text-headline mb-8 text-primary text-balance'>
+          <h1 className='text-headline mb-8 text-balance text-primary'>
             {children}
           </h1>
         ),
         h2: ({ children }) => (
-          <h2 className='text-[1.875rem] font-semibold leading-[1.2] tracking-[-0.014em] mt-15 mb-4.5 text-primary text-balance'>
+          <h2 className='mt-15 mb-4.5 text-[1.875rem] leading-[1.2] font-semibold tracking-[-0.014em] text-balance text-primary'>
             {children}
           </h2>
         ),
         h3: ({ children }) => (
-          <h3 className='text-title mt-8.75 mb-2.75 text-primary text-balance'>
+          <h3 className='text-title mt-8.75 mb-2.75 text-balance text-primary'>
             {children}
           </h3>
         ),
         p: ({ children }) => (
-          <p className='text-body leading-[1.7] mb-6 max-w-[65ch]'>
+          <p className='text-body mb-6 max-w-[65ch] leading-[1.7]'>
             {children}
           </p>
         ),
@@ -43,14 +43,14 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
             href={href}
             target='_blank'
             rel='noopener noreferrer'
-            className='text-(--accent-light) underline-offset-5 hover:underline focus-visible:underline hover:decoration-(--accent-light) focus-visible:decoration-(--accent-light)'
+            className='text-(--accent-light) underline-offset-5 hover:underline hover:decoration-(--accent-light) focus-visible:underline focus-visible:decoration-(--accent-light)'
           >
             {children}
             <MoveUpRightIcon
               aria-hidden='true'
               strokeWidth={1.7}
               size={14}
-              className='inline-block ml-0.5 translate-y-[-0.05em]'
+              className='ml-0.5 inline-block translate-y-[-0.05em]'
             />
           </a>
         ),
@@ -60,29 +60,29 @@ export const StyledMarkdown = ({ markdown }: StyledMarkdownProps) => {
           </CodeBlock>
         ),
         code: ({ children }) => (
-          <code className='inline-block font-mono text-[0.88em] bg-plum-overlay rounded-sm px-1.25 py-0.5 text-primary [font-variant-ligatures:none]'>
+          <code className='inline-block rounded-sm bg-plum-overlay px-1.25 py-0.5 font-mono text-[0.88em] text-primary [font-variant-ligatures:none]'>
             {children}
           </code>
         ),
         blockquote: ({ children }) => (
-          <blockquote className='border-l-2 border-(--accent) pl-5 my-8 italic text-secondary'>
+          <blockquote className='my-8 border-l-2 border-(--accent) pl-5 text-secondary italic'>
             {children}
           </blockquote>
         ),
         ul: ({ children }) => (
-          <ul className='list-disc pl-5 my-4 text-body text-primary marker:text-tertiary'>
+          <ul className='text-body my-4 list-disc pl-5 text-primary marker:text-tertiary'>
             {children}
           </ul>
         ),
         ol: ({ children }) => (
-          <ol className='list-decimal pl-5 my-4 text-body text-primary marker:text-tertiary'>
+          <ol className='text-body my-4 list-decimal pl-5 text-primary marker:text-tertiary'>
             {children}
           </ol>
         ),
         li: ({ children }) => <li className='my-2'>{children}</li>,
         table: ({ children }) => (
           <div className='my-8 overflow-x-auto'>
-            <table className='w-max min-w-full border-collapse text-body'>
+            <table className='text-body w-max min-w-full border-collapse'>
               {children}
             </table>
           </div>

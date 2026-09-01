@@ -19,10 +19,10 @@ const ErrorPage = ({ error, reset }: Props) => {
       {/* metadata/generateMetadata are ignored on error boundaries (Client Components) */}
       <title>500 | tech.news</title>
       <div className='flex'>
-        <h1 className='text-2xl text-primary font-medium leading-12 mr-5 pr-6 border-r border-r-plum-subtle'>
+        <h1 className='mr-5 border-r border-r-plum-subtle pr-6 text-2xl leading-12 font-medium text-primary'>
           500
         </h1>
-        <h2 className='text-sm text-primary/80 font-normal leading-12 m-0'>
+        <h2 className='m-0 text-sm leading-12 font-normal text-primary/80'>
           Une erreur est survenue.
         </h2>
       </div>

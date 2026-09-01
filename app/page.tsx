@@ -31,9 +31,9 @@ const Home = async ({ searchParams }: HomeProps) => {
   const isLastWeek = latestDate === toIsoDay(getExpectedLastMonday());
 
   return (
-    <div className='flex flex-col gap-8 md:gap-16 w-full'>
+    <div className='flex w-full flex-col gap-8 md:gap-16'>
       <div>
-        <p className='mt-4 font-mono text-xs uppercase tracking-[0.04em] text-tertiary'>
+        <p className='mt-4 font-mono text-xs tracking-[0.04em] text-tertiary uppercase'>
           tech.news
         </p>
         <PageHeading>L’essentiel de la tech, chaque lundi.</PageHeading>
@@ -45,7 +45,7 @@ const Home = async ({ searchParams }: HomeProps) => {
       )}
 
       {issue ? (
-        <div className='flex flex-col gap-8 w-full'>
+        <div className='flex w-full flex-col gap-8'>
           <SectionHeading>
             {isLastWeek
               ? 'Les actus de la semaine dernière'

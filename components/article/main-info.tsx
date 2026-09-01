@@ -24,9 +24,9 @@ export const MainInfo = ({
       aria-label="Métadonnées de l'article"
       className={classNames('relative flex flex-col gap-6', className)}
     >
-      <HaloAccent className='hidden md:block -top-30 -left-30 -right-10' />
+      <HaloAccent className='-top-30 -right-10 -left-30 hidden md:block' />
 
-      <div className='flex md:flex-col gap-6 justify-between md:justify-normal'>
+      <div className='flex justify-between gap-6 md:flex-col md:justify-normal'>
         <div className='hidden md:block'>
           <StyledMarkdown markdown={summary} />
         </div>
@@ -34,7 +34,7 @@ export const MainInfo = ({
         <MetaData
           date={date}
           readingTime={readingTime}
-          className='mr-1 md:mr-0 md:py-4.5 md:border-y md:border-(--accent-light)/25'
+          className='mr-1 md:mr-0 md:border-y md:border-(--accent-light)/25 md:py-4.5'
         />
       </div>
 

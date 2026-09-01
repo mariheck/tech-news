@@ -75,25 +75,25 @@
   }
 
   html {
-    @apply h-full antialiased overscroll-none;
+    @apply h-full overscroll-none antialiased;
   }
 
   body {
-    @apply min-h-full flex flex-col bg-plum-base text-primary font-sans;
+    @apply flex min-h-full flex-col bg-plum-base font-sans text-primary;
   }
 
   .text-display {
     font-size: clamp(2.25rem, 4vw, 3.5rem);
-    @apply leading-[1.04] tracking-[-0.02em] font-semibold;
+    @apply leading-[1.04] font-semibold tracking-[-0.02em];
   }
 
   .text-headline {
     font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-    @apply leading-[1.05] tracking-[-0.022em] font-semibold;
+    @apply leading-[1.05] font-semibold tracking-[-0.022em];
   }
 
   .text-title {
-    @apply text-[1.375rem] leading-[1.2] tracking-[-0.012em] font-semibold;
+    @apply text-[1.375rem] leading-[1.2] font-semibold tracking-[-0.012em];
   }
 
   .text-body {
@@ -101,7 +101,7 @@
   }
 
   .text-label {
-    @apply font-mono text-[0.65625rem] leading-none tracking-[0.09em] font-medium uppercase;
+    @apply font-mono text-[0.65625rem] leading-none font-medium tracking-[0.09em] uppercase;
   }
 
   .halo-background {
@@ -130,7 +130,7 @@
   }
 
   :focus-visible {
-    @apply outline-2 outline-solid outline-(--chrome-accent) outline-offset-2 rounded;
+    @apply rounded outline-2 outline-offset-2 outline-(--chrome-accent) outline-solid;
   }
 
   /* Reduced motion when requested */

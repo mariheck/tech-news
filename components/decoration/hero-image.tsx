@@ -25,7 +25,7 @@ export const HeroImage = ({ src, alt, className }: HeroImageProps) => {
       />
       <span
         aria-hidden='true'
-        className='pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-primary/5'
+        className='pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-primary/5 ring-inset'
       />
     </div>
   );

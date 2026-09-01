@@ -8,13 +8,14 @@ brand
 
 Frontend developers — primarily the author, secondarily her tech-adjacent circle and the wider public web. They want to stay current on web platform, design engineering, AI tooling, and visual web design **without** having to wade through a fragmented feed of newsletters, Twitter threads, and blog posts. Context: they read this in short bursts (commute, morning coffee, between meetings), then occasionally return to dig deeper into a single piece.
 
-The reading mode is *triage first, depth on demand*: a five-minute scan of the week, then a two-click descent into whichever piece is worth their time.
+The reading mode is _triage first, depth on demand_: a five-minute scan of the week, then a two-click descent into whichever piece is worth their time.
 
 ## Product Purpose
 
 `tech.news` is a public, weekly, AI-curated digest of what matters in frontend, design engineering, web design, and applied AI. Each article is a recap of one or more external sources, written by an AI agent, with the original references surfaced in a sidebar so the reader can verify, dig deeper, or skip the recap entirely and go straight to the primary material.
 
 What this product does, concretely:
+
 - Surfaces a small, opinionated weekly selection (≈4 articles per week, plus a longer tail of secondary picks).
 - Keeps the recap short enough to read in one sitting; defers depth to the linked sources.
 - Treats sources as first-class UI — numbered, named, with URLs in monospace, sitting in the sidebar of every article.
@@ -30,19 +31,20 @@ Three words: **editorial, sober, exact.**
 - **Sober.** Dark plum velvet background, peach accent, restrained color. No theatrical visuals, no animated decoration, no AI-generated "vibes." The aesthetic earns trust by under-promising.
 - **Exact.** Sources are visible. Article dates are visible. Reading time is visible. The recap declares what it is (a summary, not the source). Nothing is hidden behind a tone of authority the content doesn't have.
 
-The voice in the article copy is matter-of-fact and verifiable: short sentences, no marketing adjectives, no excitement-for-its-own-sake. *"We tested three agents in production for a week. Honest verdict."* — not *"This new model is a game-changer!"*
+The voice in the article copy is matter-of-fact and verifiable: short sentences, no marketing adjectives, no excitement-for-its-own-sake. _"We tested three agents in production for a week. Honest verdict."_ — not _"This new model is a game-changer!"_
 
 Transparency about being AI-summarized is part of the brand, not a disclaimer. The reader should never feel deceived about the provenance of a sentence.
 
 ## Anti-references
 
 Explicitly **not** these:
+
 - **The SaaS landing-page kit.** Cream-on-navy, generic dashboard mockup hero, identical card grids, hero-metric template (big number + label + supporting stats + gradient accent).
 - **The AI-tool aesthetic that has flooded 2024–2026.** Iridescent gradient cubes, holographic orbs, dark mode with purple-blue gradients, "intelligent" copy in feature pills, robotic mascots, "Powered by AI" stickers.
 - **Neon cyberpunk on black.** Synthwave palettes, electric cyan/magenta on `#000`. Generic dark-mode tech blog energy.
 - **Brutalist-for-the-sake-of-it.** Helvetica-on-yellow, intentional ugliness, oversized monospaced shouting. Form without editorial intent.
 - **The generic dev blog.** Stock illustration of a person at a laptop, "Welcome to my blog" tone, breadcrumbs everywhere, sidebar full of author bio + recent posts + tag cloud.
-- **Theatrical WebGL / scroll-hijacking.** 3D shader heroes, scroll-jacked storytelling, parallax everywhere. (One of the recapped articles is *literally about why this is over* — practicing what we preach is part of the brand.)
+- **Theatrical WebGL / scroll-hijacking.** 3D shader heroes, scroll-jacked storytelling, parallax everywhere. (One of the recapped articles is _literally about why this is over_ — practicing what we preach is part of the brand.)
 
 If a screen could be confused with any of the above, it has failed.
 
@@ -50,7 +52,7 @@ If a screen could be confused with any of the above, it has failed.
 
 1. **Sources first, opinion second.** Every recap visibly cites its sources. The sidebar's numbered source list is non-negotiable on the article page — readers must always be one click from the primary material. Truncating sources to "save space" is forbidden.
 
-2. **Practice what you preach.** The audience builds frontends for a living. Visible craft — typography, spacing, motion discipline, accessibility, performance — *is* the editorial credibility. A janky site recapping the latest web platform news is self-defeating.
+2. **Practice what you preach.** The audience builds frontends for a living. Visible craft — typography, spacing, motion discipline, accessibility, performance — _is_ the editorial credibility. A janky site recapping the latest web platform news is self-defeating.
 
 3. **Editorial calm over feature noise.** When in doubt, remove. No social-share rails, no inline newsletter capture interrupting paragraphs, no related-posts carousels. The page respects the reading without selling a next click.
 

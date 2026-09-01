@@ -12,7 +12,7 @@ export const Sources = ({ sources, className }: SourcesProps) => {
   return (
     <div className={classNames('flex flex-col gap-4', className)}>
       <span className='text-label text-tertiary'>Sources</span>
-      <ol className='flex flex-col gap-5 list-none'>
+      <ol className='flex list-none flex-col gap-5'>
         {sources.map((source, index) => (
           <li key={source.url} className='max-w-full'>
             <a
@@ -20,7 +20,7 @@ export const Sources = ({ sources, className }: SourcesProps) => {
               target='_blank'
               rel='noopener noreferrer'
               title={source.label}
-              className='flex flex-col gap-1 w-fit group'
+              className='group flex w-fit flex-col gap-1'
             >
               <span
                 aria-hidden={true}
@@ -33,14 +33,14 @@ export const Sources = ({ sources, className }: SourcesProps) => {
                   'text-sm text-primary',
                   'line-clamp-1 w-fit max-w-full wrap-break-word',
                   'group-hover:text-(--accent-light) group-focus-visible:text-(--accent-light)',
-                  'transition-colors ease-out-circ duration-200'
+                  'transition-colors duration-200 ease-out-circ'
                 )}
               >
                 {source.label}
               </span>
               <span
                 aria-hidden={true}
-                className='font-mono text-xs tracking-normal text-tertiary line-clamp-1 max-w-full break-all'
+                className='line-clamp-1 max-w-full font-mono text-xs tracking-normal break-all text-tertiary'
               >
                 {source.url.replace(/^https?:\/\//, '')}
               </span>

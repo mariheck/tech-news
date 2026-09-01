@@ -128,5 +128,7 @@ test('FeatureGrid shows an empty notice and no cards when given an empty article
   const { container } = render(<FeatureGrid articles={[]} />);
   expect(container.querySelectorAll('a')).toHaveLength(0);
   expect(within(container).queryAllByRole('heading')).toHaveLength(0);
-  expect(within(container).getByText('Aucun article cette semaine.')).toBeInTheDocument();
+  expect(
+    within(container).getByText('Aucun article cette semaine.')
+  ).toBeInTheDocument();
 });

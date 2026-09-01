@@ -10,7 +10,7 @@ export const SectionHeading = ({ children }: SectionHeadingProps) => {
       className={classNames(
         'text-xs text-secondary',
         'font-mono font-bold',
-        'uppercase tracking-widest',
+        'tracking-widest uppercase',
         'flex items-center gap-3.5',
         "after:content-['']",
         'after:h-px after:bg-plum-subtle',

@@ -18,19 +18,19 @@ export const MetaData = ({ date, readingTime, className }: MetaDataProps) => {
         className
       )}
     >
-      <div className='flex flex-col gap-1 w-fit'>
-        <dt className='text-label text-tertiary tracking-[0.08em] font-normal'>
+      <div className='flex w-fit flex-col gap-1'>
+        <dt className='text-label font-normal tracking-[0.08em] text-tertiary'>
           Publié
         </dt>
-        <dd className='font-mono text-[0.8125rem] text-primary m-0'>
+        <dd className='m-0 font-mono text-[0.8125rem] text-primary'>
           {formatLongDate(date)}
         </dd>
       </div>
-      <div className='flex flex-col gap-1 w-fit'>
-        <dt className='text-label text-tertiary tracking-[0.08em] font-normal'>
+      <div className='flex w-fit flex-col gap-1'>
+        <dt className='text-label font-normal tracking-[0.08em] text-tertiary'>
           Lecture
         </dt>
-        <dd className='font-mono text-[0.8125rem] text-primary m-0'>
+        <dd className='m-0 font-mono text-[0.8125rem] text-primary'>
           {readingTime} minute{readingTime > 1 ? 's' : ''}
         </dd>
       </div>

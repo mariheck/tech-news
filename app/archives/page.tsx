@@ -32,9 +32,9 @@ const ArchivesPage = async ({ searchParams }: ArchivesPageProps) => {
   }));
 
   return (
-    <div className='flex flex-col gap-8 md:gap-16 w-full'>
+    <div className='flex w-full flex-col gap-8 md:gap-16'>
       <div>
-        <p className='mt-4 font-mono text-xs uppercase tracking-[0.04em] text-tertiary'>
+        <p className='mt-4 font-mono text-xs tracking-[0.04em] text-tertiary uppercase'>
           Archives
         </p>
         <PageHeading>Toutes les éditions, semaine après semaine.</PageHeading>

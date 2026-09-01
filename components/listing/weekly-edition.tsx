@@ -9,12 +9,9 @@ type WeeklyEditionProps = {
   articles: ArticleMeta[];
 };
 
-export const WeeklyEdition = ({
-  weekStart,
-  articles
-}: WeeklyEditionProps) => {
+export const WeeklyEdition = ({ weekStart, articles }: WeeklyEditionProps) => {
   return (
-    <section className='flex flex-col gap-8 w-full'>
+    <section className='flex w-full flex-col gap-8'>
       <SectionHeading>{formatWeekRange(weekStart)}</SectionHeading>
       {articles.length ? (
         <UniformGrid articles={articles} />

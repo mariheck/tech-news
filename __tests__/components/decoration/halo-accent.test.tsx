@@ -24,7 +24,7 @@ test('HaloAccent is absolutely positioned out of the flow', () => {
 });
 
 test('HaloAccent forwards extra positioning utilities via className', () => {
-  render(<HaloAccent className='hidden md:block -top-30 -left-30 -right-10' />);
+  render(<HaloAccent className='-top-30 -right-10 -left-30 hidden md:block' />);
   const halo = screen.getByTestId('maininfo-halo');
   expect(halo.className).toContain('hidden');
   expect(halo.className).toContain('md:block');

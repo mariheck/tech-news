@@ -16,9 +16,9 @@ export const ArticleBody = ({
 }: ArticleBodyProps) => {
   return (
     <div className='max-w-180'>
-      <div className='mb-9 relative'>
+      <div className='relative mb-9'>
         <HeroImage src={image} alt={title} />
-        <span className='absolute top-2.5 right-3 sm:top-4 sm:right-5.5 text-label text-[0.6rem] md:text-[0.7rem] text-(--accent-light)'>
+        <span className='text-label absolute top-2.5 right-3 text-[0.6rem] text-(--accent-light) sm:top-4 sm:right-5.5 md:text-[0.7rem]'>
           {categoryToLabel[category]}
         </span>
       </div>

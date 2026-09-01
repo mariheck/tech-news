@@ -28,14 +28,14 @@ export const CodeBlock = ({ children, language }: CodeBlockProps) => {
   const iconHidden = 'opacity-0 motion-safe:scale-50';
 
   return (
-    <div className='relative group my-6'>
+    <div className='group relative my-6'>
       <pre
         className={classNames(
-          'bg-plum-overlay rounded-lg p-4',
+          'rounded-lg bg-plum-overlay p-4',
           '[font-variant-ligatures:none]',
           '[&_code]:block [&_code]:bg-transparent [&_code]:p-0',
           '[&_code]:rounded-none',
-          '[&_code]:whitespace-pre-wrap [&_code]:wrap-break-word'
+          '[&_code]:wrap-break-word [&_code]:whitespace-pre-wrap'
         )}
       >
         {language && (

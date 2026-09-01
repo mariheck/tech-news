@@ -1,7 +1,2 @@
 export type AccentName =
-  | 'peach'
-  | 'turquoise'
-  | 'raspberry'
-  | 'copper'
-  | 'iris'
-  | 'linen';
+  'peach' | 'turquoise' | 'raspberry' | 'copper' | 'iris' | 'linen';

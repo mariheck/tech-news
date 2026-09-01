@@ -17,7 +17,7 @@ export const Header = () => {
 
         <nav
           aria-label='Navigation principale'
-          className='hidden md:flex gap-8'
+          className='hidden gap-8 md:flex'
         >
           {NAV_ITEMS.map(({ href, label, icon }) => (
             <TextLink key={href} href={href} icon={icon}>
@@ -28,7 +28,7 @@ export const Header = () => {
 
         <nav
           aria-label='Navigation mobile'
-          className='md:hidden pr-2 flex gap-8'
+          className='flex gap-8 pr-2 md:hidden'
         >
           {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
             <Link
@@ -38,7 +38,7 @@ export const Header = () => {
               title={label}
               className={classNames(
                 'text-secondary hover:text-primary focus-visible:text-primary',
-                'transition-colors ease-out-circ duration-200',
+                'transition-colors duration-200 ease-out-circ',
                 "relative before:absolute before:-inset-2.5 before:content-['']"
               )}
             >

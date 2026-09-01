@@ -3,7 +3,5 @@ type PageHeadingProps = {
 };
 
 export const PageHeading = ({ children }: PageHeadingProps) => {
-  return (
-    <h1 className='mt-4 mb-8 text-display text-balance'>{children}</h1>
-  );
+  return <h1 className='text-display mt-4 mb-8 text-balance'>{children}</h1>;
 };

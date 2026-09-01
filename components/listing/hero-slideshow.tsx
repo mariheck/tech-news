@@ -109,11 +109,11 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
     >
       <div
         className={classNames(
-          'relative z-10 w-full overflow-hidden rounded-2xl pointer-events-none',
-          'bg-plum-overlay aspect-square lg:aspect-video',
+          'pointer-events-none relative z-10 w-full overflow-hidden rounded-2xl',
+          'aspect-square bg-plum-overlay lg:aspect-video',
           'shadow-rest group-hover:shadow-lift',
           'motion-safe:group-hover:-translate-y-1',
-          'transition-[translate,box-shadow] ease-in-out-circ duration-300'
+          'transition-[translate,box-shadow] duration-300 ease-in-out-circ'
         )}
       >
         {slides.map((slide, index) => {
@@ -163,9 +163,9 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
                 }
               )}
             >
-              <div className='grow flex flex-col gap-4 md:gap-6'>
+              <div className='flex grow flex-col gap-4 md:gap-6'>
                 <div>
-                  <p className='mb-2 ml-0.5 font-mono text-xs uppercase tracking-[0.04em] text-(--accent-light)/80'>
+                  <p className='mb-2 ml-0.5 font-mono text-xs tracking-[0.04em] text-(--accent-light)/80 uppercase'>
                     {card.category}
                   </p>
 
@@ -174,7 +174,7 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
                       href={card.href}
                       tabIndex={isActive ? undefined : -1}
                       className={classNames(
-                        'outline-none transition-colors',
+                        'transition-colors outline-none',
                         // Stretched hit area: the link covers the whole carousel
                         // section so a tap anywhere (outside the dots) opens the article.
                         'after:absolute after:inset-0 after:rounded-2xl after:content-[""]',
@@ -205,7 +205,7 @@ export const HeroSlideshow = ({ slides }: HeroSlideshowProps) => {
                 {hasControls && (
                   <div
                     className={classNames(
-                      'mt-auto mx-auto md:mr-0',
+                      'mx-auto mt-auto md:mr-0',
                       'pointer-events-auto',
                       'flex shrink-0 items-center justify-between gap-4'
                     )}

@@ -18,5 +18,7 @@ test('loadPage reads the full file, including later sections', () => {
 });
 
 test('loadPage rejects a slug with a path-traversal segment', async () => {
-  await expect(loadPage('../../../etc/passwd')).rejects.toThrow(/invalid slug/i);
+  await expect(loadPage('../../../etc/passwd')).rejects.toThrow(
+    /invalid slug/i
+  );
 });

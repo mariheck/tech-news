@@ -39,7 +39,9 @@ test('FullArticle sets --accent and --accent-light from the category accent', ()
   const article = container.querySelector('article');
   const style = article?.getAttribute('style') ?? '';
   expect(style).toMatch(/--accent:\s*var\(--color-accent-turquoise\)/);
-  expect(style).toMatch(/--accent-light:\s*var\(--color-accent-turquoise-light\)/);
+  expect(style).toMatch(
+    /--accent-light:\s*var\(--color-accent-turquoise-light\)/
+  );
 });
 
 test('FullArticle marks the <article> with a data-accent for the category accent', () => {
@@ -57,9 +59,7 @@ test('FullArticle renders MainInfo with the sticky desktop classes wired in', ()
 
 test('FullArticle renders the article hero image once', () => {
   render(<FullArticle article={baseArticle} />);
-  expect(
-    screen.getAllByRole('img', { name: /Next\.js 16/i })
-  ).toHaveLength(1);
+  expect(screen.getAllByRole('img', { name: /Next\.js 16/i })).toHaveLength(1);
 });
 
 test('FullArticle surfaces the sources list on mobile below the body', () => {

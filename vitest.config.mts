@@ -10,7 +10,10 @@ export default defineConfig({
     // Next's react-server layer; point it at the package's no-op empty module
     // so the loader tests can import them.
     alias: {
-      'server-only': path.join(process.cwd(), 'node_modules/server-only/empty.js')
+      'server-only': path.join(
+        process.cwd(),
+        'node_modules/server-only/empty.js'
+      )
     }
   },
   test: {

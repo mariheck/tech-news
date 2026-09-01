@@ -51,7 +51,7 @@ test('MetaData values use mono at 0.8125rem text-primary', () => {
 
 test('MetaData forwards extra classes via the className prop', () => {
   const { container } = render(
-    <MetaData {...commonProps} className='py-4.5 border-y' />
+    <MetaData {...commonProps} className='border-y py-4.5' />
   );
   const dl = container.querySelector('dl');
   expect(dl?.className).toContain('py-4.5');

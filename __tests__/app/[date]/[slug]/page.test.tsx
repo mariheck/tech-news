@@ -46,7 +46,10 @@ test('ArticlePage renders the article title as a level-1 heading', async () => {
     })
   );
   expect(
-    screen.getByRole('heading', { level: 1, name: 'Article fictif pour le test' })
+    screen.getByRole('heading', {
+      level: 1,
+      name: 'Article fictif pour le test'
+    })
   ).toBeInTheDocument();
 });
 

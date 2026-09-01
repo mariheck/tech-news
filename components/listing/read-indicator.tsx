@@ -13,7 +13,7 @@ export const ReadIndicator = ({ href }: ReadIndicatorProps) => {
   if (!isRead) return null;
 
   return (
-    <span className='inline-flex items-center gap-1 text-label text-[0.6rem] text-tertiary'>
+    <span className='text-label inline-flex items-center gap-1 text-[0.6rem] text-tertiary'>
       Vu
       <CheckIcon aria-hidden='true' size={10} strokeWidth={1.7} />
     </span>

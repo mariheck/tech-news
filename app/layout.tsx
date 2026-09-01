@@ -47,7 +47,7 @@ const RootLayout = ({ children }: Readonly<Props>) => {
     <html lang='fr' className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
         <Header />
-        <main className='mx-auto w-full max-w-7xl flex-1 px-6 py-12 md:px-12 flex'>
+        <main className='mx-auto flex w-full max-w-7xl flex-1 px-6 py-12 md:px-12'>
           {children}
         </main>
         <Footer />

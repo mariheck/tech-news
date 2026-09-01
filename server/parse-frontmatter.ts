@@ -18,9 +18,7 @@ export const parseFrontmatter = <T = Record<string, FrontmatterValue>>(
   return { data, content };
 };
 
-const parseYamlBlock = (
-  block: string
-): Record<string, FrontmatterValue> => {
+const parseYamlBlock = (block: string): Record<string, FrontmatterValue> => {
   const lines = block.split('\n');
   const data: Record<string, FrontmatterValue> = {};
   let i = 0;
@@ -165,7 +163,10 @@ const parseFlowMapping = (
 
     let keyEnd = pos;
     while (keyEnd < s.length && s[keyEnd] !== ':') keyEnd++;
-    const key = s.slice(pos, keyEnd).trim().replace(/^['"]|['"]$/g, '');
+    const key = s
+      .slice(pos, keyEnd)
+      .trim()
+      .replace(/^['"]|['"]$/g, '');
     pos = keyEnd + 1;
     const parsed = parseValue(s, pos);
     obj[key] = parsed.value;

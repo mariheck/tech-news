@@ -8,136 +8,380 @@
         "role": "neutral",
         "displayName": "Plum Velvet",
         "canonical": "oklch(17% 0.012 305)",
-        "tonalRamp": ["#0E0B12", "#13101A", "#1A1620", "#221C29", "#2D2638", "#3A3145", "#4D4258", "#5F5269"]
+        "tonalRamp": [
+          "#0E0B12",
+          "#13101A",
+          "#1A1620",
+          "#221C29",
+          "#2D2638",
+          "#3A3145",
+          "#4D4258",
+          "#5F5269"
+        ]
       },
       "bg-elevated": {
         "role": "neutral",
         "displayName": "Velvet Step",
         "canonical": "oklch(21% 0.014 305)",
-        "tonalRamp": ["#0E0B12", "#13101A", "#1A1620", "#221C29", "#2D2638", "#3A3145", "#4D4258", "#5F5269"]
+        "tonalRamp": [
+          "#0E0B12",
+          "#13101A",
+          "#1A1620",
+          "#221C29",
+          "#2D2638",
+          "#3A3145",
+          "#4D4258",
+          "#5F5269"
+        ]
       },
       "bg-overlay": {
         "role": "neutral",
         "displayName": "Velvet Overlay",
         "canonical": "oklch(26% 0.020 305)",
-        "tonalRamp": ["#13101A", "#1A1620", "#221C29", "#2D2638", "#3A3145", "#4D4258", "#5F5269", "#736378"]
+        "tonalRamp": [
+          "#13101A",
+          "#1A1620",
+          "#221C29",
+          "#2D2638",
+          "#3A3145",
+          "#4D4258",
+          "#5F5269",
+          "#736378"
+        ]
       },
       "border-subtle": {
         "role": "neutral",
         "displayName": "Velvet Border",
         "canonical": "oklch(30% 0.022 305)",
-        "tonalRamp": ["#1A1620", "#221C29", "#2D2638", "#3A3145", "#4D4258", "#5F5269", "#736378", "#8A7990"]
+        "tonalRamp": [
+          "#1A1620",
+          "#221C29",
+          "#2D2638",
+          "#3A3145",
+          "#4D4258",
+          "#5F5269",
+          "#736378",
+          "#8A7990"
+        ]
       },
       "text-primary": {
         "role": "neutral",
         "displayName": "Parchment Cream",
         "canonical": "oklch(92% 0.020 80)",
-        "tonalRamp": ["#3A3024", "#544832", "#6E5F46", "#8C7A5F", "#A89579", "#C2B098", "#D8CAB4", "#F0E6D7"]
+        "tonalRamp": [
+          "#3A3024",
+          "#544832",
+          "#6E5F46",
+          "#8C7A5F",
+          "#A89579",
+          "#C2B098",
+          "#D8CAB4",
+          "#F0E6D7"
+        ]
       },
       "text-secondary": {
         "role": "neutral",
         "displayName": "Soft Ash",
         "canonical": "oklch(70% 0.018 80)",
-        "tonalRamp": ["#2D261D", "#473D2F", "#615543", "#7A6C58", "#92856E", "#A89A82", "#BCB096", "#D2C8B0"]
+        "tonalRamp": [
+          "#2D261D",
+          "#473D2F",
+          "#615543",
+          "#7A6C58",
+          "#92856E",
+          "#A89A82",
+          "#BCB096",
+          "#D2C8B0"
+        ]
       },
       "text-tertiary": {
         "role": "neutral",
         "displayName": "Distant Ash",
         "canonical": "oklch(48% 0.014 70)",
-        "tonalRamp": ["#2A241D", "#3D352B", "#52483B", "#65594B", "#76695E", "#8C8073", "#A29688", "#BAAE9F"]
+        "tonalRamp": [
+          "#2A241D",
+          "#3D352B",
+          "#52483B",
+          "#65594B",
+          "#76695E",
+          "#8C8073",
+          "#A29688",
+          "#BAAE9F"
+        ]
       },
       "accent-peach": {
         "role": "primary",
         "displayName": "Velvet Peach",
         "canonical": "oklch(75% 0.080 30)",
-        "tonalRamp": ["#3D1F18", "#5E322A", "#7E483D", "#A05E50", "#BE7665", "#D08E7D", "#E8A598", "#F0BFB4"]
+        "tonalRamp": [
+          "#3D1F18",
+          "#5E322A",
+          "#7E483D",
+          "#A05E50",
+          "#BE7665",
+          "#D08E7D",
+          "#E8A598",
+          "#F0BFB4"
+        ]
       },
       "accent-peach-light": {
         "role": "primary",
         "displayName": "Peach Bloom",
         "canonical": "oklch(82% 0.060 30)",
-        "tonalRamp": ["#4A2A22", "#693E33", "#876050", "#A57A6A", "#C19584", "#D5A99A", "#E8BFB1", "#F0BFB4"]
+        "tonalRamp": [
+          "#4A2A22",
+          "#693E33",
+          "#876050",
+          "#A57A6A",
+          "#C19584",
+          "#D5A99A",
+          "#E8BFB1",
+          "#F0BFB4"
+        ]
       },
       "cat-frontend": {
         "role": "secondary",
         "displayName": "Coastal Teal",
         "canonical": "oklch(56% 0.075 195)",
-        "tonalRamp": ["#0F2C2D", "#163E40", "#1F5658", "#266F71", "#2D8E91", "#46A2A5", "#5FB3B6", "#85C7CA"]
+        "tonalRamp": [
+          "#0F2C2D",
+          "#163E40",
+          "#1F5658",
+          "#266F71",
+          "#2D8E91",
+          "#46A2A5",
+          "#5FB3B6",
+          "#85C7CA"
+        ]
       },
       "cat-frontend-light": {
         "role": "secondary",
         "displayName": "Coastal Teal Bloom",
         "canonical": "oklch(71% 0.065 195)",
-        "tonalRamp": ["#163E40", "#1F5658", "#266F71", "#2D8E91", "#46A2A5", "#5FB3B6", "#85C7CA", "#A8D6D9"]
+        "tonalRamp": [
+          "#163E40",
+          "#1F5658",
+          "#266F71",
+          "#2D8E91",
+          "#46A2A5",
+          "#5FB3B6",
+          "#85C7CA",
+          "#A8D6D9"
+        ]
       },
       "cat-dev-ia": {
         "role": "secondary",
         "displayName": "Copper Bloom",
         "canonical": "oklch(68% 0.105 40)",
-        "tonalRamp": ["#3A1D14", "#542C20", "#6E3D2E", "#8B523D", "#A66950", "#C07B5F", "#D9896E", "#E8AC97"]
+        "tonalRamp": [
+          "#3A1D14",
+          "#542C20",
+          "#6E3D2E",
+          "#8B523D",
+          "#A66950",
+          "#C07B5F",
+          "#D9896E",
+          "#E8AC97"
+        ]
       },
       "cat-dev-ia-light": {
         "role": "secondary",
         "displayName": "Copper Bloom Light",
         "canonical": "oklch(78% 0.075 40)",
-        "tonalRamp": ["#542C20", "#6E3D2E", "#8B523D", "#A66950", "#C07B5F", "#D9896E", "#E8AC97", "#F0C2AE"]
+        "tonalRamp": [
+          "#542C20",
+          "#6E3D2E",
+          "#8B523D",
+          "#A66950",
+          "#C07B5F",
+          "#D9896E",
+          "#E8AC97",
+          "#F0C2AE"
+        ]
       },
       "cat-design": {
         "role": "secondary",
         "displayName": "Velvet Raspberry",
         "canonical": "oklch(50% 0.105 0)",
-        "tonalRamp": ["#2C111B", "#421A2A", "#5C2438", "#763048", "#8E3F5B", "#A85676", "#C77F9B", "#D89BB1"]
+        "tonalRamp": [
+          "#2C111B",
+          "#421A2A",
+          "#5C2438",
+          "#763048",
+          "#8E3F5B",
+          "#A85676",
+          "#C77F9B",
+          "#D89BB1"
+        ]
       },
       "cat-design-light": {
         "role": "secondary",
         "displayName": "Raspberry Bloom",
         "canonical": "oklch(63% 0.080 0)",
-        "tonalRamp": ["#421A2A", "#5C2438", "#763048", "#8E3F5B", "#A85676", "#C77F9B", "#D89BB1", "#E5B5C6"]
+        "tonalRamp": [
+          "#421A2A",
+          "#5C2438",
+          "#763048",
+          "#8E3F5B",
+          "#A85676",
+          "#C77F9B",
+          "#D89BB1",
+          "#E5B5C6"
+        ]
       },
       "cat-actus-ia": {
         "role": "secondary",
         "displayName": "Iris Amethyst",
         "canonical": "oklch(53% 0.110 305)",
-        "tonalRamp": ["#22132A", "#321E3F", "#442857", "#583370", "#6E458B", "#8E5FA8", "#B189C6", "#C3A4D4"]
+        "tonalRamp": [
+          "#22132A",
+          "#321E3F",
+          "#442857",
+          "#583370",
+          "#6E458B",
+          "#8E5FA8",
+          "#B189C6",
+          "#C3A4D4"
+        ]
       },
       "cat-actus-ia-light": {
         "role": "secondary",
         "displayName": "Iris Bloom",
         "canonical": "oklch(66% 0.080 305)",
-        "tonalRamp": ["#321E3F", "#442857", "#583370", "#6E458B", "#8E5FA8", "#B189C6", "#C3A4D4", "#D6BFE0"]
+        "tonalRamp": [
+          "#321E3F",
+          "#442857",
+          "#583370",
+          "#6E458B",
+          "#8E5FA8",
+          "#B189C6",
+          "#C3A4D4",
+          "#D6BFE0"
+        ]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Page-level titles on non-article pages (e.g. Archives landing)." },
-      "headline": { "displayName": "Headline", "purpose": "Hero article title and article H1." },
-      "title": { "displayName": "Card Title", "purpose": "Card titles across all three card variants; scales 17→30px." },
-      "body": { "displayName": "Article Body", "purpose": "Article paragraphs and summaries. Capped at 65ch." },
-      "label": { "displayName": "Marker / Mono Label", "purpose": "Pills, tabs, section title eyebrows, dates, URLs, kbd chips. Uppercase, mono, +0.09em letter-spacing." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page-level titles on non-article pages (e.g. Archives landing)."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Hero article title and article H1."
+      },
+      "title": {
+        "displayName": "Card Title",
+        "purpose": "Card titles across all three card variants; scales 17→30px."
+      },
+      "body": {
+        "displayName": "Article Body",
+        "purpose": "Article paragraphs and summaries. Capped at 65ch."
+      },
+      "label": {
+        "displayName": "Marker / Mono Label",
+        "purpose": "Pills, tabs, section title eyebrows, dates, URLs, kbd chips. Uppercase, mono, +0.09em letter-spacing."
+      }
     },
     "shadows": [
-      { "name": "card-lift", "value": "0 14px 32px -16px color-mix(in oklab, var(--c-cat-strong) 60%, transparent), 0 2px 8px -4px color-mix(in oklab, var(--c-cat-strong) 30%, transparent)", "purpose": "Hover-only lift on cards. Tinted to the article's category color so the card seems to rise into its own voice." },
-      { "name": "modal-detach", "value": "0 30px 80px -20px rgba(0,0,0,0.6)", "purpose": "Cmd-K modal only. The single ambient drop shadow in the system." },
-      { "name": "image-inner-stroke", "value": "inset 0 0 0 1px color-mix(in oklab, var(--text-primary) 4%, transparent)", "purpose": "Whisper-thin inner line on hero and card images so the edge does not dissolve into the velvet background." },
-      { "name": "wordmark-dot-glow", "value": "0 0 16px color-mix(in oklab, var(--cat-color) 70%, transparent)", "purpose": "Soft self-colored glow under the wordmark dot. Updates with the active accent." }
+      {
+        "name": "card-lift",
+        "value": "0 14px 32px -16px color-mix(in oklab, var(--c-cat-strong) 60%, transparent), 0 2px 8px -4px color-mix(in oklab, var(--c-cat-strong) 30%, transparent)",
+        "purpose": "Hover-only lift on cards. Tinted to the article's category color so the card seems to rise into its own voice."
+      },
+      {
+        "name": "modal-detach",
+        "value": "0 30px 80px -20px rgba(0,0,0,0.6)",
+        "purpose": "Cmd-K modal only. The single ambient drop shadow in the system."
+      },
+      {
+        "name": "image-inner-stroke",
+        "value": "inset 0 0 0 1px color-mix(in oklab, var(--text-primary) 4%, transparent)",
+        "purpose": "Whisper-thin inner line on hero and card images so the edge does not dissolve into the velvet background."
+      },
+      {
+        "name": "wordmark-dot-glow",
+        "value": "0 0 16px color-mix(in oklab, var(--cat-color) 70%, transparent)",
+        "purpose": "Soft self-colored glow under the wordmark dot. Updates with the active accent."
+      }
     ],
     "motion": [
-      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "The single easing curve in the system. Used on every transition from 120ms to 700ms." },
-      { "name": "duration-instant", "value": "120ms", "purpose": "Cmd-K result hover background fade." },
-      { "name": "duration-snap", "value": "150ms", "purpose": "Icon button color and background shifts; back-link color shift." },
-      { "name": "duration-fade", "value": "180ms", "purpose": "Modal fade-in and scale-in." },
-      { "name": "duration-state", "value": "220ms", "purpose": "Card border/background state transitions; CTA underline reveal." },
-      { "name": "duration-color", "value": "240ms", "purpose": "Card title color transitions." },
-      { "name": "duration-accent", "value": "280ms", "purpose": "Wordmark dot color/glow shift; hero progress dot expansion." },
-      { "name": "duration-image", "value": "320ms", "purpose": "Card image saturation/brightness on hover." },
-      { "name": "duration-lift", "value": "380ms", "purpose": "Card translateY lift on hover." },
-      { "name": "duration-crossfade", "value": "400ms", "purpose": "Hero slideshow image crossfade." },
-      { "name": "duration-glow", "value": "600ms", "purpose": "Hero glow color transition between slides." },
-      { "name": "reduced-motion", "value": "100ms", "purpose": "All transitions collapse to this duration under prefers-reduced-motion: reduce." }
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single easing curve in the system. Used on every transition from 120ms to 700ms."
+      },
+      {
+        "name": "duration-instant",
+        "value": "120ms",
+        "purpose": "Cmd-K result hover background fade."
+      },
+      {
+        "name": "duration-snap",
+        "value": "150ms",
+        "purpose": "Icon button color and background shifts; back-link color shift."
+      },
+      {
+        "name": "duration-fade",
+        "value": "180ms",
+        "purpose": "Modal fade-in and scale-in."
+      },
+      {
+        "name": "duration-state",
+        "value": "220ms",
+        "purpose": "Card border/background state transitions; CTA underline reveal."
+      },
+      {
+        "name": "duration-color",
+        "value": "240ms",
+        "purpose": "Card title color transitions."
+      },
+      {
+        "name": "duration-accent",
+        "value": "280ms",
+        "purpose": "Wordmark dot color/glow shift; hero progress dot expansion."
+      },
+      {
+        "name": "duration-image",
+        "value": "320ms",
+        "purpose": "Card image saturation/brightness on hover."
+      },
+      {
+        "name": "duration-lift",
+        "value": "380ms",
+        "purpose": "Card translateY lift on hover."
+      },
+      {
+        "name": "duration-crossfade",
+        "value": "400ms",
+        "purpose": "Hero slideshow image crossfade."
+      },
+      {
+        "name": "duration-glow",
+        "value": "600ms",
+        "purpose": "Hero glow color transition between slides."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "100ms",
+        "purpose": "All transitions collapse to this duration under prefers-reduced-motion: reduce."
+      }
     ],
     "breakpoints": [
-      { "name": "tablet-down", "value": "900px", "purpose": "Hero collapses to single column; feature grid stacks; uniform grid drops to 2 columns; article sidebar unsticks." },
-      { "name": "mobile", "value": "700px", "purpose": "Footer wraps to a vertical stack." },
-      { "name": "mobile-small", "value": "560px", "purpose": "Uniform grid drops to a single column; small horizontal card tightens to 40% / 1fr." }
+      {
+        "name": "tablet-down",
+        "value": "900px",
+        "purpose": "Hero collapses to single column; feature grid stacks; uniform grid drops to 2 columns; article sidebar unsticks."
+      },
+      {
+        "name": "mobile",
+        "value": "700px",
+        "purpose": "Footer wraps to a vertical stack."
+      },
+      {
+        "name": "mobile-small",
+        "value": "560px",
+        "purpose": "Uniform grid drops to a single column; small horizontal card tightens to 40% / 1fr."
+      }
     ]
   },
   "components": [
@@ -209,15 +453,51 @@
       "A barely-visible velvet grain overlay (SVG noise at 3.5% opacity, mix-blend-mode: overlay) gives surfaces a tactile fabric quality."
     ],
     "rules": [
-      { "name": "The Tinted-Neutral Rule", "body": "Every neutral is tinted toward the plum hue family. #fff, #000, and any pure-grey value are forbidden across the entire surface — backgrounds, borders, text, shadows, focus rings, overlay scrims. If a value reads as 'neutral grey' in the eyedropper, it has failed.", "section": "colors" },
-      { "name": "The One-Accent-at-a-Time Rule", "body": "On any given screen, only one accent color carries the saturated chroma. On the home page that is peach by default; on the article page it is the category color; on archives it is peach again. Never two saturated accents on the same page.", "section": "colors" },
-      { "name": "The Category-Color-as-Voice Rule", "body": "Category colors are situational accents tied to a single article's surface, not a permanent UI element. They appear on the article page and recede the moment the reader leaves that article.", "section": "colors" },
-      { "name": "The Single-Family Rule", "body": "Geist (sans + mono) carries the entire system. No second serif, no display script, no novelty font. The contrast comes from weight, scale, and the sans/mono split — not from a third family.", "section": "typography" },
-      { "name": "The 65ch Rule", "body": "Body copy is capped at 65ch. Sidebars and metadata may sit narrower; nothing wider. A line of body text wider than 65ch breaks the reading rhythm and is forbidden.", "section": "typography" },
-      { "name": "The Mono-for-Markers Rule", "body": "Geist Mono is reserved for metadata that marks rather than narrates: dates, URLs, source numbers, category pills, tab labels, section title eyebrows, kbd chips, the wordmark itself. It is not a body face. Mono running text is forbidden.", "section": "typography" },
-      { "name": "The Flat-At-Rest Rule", "body": "Cards, sections, and surfaces carry no shadow in their default state. Shadow appears only on hover, only on cards, only tinted to the category color. A drop-shadow visible without interaction is a bug.", "section": "elevation" },
-      { "name": "The Halo-Over-Shadow Rule", "body": "When depth is needed for atmosphere, the answer is a blurred colored halo, not a grey shadow. Halos carry warmth and category identity; grey shadows would flatten the velvet into anonymous dark mode.", "section": "elevation" },
-      { "name": "The No-Glassmorphism Rule", "body": "Backdrop blur is allowed exactly twice in the system: the sticky nav (blur(6px) over a 85%-opacity base) and the Cmd-K backdrop scrim (blur(8px) over 60%). Glass cards, glass panels, glass tab bars are forbidden.", "section": "elevation" }
+      {
+        "name": "The Tinted-Neutral Rule",
+        "body": "Every neutral is tinted toward the plum hue family. #fff, #000, and any pure-grey value are forbidden across the entire surface — backgrounds, borders, text, shadows, focus rings, overlay scrims. If a value reads as 'neutral grey' in the eyedropper, it has failed.",
+        "section": "colors"
+      },
+      {
+        "name": "The One-Accent-at-a-Time Rule",
+        "body": "On any given screen, only one accent color carries the saturated chroma. On the home page that is peach by default; on the article page it is the category color; on archives it is peach again. Never two saturated accents on the same page.",
+        "section": "colors"
+      },
+      {
+        "name": "The Category-Color-as-Voice Rule",
+        "body": "Category colors are situational accents tied to a single article's surface, not a permanent UI element. They appear on the article page and recede the moment the reader leaves that article.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single-Family Rule",
+        "body": "Geist (sans + mono) carries the entire system. No second serif, no display script, no novelty font. The contrast comes from weight, scale, and the sans/mono split — not from a third family.",
+        "section": "typography"
+      },
+      {
+        "name": "The 65ch Rule",
+        "body": "Body copy is capped at 65ch. Sidebars and metadata may sit narrower; nothing wider. A line of body text wider than 65ch breaks the reading rhythm and is forbidden.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono-for-Markers Rule",
+        "body": "Geist Mono is reserved for metadata that marks rather than narrates: dates, URLs, source numbers, category pills, tab labels, section title eyebrows, kbd chips, the wordmark itself. It is not a body face. Mono running text is forbidden.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-At-Rest Rule",
+        "body": "Cards, sections, and surfaces carry no shadow in their default state. Shadow appears only on hover, only on cards, only tinted to the category color. A drop-shadow visible without interaction is a bug.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Halo-Over-Shadow Rule",
+        "body": "When depth is needed for atmosphere, the answer is a blurred colored halo, not a grey shadow. Halos carry warmth and category identity; grey shadows would flatten the velvet into anonymous dark mode.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No-Glassmorphism Rule",
+        "body": "Backdrop blur is allowed exactly twice in the system: the sticky nav (blur(6px) over a 85%-opacity base) and the Cmd-K backdrop scrim (blur(8px) over 60%). Glass cards, glass panels, glass tab bars are forbidden.",
+        "section": "elevation"
+      }
     ],
     "dos": [
       "Do tint every neutral toward the plum hue family. #1A1620, #221C29, #2D2638, #3A3145 are the four steps. Any new neutral must be derived from this same hue family.",

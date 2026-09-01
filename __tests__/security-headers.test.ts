@@ -9,7 +9,9 @@ test('SECURITY_HEADERS blocks MIME-type sniffing', () => {
 });
 
 test('SECURITY_HEADERS trims the referrer cross-origin and on downgrade', () => {
-  expect(headerValue('Referrer-Policy')).toBe('strict-origin-when-cross-origin');
+  expect(headerValue('Referrer-Policy')).toBe(
+    'strict-origin-when-cross-origin'
+  );
 });
 
 test('SECURITY_HEADERS forbids framing to prevent clickjacking', () => {

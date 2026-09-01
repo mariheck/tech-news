@@ -44,14 +44,14 @@ export const Button = ({
         'text-primary/60 hover:text-primary focus-visible:text-primary',
         'scale-100 motion-safe:active:scale-97',
         "before:absolute before:-inset-1.5 before:content-['']",
-        'transition-[color,scale] ease-out-circ duration-200',
-        'disabled:text-tertiary disabled:cursor-not-allowed',
+        'transition-[color,scale] duration-200 ease-out-circ',
+        'disabled:cursor-not-allowed disabled:text-tertiary',
         'disabled:hover:bg-plum-subtle/60 disabled:focus-visible:bg-plum-subtle/60',
         'disabled:active:scale-100',
         {
-          'relative flex gap-2 w-fit items-center font-mono text-[0.75rem] tracking-wider py-1.5 px-3':
+          'relative flex w-fit items-center gap-2 px-3 py-1.5 font-mono text-[0.75rem] tracking-wider':
             variant === 'solid',
-          'size-8 grid place-items-center': variant === 'icon'
+          'grid size-8 place-items-center': variant === 'icon'
         },
         className
       )}

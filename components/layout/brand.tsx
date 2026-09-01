@@ -15,16 +15,16 @@ export const Brand = ({ size = 'md' }: BrandProps) => {
         'group relative isolate inline-flex items-baseline gap-2 p-1',
         'font-mono tracking-wider text-primary no-underline',
         { 'text-sm': size === 'md', 'text-[0.8125rem]': size === 'sm' },
-        'before:absolute before:-inset-y-3 before:-inset-x-1 before:content-[""]'
+        'before:absolute before:-inset-x-1 before:-inset-y-3 before:content-[""]'
       )}
     >
       <span
         aria-hidden='true'
         className={classNames(
           'pointer-events-none absolute -z-10',
-          '-inset-y-6 -inset-x-6 rounded-full',
+          '-inset-x-6 -inset-y-6 rounded-full',
           'bg-[radial-gradient(ellipse_at_right_center,var(--accent),transparent_60%)]',
-          'blur-md opacity-0',
+          'opacity-0 blur-md',
           'group-hover:opacity-30 group-focus-visible:opacity-30',
           'transition-opacity duration-300 ease-in-out-circ'
         )}

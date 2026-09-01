@@ -30,13 +30,15 @@ export const FullArticle = ({ article }: FullArticleProps) => {
       className='grid grid-cols-1 md:grid-cols-[280px_1fr] md:gap-[clamp(2.5rem,6vw,5.5rem)]'
     >
       <ScrollToTop />
-      <MarkAsRead href={articleHref({ date: article.date, slug: article.slug })} />
+      <MarkAsRead
+        href={articleHref({ date: article.date, slug: article.slug })}
+      />
       <MainInfo
         summary={article.summary}
         date={article.date}
         readingTime={article.readingTime}
         sources={article.sources}
-        className='mb-8 md:mb-0 md:sticky md:top-28 md:pt-2 md:self-start'
+        className='mb-8 md:sticky md:top-28 md:mb-0 md:self-start md:pt-2'
       />
 
       <ArticleBody
@@ -49,7 +51,7 @@ export const FullArticle = ({ article }: FullArticleProps) => {
       {/* Mobile screen only */}
       <Sources
         sources={article.sources}
-        className='md:hidden mt-10 pt-6 border-t border-(--accent-light)/25'
+        className='mt-10 border-t border-(--accent-light)/25 pt-6 md:hidden'
       />
     </article>
   );
