@@ -43,9 +43,7 @@ There is no typecheck script — `next build` typechecks, or run `npx tsc --noEm
 - `types/` — shared TypeScript types (`@/types` barrel).
 - `utils/` — loaders, formatters, and category lookups (`@/utils` barrel).
 - `__tests__/` — Vitest specs at the repo root, mirroring the source path (e.g. `app/page.tsx` → `__tests__/app/page.test.tsx`). Do not colocate tests next to source.
-- `PRODUCT.md` — register, users, purpose, anti-references, design principles. Read before scoping a feature.
-- `DESIGN.md` — visual system: tokens, typography, elevation, components, do's and don'ts.
-- `.impeccable/design.json` — sidecar for impeccable's live panel (tonal ramps, motion tokens, snippets).
+- `PRODUCT.md` — register, users, purpose, anti-references, design principles, visual constraints, accessibility floor. Read before scoping a feature or designing UI. Design values themselves live in `app/globals.css`, not here.
 - `CLAUDE.md` — conventions, commands, and workflow guidance for Claude Code.
 
 ## Content generation

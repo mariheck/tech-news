@@ -5,8 +5,7 @@ export const accentToCssVar: Record<AccentName, string> = {
   turquoise: 'var(--color-accent-turquoise)',
   raspberry: 'var(--color-accent-raspberry)',
   copper: 'var(--color-accent-copper)',
-  iris: 'var(--color-accent-iris)',
-  linen: 'var(--color-accent-linen)'
+  iris: 'var(--color-accent-iris)'
 };
 
 export const accentToLightCssVar: Record<AccentName, string> = {
@@ -14,6 +13,5 @@ export const accentToLightCssVar: Record<AccentName, string> = {
   turquoise: 'var(--color-accent-turquoise-light)',
   raspberry: 'var(--color-accent-raspberry-light)',
   copper: 'var(--color-accent-copper-light)',
-  iris: 'var(--color-accent-iris-light)',
-  linen: 'var(--color-accent-linen-light)'
+  iris: 'var(--color-accent-iris-light)'
 };

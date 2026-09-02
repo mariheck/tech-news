@@ -53,11 +53,11 @@ Use the following skills for best practices — you MUST call them every time yo
 
 ## Design context
 
-The files below, at the repo root, are the canonical source of truth for any UI or content decision. Read them before designing or reviewing UI:
+**The code is the source of truth for every value.** Colors, typography scale, radii, spacing, breakpoints, component anatomy, layout: read `app/globals.css` and the components. Never take a document's word for what something currently looks like.
 
-- **`PRODUCT.md`** — strategic context: register (`brand`), users, product purpose (AI-curated weekly digest with linked sources), brand personality, anti-references, and five design principles.
-- **`DESIGN.md`** — visual system: frontmatter token primitives (colors, typography, rounded, spacing, components) and a six-section spec (Overview, Colors, Typography, Elevation, Components, Do's and Don'ts). The Do's and Don'ts are normative — match-and-refuse, not suggestions.
-- **`.impeccable/design.json`** — sidecar consumed by impeccable's live panel: tonal ramps per color, shadow/motion tokens, breakpoints, and self-contained HTML/CSS snippets for the canonical components. Update it whenever DESIGN.md is regenerated.
+**`PRODUCT.md`**, at the repo root, carries the register (`brand`), the users, the product purpose, the brand voice, the anti-references, the design principles, the visual constraints, and the accessibility floor. Its constraints and refusals are normative — match-and-refuse, not suggestions. Read it before designing new UI or writing user-facing copy. Never state a code value in `PRODUCT.md`.
+
+The split matters: code says what _is_, `PRODUCT.md` says what is _forbidden_ and _why_. Absence in the code is ambiguous — you cannot tell a deliberate refusal from a gap, which is exactly what `PRODUCT.md` disambiguates.
 
 ## Commands
 
