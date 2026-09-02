@@ -1,5 +1,11 @@
 import { CodeBlock } from '@/components/typo/code-block';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor
+} from '@testing-library/react';
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 
 const writeText = vi.fn(() => Promise.resolve());
@@ -55,7 +61,11 @@ test('CodeBlock copies the code text to the clipboard on click', () => {
 test('CodeBlock announces the copied state after a successful copy', async () => {
   renderBlock();
   fireEvent.click(screen.getByRole('button', { name: 'Copier le code' }));
-  expect(await screen.findByRole('status')).toHaveTextContent('Copié');
+  // The live region is always mounted, so waiting for the element resolves
+  // instantly: wait for its content instead.
+  await waitFor(() =>
+    expect(screen.getByRole('status')).toHaveTextContent('Copié')
+  );
 });
 
 test('CodeBlock ignores clicks while already in the copied state', async () => {
