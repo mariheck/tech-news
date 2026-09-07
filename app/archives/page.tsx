@@ -1,10 +1,9 @@
-import { CategoryFilter } from '@/components/category';
-import { WeeklyEdition } from '@/components/listing';
+import { PageHeader, PageStack } from '@/components/layout';
 import { EmptyNotice } from '@/components/shared';
-import { PageHeading } from '@/components/typo';
-import { getArchiveIssueDates, loadIssue } from '@/server';
-import { filterByCategory, isCategorySlug } from '@/utils';
+import { getArchiveIssueDates } from '@/server';
+import { getMonthHref, isCategorySlug, listArchiveMonths } from '@/utils';
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
   title: 'Archives',
@@ -17,42 +16,29 @@ type ArchivesPageProps = Pick<PageProps<'/archives'>, 'searchParams'>;
 
 const ArchivesPage = async ({ searchParams }: ArchivesPageProps) => {
   const { cat } = await searchParams;
-  const active = isCategorySlug(cat) ? cat : undefined;
+  const activeCategory = isCategorySlug(cat) ? cat : undefined;
 
-  const archiveDates = await getArchiveIssueDates();
-  const allIssues = await Promise.all(
-    archiveDates.map((date) => loadIssue(date))
-  );
+  const archivedMonths = listArchiveMonths(await getArchiveIssueDates());
+  const [lastMonth] = archivedMonths;
 
-  const filteredArchives = allIssues.map((issue) => ({
-    ...issue,
-    articles: filterByCategory(issue.articles, active)
-  }));
+  if (lastMonth !== undefined) {
+    const newPageHref = getMonthHref({
+      month: lastMonth,
+      category: activeCategory
+    });
+    redirect(newPageHref);
+  }
 
   return (
-    <div className='flex w-full flex-col gap-8 md:gap-16'>
-      <div>
-        <p className='mt-4 font-mono text-xs tracking-[0.04em] text-tertiary uppercase'>
-          Archives
-        </p>
-        <PageHeading>Toutes les éditions, semaine après semaine.</PageHeading>
-        <CategoryFilter basePath='/archives' active={active} />
-      </div>
-
-      {filteredArchives.length ? (
-        <div className='flex flex-col gap-16'>
-          {filteredArchives.map((issue) => (
-            <WeeklyEdition
-              key={issue.date.toISOString()}
-              weekStart={issue.date}
-              articles={issue.articles}
-            />
-          ))}
-        </div>
-      ) : (
-        <EmptyNotice>Aucun article disponible pour le moment.</EmptyNotice>
-      )}
-    </div>
+    <PageStack>
+      <PageHeader
+        eyebrow='Archives'
+        title='Toutes les éditions, semaine après semaine.'
+        basePath='/archives'
+        activeCategory={activeCategory}
+      />
+      <EmptyNotice>Aucun article disponible pour le moment.</EmptyNotice>
+    </PageStack>
   );
 };
 

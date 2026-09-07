@@ -81,10 +81,11 @@ Vitest (esbuild) skips type errors, so a green `npm run test` does **not** mean 
 ### Modules and imports
 
 - Path alias: `@/*` maps to the repo root.
-- Components are grouped by domain. They live in `components/<group>/`.
-- Components are named exports, re-exported from `components/<group>/index.ts` via `export *`. Import them as `import { X } from '@/components/<group>'`.
+- Components are grouped by domain. Generic, reusable ones live in `components/<group>/`; business-specific ones live in `features/<domain>/`.
+- Dependencies go one way: `features/` may import from `components/`, `components/` never imports from `features/`.
+- Components are named exports, re-exported from the group's `index.ts` via `export *`. Import them as `import { X } from '@/components/<group>'` or `'@/features/<domain>'`.
 - Intra-group imports must use the direct path, not the barrel.
-- Shared types live in `types/`, shared helpers in `utils/`, custom React hooks live in `hooks/`, browser-side persistence lives in `storage/`, each with a barrel `index.ts`. Non-component code never lives inside `components/`.
+- Shared types live in `types/`, shared helpers in `utils/`, custom React hooks live in `hooks/`, browser-side persistence lives in `storage/`, each with a barrel `index.ts`. Non-component code never lives inside `components/`, except the types and helpers only one group uses, which stay in its `components/<group>/` folder (e.g. `components/pagination/types.ts`). A `features/<domain>/` folder may hold the hooks and helpers only that domain uses.
 - Split concerns: the storage _mechanism_ (e.g. `subscribeToStorage`) stays in `storage/`, the hook only binds it into React (`useSyncExternalStore`). One function per file (`is-article-read.ts`, `use-is-article-read.ts`).
 - Server-only content loaders and fs-backed loaders live in `server/`, every module there beginning with `import 'server-only'`. It is the **one** folder whose barrel is not client-safe: importing `@/server` from a `'use client'` file fails the build by design, and only at `next build` — never in Vitest or `tsc`. `@/utils`, `@/storage` and `@/hooks` are client-safe, so client components import them via their barrels.
 - Tailwind config lives in CSS, not JS. Use `@theme` / `@import "tailwindcss"` in `app/globals.css`. Don't create a `tailwind.config.js`.
@@ -108,6 +109,7 @@ Vitest (esbuild) skips type errors, so a green `npm run test` does **not** mean 
 - **Server Components by default.** Add the `'use client'` directive only on the leaf that needs it.
 - **Route-typed props** — `LayoutProps<'/'>`, `PageProps<'/'>` and friends are globals generated into `.next/types` by Next.js 16. Use them (`type RootLayoutProps = LayoutProps<'/'>`) instead of hand-writing `{ children }` prop types. They are not imported from anywhere.
 - **Arrow functions** for components, handlers, and helpers. No `function` keyword for declarations.
+- **No JSX-returning helpers inside a component** (`renderX()`, `getX()`). Write the markup inline in the component's JSX, or extract it into its own component when it grows too big.
 - **Don't hand-roll `useMemo` / `useCallback` / `memo`.** The React Compiler handles memoization.
 - **Read browser stores (localStorage) with `useSyncExternalStore`, not `useState`+`useEffect`.** The React Compiler's `react-hooks/set-state-in-effect` lint rejects the effect-then-setState pattern. `getServerSnapshot: () => false` gives a stable SSR/first-client render (no hydration mismatch); a module-level `subscribe` keeps its identity stable.
 - **No `any` type** — don't silence the compiler with `as any` or `@ts-ignore` (`@ts-expect-error` is acceptable only with a written reason).
@@ -153,7 +155,7 @@ Components set `--accent` locally for their own tint — `Card` and `HeroSlidesh
 - **Static pages on disk**. `content/pages/<slug>.md` holds standalone pages (raw markdown, **no frontmatter**), loaded via `loadPage(slug)` in `server/load-page.ts` (returns the trimmed markdown string) and rendered with `StyledMarkdown`. Page `<title>`/description come from a `metadata` export in the route, not the file. See `app/mentions-legales/page.tsx`.
 - **Frontmatter parser**. Hand-rolled in `server/parse-frontmatter.ts` (gray-matter–style `{ data, content }`). Covers scalars, block sequences, and flow sequences of inline mappings. Extend the parser rather than reach for a dep.
 - **Types**. `ArticleMeta` is the card-view shape: the frontmatter fields camelCased (`reading_time` → `readingTime`) plus `slug` and `image`. `Article = ArticleMeta & { sources, content }` is the full editorial shape. Grids type `articles: ArticleMeta[]` so loader output flows in by subtyping.
-- **Server Component data flow**. `app/page.tsx` and `app/archives/page.tsx` are async Server Components that derive issue dates from disk: `getLastIssueDate()` (home headline) and `getArchiveIssueDates()` (everything else) both build on `listIssueDates()` (issue folder names, most-recent-first). The home title uses `getExpectedLastMonday()` to decide between "la semaine dernière" and a `formatWeekRange()` label. No date is hardcoded.
+- **Server Component data flow**. `app/page.tsx` and `app/archives/[month]/page.tsx` are async Server Components that derive issue dates from disk: `getLastIssueDate()` (home headline) and `getArchiveIssueDates()` (everything else, grouped by `listArchiveMonths()` and `listMonthIssueDates()`) both build on `listIssueDates()` (issue folder names, most-recent-first). `app/archives/page.tsx` only redirects to the most recent archived month. The home title uses `getExpectedLastMonday()` to decide between "la semaine dernière" and a `formatWeekRange()` label. No date is hardcoded.
 - **Agent IA contract**. The markdown frontmatter format is the agreement with the AI agent generating these files. Schema changes (renames, new fields) require updating the agent's prompt in parallel.
 
 ### Categories
@@ -186,7 +188,7 @@ Do not stack multiple behaviors into one test. If a bug slips through, the first
 - `vitest.setup.ts` already loads `@testing-library/jest-dom/vitest` matchers, runs `cleanup()` after each test, and clears `localStorage` before each test — don't re-import matchers, call cleanup, or add a per-file `beforeEach(() => localStorage.clear())`.
 - **jsdom provides no `window.matchMedia`.** `vitest.setup.ts` installs a mock defaulting to `matches: false` (no reduced-motion). Tests asserting the reduced-motion branch reassign `window.matchMedia` locally and restore it in `afterEach`.
 - **`vitest.config.mts` aliases `server-only` to the package's `empty.js`** (the import throws outside Next's react-server layer) so loader tests can import `@/server` — keep that alias when adding server-side tests.
-- **Content tests read a fixture tree, never the live `content/`.** `vitest.config.mts` sets `CONTENT_ROOT` to `__tests__/fixtures/content/` (three editions: `2026-05-18`, `2026-05-11`, `2026-05-04`; one `pages/mentions-legales.md`), so loaders and the Server Component pages run against fixed data. When a test needs a clock-dependent heading deterministic (the home "semaine dernière" label), freeze the clock with `vi.setSystemTime` to a date whose `getExpectedLastMonday()` matches the latest fixture edition. Edit the fixture tree, not the assertions, to change what tests see; keep it in sync with the frontmatter contract above.
+- **Content tests read a fixture tree, never the live `content/`.** `vitest.config.mts` sets `CONTENT_ROOT` to `__tests__/fixtures/content/` (four editions: `2026-05-18`, `2026-05-11`, `2026-05-04`, `2026-04-27`; one `pages/mentions-legales.md`), so loaders and the Server Component pages run against fixed data. When a test needs a clock-dependent heading deterministic (the home "semaine dernière" label), freeze the clock with `vi.setSystemTime` to a date whose `getExpectedLastMonday()` matches the latest fixture edition. Edit the fixture tree, not the assertions, to change what tests see; keep it in sync with the frontmatter contract above.
 
 ### Writing tests
 

@@ -1,10 +1,9 @@
-import type { CategorySlug } from '@/types';
-import type { Route } from 'next';
+import type { CategorySlug, ListingRoute } from '@/types';
 import { CATEGORIES, categoryToAccent, categoryToLabel } from '@/utils';
 import { CategoryBadge } from './category-badge';
 
 type CategoryFilterProps = {
-  basePath: Route;
+  basePath: ListingRoute;
   visible?: CategorySlug[];
   active?: CategorySlug;
 };
