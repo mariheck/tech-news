@@ -2,12 +2,13 @@ import { listIssueDates } from '@/server';
 import { expect, test } from 'vitest';
 
 // Reads the fixture issue tree under __tests__/fixtures/content (CONTENT_ROOT is
-// pointed there in vitest.config.mts): three editions, most-recent-first.
+// pointed there in vitest.config.mts): four editions, most-recent-first.
 test('listIssueDates returns the fixture issue folders sorted most-recent-first', async () => {
   expect(await listIssueDates()).toEqual([
     '2026-05-18',
     '2026-05-11',
-    '2026-05-04'
+    '2026-05-04',
+    '2026-04-27'
   ]);
 });
 

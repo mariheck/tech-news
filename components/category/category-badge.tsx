@@ -1,5 +1,4 @@
-import type { AccentName } from '@/types';
-import type { Route } from 'next';
+import type { AccentName, ListingRoute } from '@/types';
 import { accentToCssVar } from '@/utils/accent-to-css-var';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -8,7 +7,7 @@ import type { CSSProperties } from 'react';
 type CategoryBadgeProps = {
   label: string;
   accent: AccentName;
-  href: Route;
+  href: ListingRoute;
   active: boolean;
 };
 

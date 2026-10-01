@@ -10,7 +10,8 @@ test('listArticleParams returns one entry per article across every issue', async
     { date: '2026-05-18', slug: 'fixture-gamma' },
     { date: '2026-05-11', slug: 'fixture-delta' },
     { date: '2026-05-11', slug: 'fixture-epsilon' },
-    { date: '2026-05-04', slug: 'fixture-zeta' }
+    { date: '2026-05-04', slug: 'fixture-zeta' },
+    { date: '2026-04-27', slug: 'fixture-eta' }
   ]);
 });
 

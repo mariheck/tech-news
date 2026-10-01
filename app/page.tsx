@@ -1,7 +1,7 @@
-import { CategoryFilter } from '@/components/category';
+import { PageHeader, PageStack } from '@/components/layout';
 import { HeroSlideshow, UniformGrid } from '@/components/listing';
 import { EmptyNotice } from '@/components/shared';
-import { PageHeading, SectionHeading } from '@/components/typo';
+import { SectionHeading } from '@/components/typo';
 import { getHeroSlides, getLastIssueDate, loadIssue } from '@/server';
 import {
   filterByCategory,
@@ -20,26 +20,25 @@ type HomeProps = Pick<PageProps<'/'>, 'searchParams'>;
 
 const Home = async ({ searchParams }: HomeProps) => {
   const { cat } = await searchParams;
-  const active = isCategorySlug(cat) ? cat : undefined;
+  const activeCategory = isCategorySlug(cat) ? cat : undefined;
 
   const latestDate = await getLastIssueDate();
   const issue = latestDate ? await loadIssue(latestDate) : null;
-  const heroSlides = await getHeroSlides(active);
+  const heroSlides = await getHeroSlides(activeCategory);
 
   const isLastWeek = latestDate === toIsoDay(getExpectedLastMonday());
 
   return (
-    <div className='flex w-full flex-col gap-8 md:gap-16'>
-      <div>
-        <p className='mt-4 font-mono text-xs tracking-[0.04em] text-tertiary uppercase'>
-          tech.news
-        </p>
-        <PageHeading>L’essentiel de la tech, chaque lundi.</PageHeading>
-        <CategoryFilter basePath='/' active={active} />
-      </div>
+    <PageStack>
+      <PageHeader
+        eyebrow='tech.news'
+        title='L’essentiel de la tech, chaque lundi.'
+        basePath='/'
+        activeCategory={activeCategory}
+      />
 
       {heroSlides.length > 0 && (
-        <HeroSlideshow key={active ?? 'all'} slides={heroSlides} />
+        <HeroSlideshow key={activeCategory ?? 'all'} slides={heroSlides} />
       )}
 
       {issue ? (
@@ -50,12 +49,14 @@ const Home = async ({ searchParams }: HomeProps) => {
               : formatWeekRange(issue.date)}
           </SectionHeading>
 
-          <UniformGrid articles={filterByCategory(issue.articles, active)} />
+          <UniformGrid
+            articles={filterByCategory(issue.articles, activeCategory)}
+          />
         </div>
       ) : (
         <EmptyNotice>Aucun article disponible pour le moment.</EmptyNotice>
       )}
-    </div>
+    </PageStack>
   );
 };
 
